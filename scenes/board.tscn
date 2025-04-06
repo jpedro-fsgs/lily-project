@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu14yy0jt0jpw"]
+
+[ext_resource type="Texture2D" uid="uid://cqao50d7ya3hd" path="res://assets/board.png" id="1_bw3vb"]
+[ext_resource type="Script" uid="uid://d1tcf5rwra3xx" path="res://scripts/card_container.gd" id="2_tx6nw"]
+
+[node name="Board" type="Node2D"]
+
+[node name="BoardUI" type="CanvasLayer" parent="."]
+
+[node name="CardContainer" type="HBoxContainer" parent="BoardUI"]
+offset_right = 2396.94
+offset_bottom = 1174.86
+scale = Vector2(0.3, 0.3)
+script = ExtResource("2_tx6nw")
+
+[node name="CardHolder" type="Node2D" parent="."]
+
+[node name="Board" type="Sprite2D" parent="."]
+position = Vector2(512, 512)
+texture = ExtResource("1_bw3vb")
+
+[connection signal="mouse_entered" from="BoardUI/CardContainer" to="BoardUI/CardContainer" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BoardUI/CardContainer" to="BoardUI/CardContainer" method="_on_mouse_exited"]

@@ -11,8 +11,23 @@ config_version=5
 [application]
 
 config/name="lily-project"
+run/main_scene="uid://cat2hys3tjjy1"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+CardDatabase="*res://scripts/card_database.gd"
+GameManager="*res://scripts/game_manager.gd"
+
+[display]
+
+window/stretch/mode="viewport"
+
+[layer_names]
+
+2d_physics/layer_1="card_target_selector"
+2d_physics/layer_2="card_drop_area"
 
 [rendering]
 
