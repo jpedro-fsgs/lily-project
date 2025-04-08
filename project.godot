@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 CardDatabase="*res://scripts/card_database.gd"
-GameManager="*res://scripts/game_manager.gd"
 
 [display]
 

@@ -1,72 +1,61 @@
-[gd_scene load_steps=7 format=3 uid="uid://d152e4vnsy3dj"]
+[gd_scene load_steps=6 format=3 uid="uid://d152e4vnsy3dj"]
 
 [ext_resource type="Script" uid="uid://dc6ievvemefh2" path="res://scripts/card.gd" id="1_6u4wf"]
 [ext_resource type="Theme" uid="uid://cxsrpilaqw4ux" path="res://themes/main_theme.tres" id="1_kg30u"]
 [ext_resource type="Texture2D" uid="uid://cax55uv43telr" path="res://assets/cardback.png" id="3_ktuci"]
+[ext_resource type="Texture2D" uid="uid://csrj66u21xlft" path="res://assets/Card.png" id="4_sy11y"]
+[ext_resource type="Texture2D" uid="uid://bdjfsd532thqn" path="res://assets/flowers/flor13.png" id="5_6ligt"]
 
-[sub_resource type="Animation" id="Animation_sy11y"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Content:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_kg30u"]
-resource_name = "Select"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Content:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.19),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, -100)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6ligt"]
-_data = {
-&"RESET": SubResource("Animation_sy11y"),
-&"Select": SubResource("Animation_kg30u")
-}
-
-[node name="Card" type="Container"]
-custom_minimum_size = Vector2(560, 784)
-offset_right = 499.0
+[node name="Card" type="Control"]
+custom_minimum_size = Vector2(550, 814)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 550.0
+offset_bottom = 814.0
 theme = ExtResource("1_kg30u")
 script = ExtResource("1_6u4wf")
+metadata/_edit_use_anchors_ = true
 
-[node name="Content" type="Node2D" parent="."]
+[node name="ControlBody" type="Node2D" parent="."]
 
-[node name="Cardback" type="Sprite2D" parent="Content"]
-position = Vector2(280, 392)
-scale = Vector2(1.01845, 0.959209)
+[node name="ColorRect" type="ColorRect" parent="ControlBody"]
+offset_left = 16.0
+offset_top = 56.0
+offset_right = 520.0
+offset_bottom = 520.0
+
+[node name="Cardback" type="Sprite2D" parent="ControlBody"]
+visible = false
+position = Vector2(272, 408)
 texture = ExtResource("3_ktuci")
 
-[node name="Label" type="Label" parent="Content"]
-offset_left = 104.0
-offset_top = 56.0
-offset_right = 146.0
-offset_bottom = 79.0
-scale = Vector2(8, 8)
-text = "Teste"
+[node name="Card" type="Sprite2D" parent="ControlBody"]
+position = Vector2(267.5, 412.5)
+scale = Vector2(0.985623, 1.0494)
+texture = ExtResource("4_sy11y")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_6ligt")
-}
+[node name="CardImage" type="Sprite2D" parent="ControlBody"]
+position = Vector2(280, 280)
+scale = Vector2(0.265911, 0.265911)
+texture = ExtResource("5_6ligt")
 
-[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[node name="Name" type="Label" parent="ControlBody"]
+offset_left = 32.0
+offset_top = 520.0
+offset_right = 199.0
+offset_bottom = 543.0
+scale = Vector2(2.92, 2.92)
+text = "Card Test"
+horizontal_alignment = 1
+
+[node name="Effect" type="Label" parent="ControlBody"]
+offset_left = 32.0
+offset_top = 600.0
+offset_right = 299.0
+offset_bottom = 684.0
+scale = Vector2(1.8, 1.8)
+text = "Impede ataque direto ao jogador enquanto estiver ativa"
+autowrap_mode = 3
+
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
