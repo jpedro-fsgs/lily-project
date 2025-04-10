@@ -5,7 +5,5 @@
 [node name="Main" type="Node2D"]
 
 [node name="Board" parent="." instance=ExtResource("2_0wfyh")]
-position = Vector2(-416, -536)
-scale = Vector2(0.84, 0.84)
-
-[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(2.27374e-13, -5.68434e-14)
+scale = Vector2(1.24, 1.24)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1icdvalskmbr"]
+[gd_scene load_steps=3 format=3 uid="uid://b1icdvalskmbr"]
 
 [ext_resource type="Script" uid="uid://c5bwxditneise" path="res://scripts/player_hand.gd" id="1_b5n6t"]
+[ext_resource type="PackedScene" uid="uid://d152e4vnsy3dj" path="res://scenes/card.tscn" id="2_7gyfc"]
 
 [node name="PlayerHand" type="CanvasLayer"]
 script = ExtResource("1_b5n6t")
@@ -9,14 +10,15 @@ script = ExtResource("1_b5n6t")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 168.0
-offset_top = 376.0
-offset_right = 1832.0
-offset_bottom = 542.0
+offset_left = 40.0
+offset_top = 228.0
+offset_right = -32.0
+offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.3, 0.3)
-alignment = 1
+
+[node name="Card" parent="CardContainer" instance=ExtResource("2_7gyfc")]
+layout_mode = 2
 
 [connection signal="mouse_entered" from="CardContainer" to="CardContainer" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CardContainer" to="CardContainer" method="_on_mouse_exited"]
