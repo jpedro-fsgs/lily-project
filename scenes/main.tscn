@@ -5,5 +5,3 @@
 [node name="Main" type="Node2D"]
 
 [node name="Board" parent="." instance=ExtResource("2_0wfyh")]
-position = Vector2(2.27374e-13, -5.68434e-14)
-scale = Vector2(1.24, 1.24)

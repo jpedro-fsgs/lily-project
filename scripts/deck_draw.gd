@@ -8,8 +8,9 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+#func _process(_delta: float) -> void:
+	#if board.cards_deck.size() == 0:
+		#self.disabled = true
 
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
