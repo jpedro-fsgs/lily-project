@@ -3,8 +3,12 @@ extends Node2D
 const CARD = preload("res://scenes/card.tscn")
 @onready var players: Node2D = $Players
 @onready var cards: Node2D = $Cards
+@onready var board: Node2D = $"."
+@onready var label: Label = $Label
+@onready var card_slot_detector: Area2D = $CardSlot/CardSlotDetector
 
 var cards_deck = []
+var selected_card: Card
 
 @onready var CentreCardOval = Vector2(get_viewport().size) * Vector2(0.5, 1.2)
 @onready var Hor_rad = get_viewport().size.x * 0.45
@@ -13,21 +17,14 @@ var cards_deck = []
 var angle = 0
 var OvalAngleVector: Vector2
 const CardSpread = 0.25
-var number_of_cards = 0
-
-enum{
-	InHand,
-	InPlay,
-	InMouse,
-	FocusInHand,
-	MoveDrawnCardToHand,
-	ReOrganizeHand
-}
 
 func _ready() -> void:
-	for card in CardDatabase.DATA:
-		cards_deck.append(card)
+	cards_deck = CardDatabase.get_cards()
 	cards_deck.shuffle()
+	
+func _process(_delta: float) -> void:
+	if selected_card:
+		selected_card.position = get_global_mouse_position() - (selected_card.size / 2)
 
 func draw_card():
 	if cards_deck.is_empty():
@@ -39,17 +36,16 @@ func draw_card():
 	new_card.set_attributes(card_data)
 	
 	new_card._startpos = $Deck.position - new_card.size/2
-	new_card._targetpos = 0
 	
 	new_card._startrot = 0
-	new_card._targetrot = 0
 	
 	new_card.scale = Vector2(0.5, 0.5)
-	new_card.state = InHand
+	new_card.state = Card.MoveDrawnCardToHand
 
 	$Cards.add_child(new_card)
+	new_card.connect("card_selected", Callable(self, "_on_card_selected"))
+	new_card.connect("card_released", Callable(self, "_on_card_released"))
 
-	number_of_cards += 1
 	_update_hand()
 
 func _update_hand():
@@ -66,7 +62,7 @@ func _update_hand():
 	# Distribuição do ângulo entre as cartas
 	var angle_step = 0
 	if card_count > 1:
-		angle_step = (end_angle - start_angle) / (card_count)
+		angle_step = (end_angle - start_angle) / (card_count - 1)
 
 	# Atualiza posição e rotação de cada carta
 	for i in range(card_count):
@@ -76,5 +72,21 @@ func _update_hand():
 		#
 		card._targetpos = CentreCardOval + oval_pos - card.size/2
 		card._targetrot = (90 - rad_to_deg(current_angle)) * 0.0075
-		#card.animate_to_hand()
-		card.change_state(MoveDrawnCardToHand)
+		card.change_state(Card.InHand)
+
+
+func _on_card_selected(card: Variant) -> void:
+	selected_card = card
+	card.change_state(Card.InMouse)
+	label.text = card._name
+	
+func _on_card_released(card: Variant) -> void:
+	selected_card = null
+	label.text = ""
+	if card.drop_point_detector.get_overlapping_areas().has(card_slot_detector):
+		print(card.drop_point_detector.get_overlapping_areas())
+		$CardSlot.add_card(card)
+		card.change_state(Card.InSlot)
+		_update_hand()
+	else:
+		card.change_state(Card.InHand)

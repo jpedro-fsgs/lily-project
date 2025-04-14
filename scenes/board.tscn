@@ -1,12 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://bu14yy0jt0jpw"]
+[gd_scene load_steps=9 format=3 uid="uid://bu14yy0jt0jpw"]
 
 [ext_resource type="Texture2D" uid="uid://cqao50d7ya3hd" path="res://assets/board.png" id="1_bw3vb"]
 [ext_resource type="PackedScene" uid="uid://b1icdvalskmbr" path="res://scenes/player_hand.tscn" id="1_tx6nw"]
 [ext_resource type="Script" uid="uid://cujbdg01s7lcu" path="res://scripts/board.gd" id="3_nglv8"]
 [ext_resource type="Texture2D" uid="uid://cax55uv43telr" path="res://assets/cardback.png" id="4_dun80"]
 [ext_resource type="Texture2D" uid="uid://csrj66u21xlft" path="res://assets/Card.png" id="5_c3r7o"]
-[ext_resource type="PackedScene" uid="uid://d152e4vnsy3dj" path="res://scenes/card.tscn" id="9_ar2e0"]
+[ext_resource type="Script" uid="uid://b3idsscv5y25l" path="res://scripts/card_slot.gd" id="7_c3r7o"]
 [ext_resource type="Script" uid="uid://cfxixci68hprm" path="res://scripts/deck_draw.gd" id="9_n230i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3r7o"]
+size = Vector2(128, 192)
 
 [node name="Board" type="Node2D"]
 script = ExtResource("3_nglv8")
@@ -39,11 +42,26 @@ texture_disabled = ExtResource("5_c3r7o")
 script = ExtResource("9_n230i")
 metadata/_edit_use_anchors_ = true
 
+[node name="CardSlot" type="Node2D" parent="."]
+position = Vector2(152, 136)
+script = ExtResource("7_c3r7o")
+
+[node name="Card" type="Sprite2D" parent="CardSlot"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_c3r7o")
+
+[node name="CardSlotDetector" type="Area2D" parent="CardSlot"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardSlot/CardSlotDetector"]
+shape = SubResource("RectangleShape2D_c3r7o")
+
 [node name="Cards" type="Node2D" parent="."]
 
-[node name="Card" parent="Cards" instance=ExtResource("9_ar2e0")]
-visible = false
-offset_left = -136.0
-offset_top = -208.0
-offset_right = 136.0
-offset_bottom = 200.0
+[node name="Label" type="Label" parent="."]
+offset_left = 72.0
+offset_top = 256.0
+offset_right = 1056.0
+offset_bottom = 393.0
+theme_override_font_sizes/font_size = 100
+text = "Teste"
+horizontal_alignment = 1

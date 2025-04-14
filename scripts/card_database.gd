@@ -32,4 +32,4 @@ const DATA = [
 	#cards = JSON.parse_string(content)
 	
 func get_cards():
-	return DATA
+	return DATA.duplicate()

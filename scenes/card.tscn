@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d152e4vnsy3dj"]
+[gd_scene load_steps=8 format=3 uid="uid://d152e4vnsy3dj"]
 
 [ext_resource type="Script" uid="uid://dc6ievvemefh2" path="res://scripts/card.gd" id="1_6u4wf"]
 [ext_resource type="Theme" uid="uid://cxsrpilaqw4ux" path="res://themes/main_theme.tres" id="1_kg30u"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://csrj66u21xlft" path="res://assets/Card.png" id="4_sy11y"]
 [ext_resource type="Texture2D" uid="uid://bdjfsd532thqn" path="res://assets/flowers/flor13.png" id="5_6ligt"]
 [ext_resource type="Texture2D" uid="uid://diq48rgr068yd" path="res://assets/Icons/01.png" id="6_6ligt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ligt"]
+size = Vector2(272, 408)
 
 [node name="Card" type="Control"]
 custom_minimum_size = Vector2(272, 408)
@@ -43,24 +46,30 @@ scale = Vector2(0.265911, 0.265911)
 texture = ExtResource("5_6ligt")
 
 [node name="Name" type="Label" parent="CardBody"]
-offset_left = 32.0
-offset_top = 520.0
-offset_right = 199.0
-offset_bottom = 547.0
-scale = Vector2(2.92, 2.92)
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = 528.0
+offset_right = 512.0
+offset_bottom = 592.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 52
 text = "Card Test"
 horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="Effect" type="Label" parent="CardBody"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 32.0
-offset_top = 600.0
-offset_right = 299.0
-offset_bottom = 684.0
-scale = Vector2(1.8, 1.8)
+offset_top = 608.0
+offset_right = 512.0
+offset_bottom = 736.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
 text = "Impede ataque direto ao jogador enquanto estiver ativa"
 autowrap_mode = 3
-metadata/_edit_use_anchors_ = true
 
 [node name="CostIcon" type="Sprite2D" parent="CardBody"]
 position = Vector2(384, 40)
@@ -78,6 +87,12 @@ metadata/_edit_use_anchors_ = true
 visible = false
 position = Vector2(272, 408)
 texture = ExtResource("3_ktuci")
+
+[node name="DropPointDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropPointDetector"]
+position = Vector2(136, 204)
+shape = SubResource("RectangleShape2D_6ligt")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
