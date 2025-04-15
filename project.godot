@@ -21,7 +21,13 @@ CardDatabase="*res://scripts/card_database.gd"
 
 [display]
 
+window/size/viewport_width=1344
+window/size/viewport_height=896
 window/stretch/mode="viewport"
+
+[editor]
+
+movie_writer/movie_file="/home/minari/T/Godot/lily-project/recording/demo.webm"
 
 [layer_names]
 

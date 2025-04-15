@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=3 uid="uid://bia38n0xiq6e1"]
+
+[resource]
+/font_sizes/CostFont = 72
+/font_sizes/EffectFont = 32
+/font_sizes/TitleFont = 52

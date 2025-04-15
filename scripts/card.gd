@@ -5,8 +5,8 @@ extends Control
 @onready var card_image: Sprite2D = $CardBody/CardImage
 @onready var name_label: Label = $CardBody/Name
 @onready var effect_label: Label = $CardBody/Effect
-@onready var cost_label: Label = $CardBody/CostIcon/CostLabel
-
+@onready var cost_label: Label = $CardBody/CostLabel
+@onready var board: Board = $'../..'
 @onready var drop_point_detector: Area2D = $DropPointDetector
 
 signal card_selected(card)
@@ -22,6 +22,7 @@ var _cost: int
 var _effect: String
 
 var _index
+var mouse_position_on_card
 var _original_scale = Vector2(0.5, 0.5)
 var _startpos = Vector2(0,0)
 var _targetpos = Vector2(0,0)
@@ -117,6 +118,8 @@ func change_state(new_state):
 		
 	
 func _on_mouse_entered() -> void:
+	if board.selected_card:
+		return
 	if state == InHand:
 		change_state(FocusInHand)
 
@@ -131,5 +134,7 @@ func _gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			emit_signal("card_selected", self)
+			mouse_position_on_card = event.position
+			print(event.position)
 		elif event.is_released():
 			emit_signal("card_released", self)

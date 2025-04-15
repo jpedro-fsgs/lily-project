@@ -1,3 +1,4 @@
+class_name Board
 extends Node2D
 
 const CARD = preload("res://scenes/card.tscn")
@@ -5,7 +6,7 @@ const CARD = preload("res://scenes/card.tscn")
 @onready var cards: Node2D = $Cards
 @onready var board: Node2D = $"."
 @onready var label: Label = $Label
-@onready var card_slot_detector: Area2D = $CardSlot/CardSlotDetector
+@onready var card_slots: Node2D = $CardSlots
 
 var cards_deck = []
 var selected_card: Card
@@ -16,7 +17,7 @@ var selected_card: Card
 
 var angle = 0
 var OvalAngleVector: Vector2
-const CardSpread = 0.25
+@onready var CardSpread = get_viewport().size.x * 0.00014
 
 func _ready() -> void:
 	cards_deck = CardDatabase.get_cards()
@@ -24,11 +25,14 @@ func _ready() -> void:
 	
 func _process(_delta: float) -> void:
 	if selected_card:
-		selected_card.position = get_global_mouse_position() - (selected_card.size / 2)
+		selected_card.position = (
+			get_global_mouse_position()
+			- (selected_card.size)/2 
+		)
 
 func draw_card():
 	if cards_deck.is_empty():
-		$Deck/DeckDraw.disabled = true
+		$DeckDraw/Cardback1.visible = false
 		return
 
 	var new_card = CARD.instantiate()
@@ -75,18 +79,19 @@ func _update_hand():
 		card.change_state(Card.InHand)
 
 
-func _on_card_selected(card: Variant) -> void:
+func _on_card_selected(card: Card) -> void:
 	selected_card = card
 	card.change_state(Card.InMouse)
 	label.text = card._name
 	
-func _on_card_released(card: Variant) -> void:
+func _on_card_released(card: Card) -> void:
 	selected_card = null
 	label.text = ""
-	if card.drop_point_detector.get_overlapping_areas().has(card_slot_detector):
-		print(card.drop_point_detector.get_overlapping_areas())
-		$CardSlot.add_card(card)
-		card.change_state(Card.InSlot)
-		_update_hand()
-	else:
-		card.change_state(Card.InHand)
+	for card_slot in card_slots.get_children():
+		if card.drop_point_detector.get_overlapping_areas().has(card_slot.card_slot_detector):
+			print(card.drop_point_detector.get_overlapping_areas())
+			card_slot.add_card(card)
+			_update_hand()
+			return
+	
+	card.change_state(Card.InHand)

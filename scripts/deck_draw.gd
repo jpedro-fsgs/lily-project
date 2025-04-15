@@ -1,6 +1,6 @@
-extends TextureButton
+extends Control
 
-@onready var board: Node2D = $"../.."
+@onready var board: Node2D = $".."
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
