@@ -9,7 +9,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ligt"]
 size = Vector2(272, 408)
 
-[node name="Card" type="Control"]
+[node name="Card" type="Control" groups=["cards"]]
 custom_minimum_size = Vector2(272, 408)
 layout_mode = 3
 anchors_preset = 15

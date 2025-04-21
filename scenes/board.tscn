@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bu14yy0jt0jpw"]
 
-[ext_resource type="PackedScene" uid="uid://b1icdvalskmbr" path="res://scenes/player_hand.tscn" id="1_tx6nw"]
 [ext_resource type="Texture2D" uid="uid://ywejyh7keris" path="res://assets/board2.png" id="2_c3r7o"]
+[ext_resource type="PackedScene" uid="uid://jdqun6djieyw" path="res://scenes/player.tscn" id="3_dun80"]
 [ext_resource type="Script" uid="uid://cujbdg01s7lcu" path="res://scripts/board.gd" id="3_nglv8"]
 [ext_resource type="Texture2D" uid="uid://3h6rk61w8klq" path="res://assets/Cardback1.png" id="5_dun80"]
 [ext_resource type="PackedScene" uid="uid://byx08v0k1vcqy" path="res://scenes/card_slot.tscn" id="7_c3r7o"]
@@ -16,44 +16,44 @@ texture = ExtResource("2_c3r7o")
 centered = false
 
 [node name="Players" type="Node2D" parent="."]
-visible = false
 
-[node name="PlayerHand" parent="Players" instance=ExtResource("1_tx6nw")]
-visible = false
+[node name="Lily" parent="Players" instance=ExtResource("3_dun80")]
+
+[node name="Opponent" parent="Players" instance=ExtResource("3_dun80")]
 
 [node name="DeckDraw" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1160.0
+offset_top = 40.0
+offset_right = 1160.0
+offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("9_n230i")
 
 [node name="Cardback1" type="TextureRect" parent="DeckDraw"]
 layout_mode = 0
-offset_left = 1136.0
-offset_top = 72.0
-offset_right = 2160.0
-offset_bottom = 1608.0
+offset_right = 1024.0
+offset_bottom = 1536.0
 scale = Vector2(0.140625, 0.132812)
 texture = ExtResource("5_dun80")
 
 [node name="Deck" type="Node2D" parent="."]
-position = Vector2(1208, 176)
+visible = false
 
 [node name="CardSlots" type="Node2D" parent="."]
+position = Vector2(704, 432)
 
 [node name="CardSlot" parent="CardSlots" instance=ExtResource("7_c3r7o")]
-position = Vector2(320, 312)
+position = Vector2(-336, -8)
 
 [node name="CardSlot2" parent="CardSlots" instance=ExtResource("7_c3r7o")]
-position = Vector2(656, 320)
 
 [node name="CardSlot3" parent="CardSlots" instance=ExtResource("7_c3r7o")]
-position = Vector2(952, 312)
-
-[node name="Cards" type="Node2D" parent="."]
+position = Vector2(296, -8)
 
 [node name="Label" type="Label" parent="."]
 offset_left = 144.0
@@ -62,3 +62,5 @@ offset_right = 1128.0
 offset_bottom = 577.0
 theme_override_font_sizes/font_size = 100
 horizontal_alignment = 1
+
+[connection signal="deck_draw_clicked" from="DeckDraw" to="." method="_on_deck_draw_deck_draw_clicked"]

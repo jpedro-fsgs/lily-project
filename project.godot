@@ -13,7 +13,7 @@ config_version=5
 config/name="lily-project"
 run/main_scene="uid://cat2hys3tjjy1"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://ogjlk3va8ugi"
 
 [autoload]
 
@@ -28,6 +28,10 @@ window/stretch/mode="viewport"
 [editor]
 
 movie_writer/movie_file="/home/minari/T/Godot/lily-project/recording/demo.webm"
+
+[global_group]
+
+cards=""
 
 [layer_names]
 
