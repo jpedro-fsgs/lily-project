@@ -84,13 +84,11 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Cardback" type="Sprite2D" parent="CardBody"]
-visible = false
 position = Vector2(273, 410)
 scale = Vector2(0.548828, 0.536458)
 texture = ExtResource("5_sy11y")
 
 [node name="DropPointDetector" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DropPointDetector"]
 position = Vector2(136, 204)

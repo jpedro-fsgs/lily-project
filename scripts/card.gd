@@ -41,6 +41,7 @@ enum states {
 }
 var state
 var hover_enabled = true
+var bottom_card = true
 
 func set_attributes(card_attributes) -> void:
 	_name = card_attributes["name"]
@@ -97,7 +98,7 @@ func change_state(new_state):
 			current_tween.tween_property(self, "scale", _original_scale * 1.2, 0.2)
 		states.FocusInHand:
 			current_tween.set_parallel()
-			current_tween.tween_property(self, "position:y", _targetpos.y - 70, 0.2)
+			current_tween.tween_property(self, "position:y", _targetpos.y - (70 if bottom_card else - 70), 0.2)
 			current_tween.tween_property(self, "scale", _original_scale * 1.2, 0.2)
 		states.MoveDrawnCardToHand:
 			z_index = 2
@@ -125,6 +126,12 @@ func _on_mouse_exited() -> void:
 		
 func _set_hover_state(hover_state: bool):
 	hover_enabled = hover_state
+	
+func hide_card():
+	cardback.visible = true
+	
+func show_card():
+	cardback.visible = false
 
 
 func _gui_input(event):

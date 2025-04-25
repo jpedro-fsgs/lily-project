@@ -2,6 +2,7 @@ class_name Board
 extends Node2D
 
 const CARD = preload("res://scenes/card.tscn")
+const PLAYER = preload("res://scenes/player.tscn")
 @onready var players: Array[Player] = [$Players/Lily, $Players/Opponent]
 
 @onready var board: Node2D = $"."
@@ -16,9 +17,9 @@ var selected_card: Card
 
 
 func _ready() -> void:
-	
-	players[0].toggle_cards_position(Player.hand_positions.BOTTOM)
-	players[1].toggle_cards_position(Player.hand_positions.TOP)
+
+	players[0].set_player_type(Player.HumanPlayer)
+	players[1].set_player_type(Player.Opponent)
 	current_player = players[0]
 	
 	cards_deck = CardDatabase.get_cards()
@@ -57,7 +58,7 @@ func _on_card_selected(card: Card) -> void:
 	get_tree().call_group("cards", "_set_hover_state", false)
 	selected_card = card
 	card.change_state(Card.states.InMouse)
-	label.text = card._name
+	label.text = str(card._cost)
 	
 func _on_card_released(card: Card) -> void:
 	get_tree().call_group("cards", "_set_hover_state", true)
