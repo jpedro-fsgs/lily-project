@@ -1,9 +1,11 @@
-class_name Board
+class_name GameManager
 extends Node2D
 
 const CARD = preload("res://scenes/card.tscn")
 const PLAYER = preload("res://scenes/player.tscn")
+
 @onready var players: Array[Player] = [$Players/Lily, $Players/Opponent]
+var player_index = 0
 
 @onready var board: Node2D = $"."
 @onready var label: Label = $Label
@@ -31,6 +33,12 @@ func _process(_delta: float) -> void:
 			get_global_mouse_position()
 			- (selected_card.size)/2 
 		)
+		
+func change_player_turn():
+	player_index += 1
+	if player_index >= players.size():
+		player_index = 0
+	current_player = players[player_index]
 
 func draw_card(player: Player):
 	if cards_deck.is_empty():
@@ -51,6 +59,7 @@ func draw_card(player: Player):
 	player.add_card_to_hand(new_card)
 	
 	if cards_deck.is_empty():
+		_end_game()
 		$DeckDraw/Cardback1.visible = false
 
 
@@ -72,6 +81,9 @@ func _on_card_released(card: Card) -> void:
 	card.change_state(Card.states.InHand)
 
 
-func _on_deck_draw_deck_draw_clicked() -> void:
+func _on_deck_draw_clicked() -> void:
 	draw_card(current_player)
-	current_player = players[1] if players[0] == current_player else players[0]
+	change_player_turn()
+
+func _end_game():
+	get_tree().change_scene_to_file("res://scenes/main.tscn")

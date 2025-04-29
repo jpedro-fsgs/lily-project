@@ -10,6 +10,9 @@ enum {
 
 var player_type = HumanPlayer
 
+var HP = 100
+var defense = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass

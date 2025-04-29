@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://djpo1c8r7wx7u"
+path="res://.godot/imported/Tema do Jardim.mp3-560a23f4e1506c3c0da66eec7cbd13ac.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Tema do Jardim.mp3"
+dest_files=["res://.godot/imported/Tema do Jardim.mp3-560a23f4e1506c3c0da66eec7cbd13ac.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

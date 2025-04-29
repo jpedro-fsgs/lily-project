@@ -2,7 +2,7 @@ extends Control
 
 @onready var board: Node2D = $".."
 
-signal deck_draw_clicked
+signal clicked
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,4 +17,4 @@ func _ready() -> void:
 func _gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			emit_signal("deck_draw_clicked");
+			emit_signal("clicked");
