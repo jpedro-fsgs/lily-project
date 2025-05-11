@@ -1,0 +1,12 @@
+[music path="res://assets/audio/Tema do Jardim.mp3" fade="0.0" volume="0.0"]
+join Lily (Frown) leftmost [animation="Bounce In"]
+[background arg="res://assets/dialogic/Garden_VNBackground_Florassence/1.png" fade="0.0"]
+Lily (Frown): ...Hnng... minha cabeça...
+Lily (Frown_Blush): Isso é... grama?
+Lily (Open): Um jardim...? Mas... eu não me lembro de ter vindo aqui...
+Lily: Onde é aqui?
+Lily (Open_Blush): Essas flores... são tão estranhas. Eu nunca vi cores assim antes.
+Lily (Frown): Será que estou... sonhando?
+Lily (Open): Tem alguém aí? Alô?!
+Lily (Frown): ...Isso não está certo. Alguma coisa aconteceu. Eu sei que aconteceu.
+Lily (Shout): Eu preciso descobrir onde estou... e como sair daqui.
