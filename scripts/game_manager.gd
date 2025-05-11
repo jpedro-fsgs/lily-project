@@ -24,7 +24,7 @@ func _ready() -> void:
 	players[1].set_player_type(Player.Opponent)
 	current_player = players[0]
 	
-	cards_deck = CardDatabase.get_cards()
+	cards_deck = CardDatabase.get_deck(CardDatabase.DeckType.LIRIO_DO_VALE)
 	cards_deck.shuffle()
 	
 func _process(_delta: float) -> void:

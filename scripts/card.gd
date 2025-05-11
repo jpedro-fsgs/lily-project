@@ -13,12 +13,12 @@ signal card_released(card)
 
 const PATH = "res://assets/flowers/"
 
-var _name: String
-var _type: String
-#var _attack: int
-#var _defense: int
-var _cost: int
-var _effect: String
+var _name #: String
+var _type #: String
+var _attack #: int
+var _defense #: int
+var _cost #: int
+var _effect #: String
 
 var _index
 var mouse_position_on_card
@@ -44,12 +44,12 @@ var hover_enabled = true
 var bottom_card = true
 
 func set_attributes(card_attributes) -> void:
-	_name = card_attributes["name"]
-	_type = card_attributes["type"]
-	#_attack = card_attributes["attack"]
-	#_defense = card_attributes["defense"]
-	_cost = card_attributes["cost"]
-	_effect = card_attributes["effect"]
+	_name = card_attributes["carta"]
+	_type = card_attributes["tipo"]
+	_attack = card_attributes["duração_ou_atk"]
+	_defense = card_attributes["área_ou_def"]
+	_cost = card_attributes["mana"]
+	_effect = card_attributes["efeito"]
 	
 
 # Called when the node enters the scene tree for the first time.

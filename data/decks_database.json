@@ -1,0 +1,734 @@
+{
+	"AMOR": [
+		{
+			"carta": "Rosa Vermelha",
+			"tipo": "Flor de Controle",
+			"duração_ou_atk": 4,
+			"área_ou_def": 5,
+			"mana": 7,
+			"efeito": "Enfeitiça uma unidade inimiga de custo 5 ou menos por 2 turnos.",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Cravo Vermelho",
+			"tipo": "Flor de Ataque Duplo",
+			"duração_ou_atk": 5,
+			"área_ou_def": 4,
+			"mana": 5,
+			"efeito": "Ataca duas vezes (o segundo ataque tem -1 de dano).",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Narciso",
+			"tipo": "Flor de Suporte",
+			"duração_ou_atk": 3,
+			"área_ou_def": 3,
+			"mana": 5,
+			"efeito": "(Ao descer): cria cópia de uma unidade aliada (dura 2 turnos).",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Espinhos",
+			"tipo": "Unidade de Dano",
+			"duração_ou_atk": 4,
+			"área_ou_def": 3,
+			"mana": 3,
+			"efeito": "Ao entrar, causa 2 de dano direto a uma unidade inimiga.",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Jasmim Branco",
+			"tipo": "Flor Defensiva",
+			"duração_ou_atk": 2,
+			"área_ou_def": 8,
+			"mana": 6,
+			"efeito": "Ao entrar, cura 3 de HP do jogador.",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Perfume",
+			"tipo": "Spell de Controle",
+			"duração_ou_atk": null,
+			"área_ou_def": null,
+			"mana": 4,
+			"efeito": "Aplica \"Tontura\": alvo não pode atacar nem bloquear por 2 turnos.",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Rouxinol",
+			"tipo": "Unidade de Suporte",
+			"duração_ou_atk": 2,
+			"área_ou_def": 4,
+			"mana": 3,
+			"efeito": "Diminua o custo da próxima carta que jogar em -1 (mínimo de 1).",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Cisnes",
+			"tipo": "Unidade de Compra",
+			"duração_ou_atk": 2,
+			"área_ou_def": 5,
+			"mana": 6,
+			"efeito": "Ao entrar, compra 2 cartas (3 se houver outro Cisne em campo).",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Borboleta",
+			"tipo": "Buff de Flores",
+			"duração_ou_atk": null,
+			"área_ou_def": null,
+			"mana": 3,
+			"efeito": "Dá +2 de ATK para uma flor aliada até o final do turno.",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Fonte dos Suspiros",
+			"tipo": "Buff Progressiv o",
+			"duração_ou_atk": null,
+			"área_ou_def": null,
+			"mana": 5,
+			"efeito": "Escolha 1 flor: cada ataque dela gera 1 stack de \"suspiro\" (+1 ATK cumulativo, até 5).",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Banco sob a Lua",
+			"tipo": "Evento Defensivo",
+			"duração_ou_atk": 2,
+			"área_ou_def": 2,
+			"mana": 5,
+			"efeito": "Dá +2 de DEF para flores na área.",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Velas",
+			"tipo": "Evento de Buff de Ataque",
+			"duração_ou_atk": 2,
+			"área_ou_def": 3,
+			"mana": 4,
+			"efeito": "Dá +1 de ATK para flores na área.",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Arco de Trepadeiras",
+			"tipo": "Unidade de Controle",
+			"duração_ou_atk": 4,
+			"área_ou_def": 4,
+			"mana": 7,
+			"efeito": "O oponente não pode comprar cartas no próximo turno.",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Visco",
+			"tipo": "Evento de Cura em Área",
+			"duração_ou_atk": 2,
+			"área_ou_def": 2,
+			"mana": 4,
+			"efeito": "Recupera 1 de HP por turno para flores na área.",
+			"copias_permitidas": 2
+		}
+	],
+	"LIRIO_DO_VALE": [
+		{
+			"carta": "Lírio do Vale",
+			"tipo": "Unidade de Suporte",
+			"duração_ou_atk": 3,
+			"área_ou_def": 4,
+			"mana": 4,
+			"efeito": "Ao entrar, remove todos efeitos negativos de uma unidade aliada.",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Trilho de Névoa",
+			"tipo": "Spell de Debuff",
+			"duração_ou_atk": null,
+			"área_ou_def": null,
+			"mana": 3,
+			"efeito": "Aplica \"Cegueira\" em uma unidade inimiga: ela erra o próximo ataque.",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Sino de Brisa Suave",
+			"tipo": "Evento de Buff",
+			"duração_ou_atk": 2,
+			"área_ou_def": 3,
+			"mana": 5,
+			"efeito": "Unidades na área ganham Ataque Rápido (podem atacar sem token de ataque) e ficam imunes a controle de grupo.",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Cachoeir a Oculta",
+			"tipo": "Evento Defensivo",
+			"duração_ou_atk": 3,
+			"área_ou_def": 2,
+			"mana": 4,
+			"efeito": "Unidades na área recebem -2 de dano de todas as fontes enquanto o evento durar.",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Eco da Colina Branca",
+			"tipo": "Spell de Recuperaç ão",
+			"duração_ou_atk": null,
+			"área_ou_def": null,
+			"mana": 5,
+			"efeito": "Restaura 4 de mana instantaneament e.",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Esquilo Guardião",
+			"tipo": "Unidade Defensiva",
+			"duração_ou_atk": 2,
+			"área_ou_def": 6,
+			"mana": 4,
+			"efeito": "(Início do round) Remova todo controle de grupo da carta de custo mais alto no deck.",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Cogumel o Luminos o",
+			"tipo": "Unidade de Buff",
+			"duração_ou_atk": 3,
+			"área_ou_def": 3,
+			"mana": 3,
+			"efeito": "Ao entrar, escolha uma carta aliada: ela ganha 2|2 permanente.",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Ninho de Beija-flor",
+			"tipo": "Unidade de Dano",
+			"duração_ou_atk": 4,
+			"área_ou_def": 2,
+			"mana": 3,
+			"efeito": "Ao atacar, causa 2 de dano adicional diretamente no jogador inimigo. Se tiver um escudo, da +1 de dano.",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Porta de Vime",
+			"tipo": "Spell de Dano",
+			"duração_ou_atk": null,
+			"área_ou_def": null,
+			"mana": 4,
+			"efeito": "Causa 4 de dano a uma unidade inimiga. Se destruir, compre 1 carta.",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Orvalho Matinal",
+			"tipo": "Spell Defensiva",
+			"duração_ou_atk": null,
+			"área_ou_def": null,
+			"mana": 2,
+			"efeito": "Concede Escudo de 2 de DEF e imunidade a controle de grupo por 1 round para uma unidade aliada.",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Chave de Prata",
+			"tipo": "Spell de Rotação",
+			"duração_ou_atk": null,
+			"área_ou_def": null,
+			"mana": 3,
+			"efeito": "Compre 2 cartas.",
+			"copias_permitidas": 3
+		}
+	],
+	"GANANCIA": [
+		{
+			"carta": "Lírio Tigre",
+			"tipo": "Unidade de Roubo",
+			"duração_ou_atk": 6,
+			"área_ou_def": 7,
+			"mana": 8,
+			"efeito": "Rouba 2 cartas de custo 5 ou mais do deck inimigo e embaralha no seu deck.",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Magnólia",
+			"tipo": "Flor de Buff de Ataque",
+			"duração_ou_atk": 4,
+			"área_ou_def": 5,
+			"mana": 6,
+			"efeito": "Enquanto Magnólia estiver em campo, todas suas cartas de custo 5+ ganham +2 de ATK.",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Orquídea",
+			"tipo": "Flor de Suporte",
+			"duração_ou_atk": 3,
+			"área_ou_def": 4,
+			"mana": 5,
+			"efeito": "Ao entrar, reduz o custo de todas as cartas de custo 5+ em 1.",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Lavanda",
+			"tipo": "Flor de Buff via Dano",
+			"duração_ou_atk": 4,
+			"área_ou_def": 3,
+			"mana": 4,
+			"efeito": "Ao entrar, causa 2 de dano a uma unidade aliada e espelha seu ataque.",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Ruínas de Mármore",
+			"tipo": "Spell de Controle",
+			"duração_ou_atk": null,
+			"área_ou_def": null,
+			"mana": 5,
+			"efeito": "Remove um evento ativo (aliado ou inimigo).",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Espelho de Prata",
+			"tipo": "Unidade de Espelhament o",
+			"duração_ou_atk": 3,
+			"área_ou_def": 5,
+			"mana": 5,
+			"efeito": "A cada início de turno, copia o ATK/DEF da unidade inimiga no slot oposto (ou mais próximo dele).",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Pavão",
+			"tipo": "Spell de Controle de Grupo",
+			"duração_ou_atk": null,
+			"área_ou_def": null,
+			"mana": 6,
+			"efeito": "Selecione até 2 unidades inimigas: elas não podem atacar no próximo turno.",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Peixe das Escamas Douradas",
+			"tipo": "Unidade de Controle pós-bloqueio",
+			"duração_ou_atk": 2,
+			"área_ou_def": 3,
+			"mana": 4,
+			"efeito": "Unidades bloqueadas por essa carta não podem atacar no turno seguinte.",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Fonte de Nefelita",
+			"tipo": "Evento Defensivo",
+			"duração_ou_atk": 2,
+			"área_ou_def": 3,
+			"mana": 4,
+			"efeito": "Todas as flores na área recebem +2 de DEF enquanto o evento durar.",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Escadaria em Espiral",
+			"tipo": "Spell de Compra",
+			"duração_ou_atk": null,
+			"área_ou_def": null,
+			"mana": 3,
+			"efeito": "Compre 2 cartas.",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Anel de Marfim",
+			"tipo": "Spell de Buff de Ataque",
+			"duração_ou_atk": null,
+			"área_ou_def": null,
+			"mana": 7,
+			"efeito": "Escolha uma flor: ela recebe +X de ATK (X = soma dos custos das cartas jogadas ÷ 5).",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Pórtico de Videiras Negras",
+			"tipo": "Evento de Buff de Ataque",
+			"duração_ou_atk": 2,
+			"área_ou_def": 3,
+			"mana": 5,
+			"efeito": "Unidades na área recebem +2 de ATK enquanto o evento durar.",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Lanterna de Pedra Musgosa",
+			"tipo": "Spell de Busca",
+			"duração_ou_atk": null,
+			"área_ou_def": null,
+			"mana": 3,
+			"efeito": "Revele as 3 próximas cartas do seu baralho; escolha 1 para a mão.",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Baluarte Verde",
+			"tipo": "Unidade Defensiva",
+			"duração_ou_atk": 2,
+			"área_ou_def": 8,
+			"mana": 6,
+			"efeito": "Enquanto em campo, todas as unidades inimigas causam -1 de dano com ataques normais.",
+			"copias_permitidas": 2
+		}
+	],
+	"LIRIO_ARANHA": [
+		{
+			"carta": "Lírio-Aranha",
+			"tipo": "Flor de Ataque",
+			"duração_ou_atk": 6,
+			"área_ou_def": 4,
+			"mana": 8,
+			"efeito": "(Ao jogar) Selecione uma carta aliada e uma carta inimiga. Dê dano à inimiga igual ao ataque da aliada, e depois mate a aliada para ganhar um bônus de ATQ igual à soma do ATQ das cartas selecionadas.",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Cravo Amarelo",
+			"tipo": "Flor de Debuff",
+			"duração_ou_atk": 4,
+			"área_ou_def": 5,
+			"mana": 4,
+			"efeito": "Ao entrar, aplica \"Provocação\" em uma unidade inimiga.",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Cicuta",
+			"tipo": "Flor de Dano Suicida",
+			"duração_ou_atk": 3,
+			"área_ou_def": 4,
+			"mana": 5,
+			"efeito": "Ao entrar, causa 3 de dano a si mesma e 3 de dano direto ao jogador inimigo.",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Ranúnculo",
+			"tipo": "Flor de Buff",
+			"duração_ou_atk": 3,
+			"área_ou_def": 4,
+			"mana": 4,
+			"efeito": "Ao entrar, concede +2 de ATK para todas as flores aliadas.",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Mariposa Sombria",
+			"tipo": "Criatura de Buff Pós-Morte",
+			"duração_ou_atk": 2,
+			"área_ou_def": 2,
+			"mana": 2,
+			"efeito": "Ao morrer, concede +1 de ATK a uma unidade aliada aleatória.",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Formigueir o Selvagem",
+			"tipo": "Criatura de rotação",
+			"duração_ou_atk": 3,
+			"área_ou_def": 3,
+			"mana": 3,
+			"efeito": "Descarte 1 criatura para comprar 2 cartas",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Poça de Seiva Ácida",
+			"tipo": "Evento de Debuff em Área",
+			"duração_ou_atk": 2,
+			"área_ou_def": 3,
+			"mana": 4,
+			"efeito": "Unidades inimigas na área recebem -1 DEF no início de cada turno enquanto durar.",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Chuva de Agulhas",
+			"tipo": "Spell de Dano em Área",
+			"duração_ou_atk": null,
+			"área_ou_def": null,
+			"mana": 3,
+			"efeito": "Causa 2 de dano a todas as unidades inimigas e 1 de dano a todas as suas flores.",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Trepadeiras Furiosas",
+			"tipo": "Evento de Buff de Ataque",
+			"duração_ou_atk": 2,
+			"área_ou_def": 2,
+			"mana": 5,
+			"efeito": "As flores na área recebem +2 de ATK",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Frutos Explosivo s",
+			"tipo": "Spell de Dano Direto",
+			"duração_ou_atk": null,
+			"área_ou_def": null,
+			"mana": 6,
+			"efeito": "Causa 3 de dano direto ao jogador inimigo.",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Raízes Furiosas",
+			"tipo": "Evento Defensivo",
+			"duração_ou_atk": 2,
+			"área_ou_def": 2,
+			"mana": 4,
+			"efeito": "As unidades na área recebem +2 de DEF",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Folhas Cortantes",
+			"tipo": "Spell de Buff Ofensivo",
+			"duração_ou_atk": null,
+			"área_ou_def": null,
+			"mana": 3,
+			"efeito": "Concede \"Atropelar\" (dano excedente atravessa bloqueio) para uma unidade até o fim do turno.",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Erva Selvagem",
+			"tipo": "Criatura Pequena",
+			"duração_ou_atk": 2,
+			"área_ou_def": 1,
+			"mana": 1,
+			"efeito": "Se atacar sem ser bloqueada, causa +1 de dano adicional ao jogador inimigo.",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Orvalho Rubro",
+			"tipo": "Spell de Recuperaç ão de Mana",
+			"duração_ou_atk": null,
+			"área_ou_def": null,
+			"mana": 2,
+			"efeito": "Recupera 2 de mana instantaneame nte.",
+			"copias_permitidas": 3
+		}
+	],
+	"TRISTEZA": [
+		{
+			"carta": "Íris Roxa",
+			"tipo": "Flor de Controle",
+			"duração_ou_atk": 3,
+			"área_ou_def": 6,
+			"mana": 5,
+			"efeito": "Ao entrar, reduz o ATK de todas unidades inimigas em -2 até o fim do turno.",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Violeta",
+			"tipo": "Flor de Recuperação",
+			"duração_ou_atk": 2,
+			"área_ou_def": 6,
+			"mana": 3,
+			"efeito": "Cura 2 de HP do jogador ao entrar.",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Salgueiro-Chorão",
+			"tipo": "Flor de Redução de Ataque",
+			"duração_ou_atk": 4,
+			"área_ou_def": 7,
+			"mana": 4,
+			"efeito": "1 unidade inimiga atacando recebe -1 ATK enquanto esta flor estiver viva.",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Amor-Perfeito",
+			"tipo": "Flor de Buff Defensivo",
+			"duração_ou_atk": 3,
+			"área_ou_def": 4,
+			"mana": 3,
+			"efeito": "Dá +2 de DEF permanente para uma flor aliada ao entrar.",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Grilo Solitário",
+			"tipo": "Criatura de Cura",
+			"duração_ou_atk": 2,
+			"área_ou_def": 3,
+			"mana": 2,
+			"efeito": "1x por partida, ao final do turno, se esta unidade não atacou ou defendeu, cura 1 de HP do jogador.",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Besouro de Outono",
+			"tipo": "Criatura Redutora de Dano",
+			"duração_ou_atk": 3,
+			"área_ou_def": 5,
+			"mana": 3,
+			"efeito": "Enquanto em campo, reduz em 1 todo dano que o jogador sofreria.",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Nevoeiro do Amanhece r",
+			"tipo": "Evento de Controle Suave",
+			"duração_ou_atk": 2,
+			"área_ou_def": 2,
+			"mana": 4,
+			"efeito": "Unidades inimigas na área perdem 1 ATK por turno.",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Folhas Caídas",
+			"tipo": "Spell de Defesa",
+			"duração_ou_atk": null,
+			"área_ou_def": null,
+			"mana": 2,
+			"efeito": "Dá Escudo (bloqueia o próximo dano recebido) para uma carta aliada.",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Orvalho da Saudade",
+			"tipo": "Evento de Fortaleciment o",
+			"duração_ou_atk": 2,
+			"área_ou_def": 2,
+			"mana": 5,
+			"efeito": "Flores na área recebem +2 DEF enquanto durar.",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Lágrima de Seiva",
+			"tipo": "Spell de Dano e Cura",
+			"duração_ou_atk": null,
+			"área_ou_def": null,
+			"mana": 3,
+			"efeito": "Causa 2 de dano em uma unidade inimiga",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Pétalas ao Vento",
+			"tipo": "Spell de Compra",
+			"duração_ou_atk": null,
+			"área_ou_def": null,
+			"mana": 3,
+			"efeito": "Compre 2 cartas.",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Raiz Quebrada",
+			"tipo": "Criatura de Redução",
+			"duração_ou_atk": 2,
+			"área_ou_def": 2,
+			"mana": 2,
+			"efeito": "Ao morrer, reduz a DEF de uma unidade inimiga em 2 até o fim do próximo turno.",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Chuva Silenciosa",
+			"tipo": "Spell de Controle",
+			"duração_ou_atk": null,
+			"área_ou_def": null,
+			"mana": 4,
+			"efeito": "Adormece uma unidade inimiga por 1 turno (não pode atacar ou bloquear).",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Brisa da Recordação",
+			"tipo": "Evento de Recuperação",
+			"duração_ou_atk": 2,
+			"área_ou_def": 2,
+			"mana": 5,
+			"efeito": "Recupera 1 de mana e 1 de DEF para todas as cartas afetadas ao início de cada turno enquanto durar.",
+			"copias_permitidas": 3
+		}
+	],
+	"ESPERANCA": [
+		{
+			"carta": "Dente-de-Leão",
+			"tipo": "Flor de Renasciment o",
+			"duração_ou_atk": 3,
+			"área_ou_def": 4,
+			"mana": 3,
+			"efeito": "Ao morrer, volta ao topo do seu deck com -1 de ATK.",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Campânul a",
+			"tipo": "Flor Protetora",
+			"duração_ou_atk": 2,
+			"área_ou_def": 6,
+			"mana": 3,
+			"efeito": "Enquanto estiver em campo, flores aliadas recebem -1 de dano de todas as fontes.",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Açafrão",
+			"tipo": "Flor de Crescimento",
+			"duração_ou_atk": 2,
+			"área_ou_def": 5,
+			"mana": 4,
+			"efeito": "Ganha +1 de ATK ao final de cada turno em que não atacar.",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Trevo de Quatro Folhas",
+			"tipo": "Flor de Sorte",
+			"duração_ou_atk": 3,
+			"área_ou_def": 3,
+			"mana": 3,
+			"efeito": "Ao entrar, concede Escudo a uma flor aleatória. Se o jogador tiver menos de 10 de vida, concede a todas as flores.",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Broto Persistent e",
+			"tipo": "Criatura Renascente",
+			"duração_ou_atk": 1,
+			"área_ou_def": 2,
+			"mana": 2,
+			"efeito": "Ao morrer, volta ao campo no próximo turno. Só pode reviver uma vez por partida.",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Beija-flor Vigilante",
+			"tipo": "Criatura de Buff Passivo",
+			"duração_ou_atk": 2,
+			"área_ou_def": 2,
+			"mana": 2,
+			"efeito": "No início do turno, concede +1 de DEF a uma flor aliada aleatória.",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Raiz Escondida",
+			"tipo": "Criatura de Defesa Oculta",
+			"duração_ou_atk": 2,
+			"área_ou_def": 4,
+			"mana": 2,
+			"efeito": "Enquanto estiver na última posição do campo, não pode ser alvo de ataques diretos.",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Orvalho da Manhã Clara",
+			"tipo": "Evento de Fortaleciment o",
+			"duração_ou_atk": 2,
+			"área_ou_def": 2,
+			"mana": 4,
+			"efeito": "Flores na área recebem +1 de ATK por turno enquanto o evento durar.",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Brisa Renovador a",
+			"tipo": "Evento de Regeneração",
+			"duração_ou_atk": 2,
+			"área_ou_def": 2,
+			"mana": 5,
+			"efeito": "Ao final de cada turno, flores na área ganham 1 de DEF se não atacaram.",
+			"copias_permitidas": 3
+		},
+		{
+			"carta": "Aurora Silenciosa",
+			"tipo": "Evento de Proteção",
+			"duração_ou_atk": 2,
+			"área_ou_def": 3,
+			"mana": 4,
+			"efeito": "As flores na área não podem ser alvo de spells inimigos enquanto o evento durar.",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Luz Persistent e",
+			"tipo": "Spell de Buff Adiado",
+			"duração_ou_atk": null,
+			"área_ou_def": null,
+			"mana": 2,
+			"efeito": "Escolha uma flor: no próximo turno, ela ganha +3 de DEF e Escudo.",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Folha Nascente",
+			"tipo": "Spell de Reviver",
+			"duração_ou_atk": null,
+			"área_ou_def": null,
+			"mana": 5,
+			"efeito": "Revive uma flor destruída nesta partida com -1 de ATK e -1 de DEF.",
+			"copias_permitidas": 2
+		},
+		{
+			"carta": "Sementes que Esperam",
+			"tipo": "Spell de Previsão",
+			"duração_ou_atk": null,
+			"área_ou_def": null,
+			"mana": 3,
+			"efeito": "Olhe as 3 próximas cartas do seu deck. Escolha 1 para a mão, 1 para o topo e descarte 1.",
+			"copias_permitidas": 3
+		}
+	]
+}
