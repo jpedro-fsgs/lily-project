@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=4 uid="uid://bu14yy0jt0jpw"]
 
-[ext_resource type="Texture2D" uid="uid://ywejyh7keris" path="res://assets/board2.png" id="2_c3r7o"]
+[ext_resource type="Texture2D" uid="uid://dttdoxrc247vp" path="res://assets/board3.png" id="2_ternb"]
 [ext_resource type="PackedScene" uid="uid://jdqun6djieyw" path="res://scenes/player.tscn" id="3_dun80"]
 [ext_resource type="Script" uid="uid://cujbdg01s7lcu" path="res://scripts/game_manager.gd" id="3_nglv8"]
 [ext_resource type="Texture2D" uid="uid://3h6rk61w8klq" path="res://assets/Cardback1.png" id="5_dun80"]
@@ -15,9 +15,9 @@ loop = true
 script = ExtResource("3_nglv8")
 
 [node name="Board" type="Sprite2D" parent="."]
-scale = Vector2(0.875, 0.875)
-texture = ExtResource("2_c3r7o")
-centered = false
+position = Vector2(960, 540)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_ternb")
 
 [node name="Players" type="Node2D" parent="."]
 
@@ -30,10 +30,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1160.0
-offset_top = 40.0
-offset_right = 1160.0
-offset_bottom = 40.0
+offset_left = 1680.0
+offset_top = 48.0
+offset_right = 1680.0
+offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("9_n230i")
@@ -46,10 +46,9 @@ scale = Vector2(0.140625, 0.132812)
 texture = ExtResource("5_dun80")
 
 [node name="Deck" type="Node2D" parent="."]
-visible = false
 
 [node name="CardSlots" type="Node2D" parent="."]
-position = Vector2(704, 432)
+position = Vector2(896, 688)
 
 [node name="CardSlot" parent="CardSlots" instance=ExtResource("7_c3r7o")]
 position = Vector2(-336, -8)
@@ -59,14 +58,42 @@ position = Vector2(-336, -8)
 [node name="CardSlot3" parent="CardSlots" instance=ExtResource("7_c3r7o")]
 position = Vector2(296, -8)
 
+[node name="CardSlot4" parent="CardSlots" instance=ExtResource("7_c3r7o")]
+position = Vector2(-336, -304)
+
+[node name="CardSlot5" parent="CardSlots" instance=ExtResource("7_c3r7o")]
+position = Vector2(0, -296)
+
+[node name="CardSlot6" parent="CardSlots" instance=ExtResource("7_c3r7o")]
+position = Vector2(296, -304)
+
 [node name="Label" type="Label" parent="."]
-offset_left = 1136.0
-offset_top = 384.0
-offset_right = 1280.0
-offset_bottom = 521.0
+visible = false
+offset_left = 1656.0
+offset_top = 480.0
+offset_right = 1800.0
+offset_bottom = 617.0
 theme_override_font_sizes/font_size = 100
 text = "0"
 horizontal_alignment = 1
+
+[node name="TurnButton" type="Button" parent="."]
+offset_left = 1520.0
+offset_top = 424.0
+offset_right = 1832.0
+offset_bottom = 504.0
+theme_override_font_sizes/font_size = 35
+text = "End Turn"
+flat = true
+autowrap_mode = 3
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 64.0
+offset_top = 56.0
+offset_right = 264.0
+offset_bottom = 120.0
+theme_override_font_sizes/font_size = 30
+text = "Main Menu"
 
 [node name="TemaDoJardim" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamMP3_ternb")
@@ -74,3 +101,5 @@ autoplay = true
 parameters/looping = true
 
 [connection signal="clicked" from="DeckDraw" to="." method="_on_deck_draw_clicked"]
+[connection signal="pressed" from="TurnButton" to="." method="_on_turn_button_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

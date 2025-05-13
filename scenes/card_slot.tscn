@@ -28,6 +28,7 @@ shape = SubResource("RectangleShape2D_c3r7o")
 [node name="Cards" type="Node2D" parent="."]
 
 [node name="CardsCount" type="Label" parent="."]
+visible = false
 offset_left = -56.0
 offset_top = -200.0
 offset_right = 56.0

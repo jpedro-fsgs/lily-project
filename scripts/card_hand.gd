@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 
 var angle = 0
 var OvalAngleVector: Vector2
-@onready var CardSpread = get_viewport().size.x * 0.00014
+@onready var CardSpread = 0.13
 
 enum {
 	TOP,

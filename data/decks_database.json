@@ -73,15 +73,6 @@
 			"copias_permitidas": 3
 		},
 		{
-			"carta": "Borboleta",
-			"tipo": "Buff de Flores",
-			"duração_ou_atk": null,
-			"área_ou_def": null,
-			"mana": 3,
-			"efeito": "Dá +2 de ATK para uma flor aliada até o final do turno.",
-			"copias_permitidas": 3
-		},
-		{
 			"carta": "Fonte dos Suspiros",
 			"tipo": "Buff Progressiv o",
 			"duração_ou_atk": null,
@@ -156,7 +147,7 @@
 			"copias_permitidas": 2
 		},
 		{
-			"carta": "Cachoeir a Oculta",
+			"carta": "Cachoeira Oculta",
 			"tipo": "Evento Defensivo",
 			"duração_ou_atk": 3,
 			"área_ou_def": 2,
@@ -183,7 +174,7 @@
 			"copias_permitidas": 3
 		},
 		{
-			"carta": "Cogumel o Luminos o",
+			"carta": "Cogumelo Luminoso",
 			"tipo": "Unidade de Buff",
 			"duração_ou_atk": 3,
 			"área_ou_def": 3,

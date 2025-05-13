@@ -1,46 +1,45 @@
-[gd_scene load_steps=7 format=3 uid="uid://b28nefqetg1rh"]
+[gd_scene load_steps=3 format=3 uid="uid://b28nefqetg1rh"]
 
-[ext_resource type="Texture2D" uid="uid://b4upbmrheojxe" path="res://assets/mapa_jardim2.png" id="1_ekubr"]
 [ext_resource type="Script" uid="uid://3k0sycnrkbs0" path="res://scripts/mapa.gd" id="1_k7lwh"]
-[ext_resource type="Texture2D" uid="uid://bcoijf6jrptv5" path="res://assets/portal1.png" id="2_u1vf7"]
-[ext_resource type="Texture2D" uid="uid://ct2uu5r5k1mfu" path="res://assets/portal2.png" id="3_nrd35"]
-[ext_resource type="Texture2D" uid="uid://jtsnfeu20a2r" path="res://assets/portal3.png" id="4_atgyb"]
-[ext_resource type="Texture2D" uid="uid://bo87wc8varc61" path="res://assets/portal4.png" id="6_6i2c2"]
+[ext_resource type="Texture2D" uid="uid://c5shgjh2oag1t" path="res://assets/mapa_jardim.png" id="2_u1vf7"]
 
 [node name="Mapa" type="Node2D"]
 script = ExtResource("1_k7lwh")
 
 [node name="MapaJardim2" type="Sprite2D" parent="."]
-position = Vector2(688, 448)
-scale = Vector2(0.895833, 0.875)
-texture = ExtResource("1_ekubr")
+position = Vector2(960, 441)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_u1vf7")
 
-[node name="RosePortal" type="TextureButton" parent="MapaJardim2"]
-offset_left = -634.047
-offset_top = 155.429
-offset_right = -491.047
-offset_bottom = 297.429
-texture_normal = ExtResource("3_nrd35")
+[node name="Button" type="Button" parent="MapaJardim2"]
+offset_left = -63.0
+offset_top = 296.0
+offset_right = 85.0
+offset_bottom = 446.0
+flat = true
 
-[node name="TextureButton2" type="TextureButton" parent="MapaJardim2"]
-offset_left = -178.605
-offset_top = 274.286
-offset_right = -35.6046
-offset_bottom = 416.286
-texture_normal = ExtResource("2_u1vf7")
+[node name="Button2" type="Button" parent="MapaJardim2"]
+offset_left = -482.0
+offset_top = -201.0
+offset_right = -339.0
+offset_bottom = -59.0
+flat = true
 
-[node name="TextureButton3" type="TextureButton" parent="MapaJardim2"]
-offset_left = 321.488
-offset_top = 45.7143
-offset_right = 464.488
-offset_bottom = 187.714
-texture_normal = ExtResource("4_atgyb")
+[node name="Button3" type="Button" parent="MapaJardim2"]
+offset_left = 337.0
+offset_top = 5.0
+offset_right = 482.0
+offset_bottom = 153.0
+flat = true
 
-[node name="TextureButton4" type="TextureButton" parent="MapaJardim2"]
-offset_left = 187.535
-offset_top = -310.857
-offset_right = 330.535
-offset_bottom = -168.857
-texture_normal = ExtResource("6_6i2c2")
+[node name="Button4" type="Button" parent="MapaJardim2"]
+offset_left = 555.0
+offset_top = 295.0
+offset_right = 704.0
+offset_bottom = 446.0
+flat = true
 
-[connection signal="pressed" from="MapaJardim2/RosePortal" to="." method="_on_rose_portal_pressed"]
+[connection signal="pressed" from="MapaJardim2/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MapaJardim2/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="MapaJardim2/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="MapaJardim2/Button4" to="." method="_on_button_4_pressed"]

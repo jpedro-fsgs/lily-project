@@ -11,7 +11,7 @@ extends Control
 signal card_selected(card)
 signal card_released(card)
 
-const PATH = "res://assets/flowers/"
+const PATH = "res://assets/DECK/"
 
 var _name #: String
 var _type #: String
@@ -20,7 +20,8 @@ var _defense #: int
 var _cost #: int
 var _effect #: String
 
-var _index
+var selectable: bool = false
+
 var mouse_position_on_card
 var _original_scale = Vector2(0.5, 0.5)
 var _startpos = Vector2(0,0)
@@ -56,13 +57,11 @@ func set_attributes(card_attributes) -> void:
 func _ready():
 	position = _startpos
 	rotation = _startrot
-	_index = get_index()
 	cardback.visible = false
-	var num = int(randi_range(1,34))
-	card_image.texture = load(str(PATH, 'flor', num, '.png'))
+	card_image.texture = load(str(PATH, _name, '.png'))
 	name_label.text = _name
 	effect_label.text = _effect
-	cost_label.text = str(_cost)
+	cost_label.text = str(int(_cost))
 
 func _process(_delta: float) -> void:
 	pass
@@ -115,7 +114,7 @@ func change_state(new_state):
 		
 	
 func _on_mouse_entered() -> void:
-	if !hover_enabled:
+	if !hover_enabled or not selectable:
 		return
 	if state == states.InHand:
 		change_state(states.FocusInHand)
@@ -132,10 +131,16 @@ func hide_card():
 	
 func show_card():
 	cardback.visible = false
+	
+func _on_turn_changed(index):
+	if state == states.InSlot:
+		return
+	selectable = index == get_parent().get_parent().index
+	print(get_parent().get_parent().index, selectable)
 
 
 func _gui_input(event):
-	if state == states.InSlot:
+	if state == states.InSlot or not selectable:
 		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
