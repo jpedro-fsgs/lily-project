@@ -1,4 +1,4 @@
-[music path="res://assets/audio/Tema do Jardim.mp3" fade="0.0" volume="0.0"]
+[music fade="0.0" volume="0.0"]
 join Lily (Frown) leftmost [animation="Bounce In"]
 [background arg="res://assets/dialogic/Garden_VNBackground_Florassence/1.png" fade="0.0"]
 Lily (Frown): ...Hnng... minha cabeça...
