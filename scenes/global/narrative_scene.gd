@@ -12,4 +12,4 @@ func _process(delta: float) -> void:
 	pass
 
 func ended():
-	get_tree().change_scene_to_file("res://scenes/mapa.tscn")
+	get_tree().change_scene_to_file("res://scenes/global/mapa.tscn")

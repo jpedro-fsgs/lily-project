@@ -3,6 +3,8 @@ extends Node2D
 
 @onready var card_hand: Node2D = $CardHand
 
+signal update_hp(hp: int)
+
 enum {
 	HumanPlayer,
 	Opponent
@@ -10,8 +12,9 @@ enum {
 
 var player_type = HumanPlayer
 
-var HP = 100
+var HP = 30
 var defense = 0
+var mana = 1
 
 var cards_deck = []
 
@@ -35,7 +38,6 @@ func set_player_type(type):
 			cards_deck = CardDatabase.get_deck(CardDatabase.DeckType.AMOR)
 			cards_deck.shuffle()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
@@ -52,3 +54,9 @@ func remove_card_from_hand(card: Card):
 	card_hand.remove_child(card)
 	card_hand.update_hand()
 	
+func receive_damage(dmg: int):
+	HP -= dmg
+	emit_signal("update_hp", HP)
+	
+func add_defense(def: int):
+	defense += def

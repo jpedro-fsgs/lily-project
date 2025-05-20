@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://0qscyb51puyt"]
+
+[ext_resource type="Script" uid="uid://jvirac60di2n" path="res://scenes/global/narrative_scene.gd" id="1_3t31i"]
+
+[node name="NarrativeScene" type="Node2D"]
+script = ExtResource("1_3t31i")

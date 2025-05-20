@@ -11,18 +11,18 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	var game = load("res://scenes/game_manager.tscn")
+	var game = load("res://scenes/encounter/encounter_scene.tscn")
 	get_tree().change_scene_to_packed(game)
 
 
 func _on_button_2_pressed() -> void:
-	var game = load("res://scenes/game_manager.tscn")
+	var game = load("res://scenes/encounter/encounter_scene.tscn")
 	get_tree().change_scene_to_packed(game)
 
 func _on_button_3_pressed() -> void:
-	var game = load("res://scenes/game_manager.tscn")
+	var game = load("res://scenes/encounter/encounter_scene.tscn")
 	get_tree().change_scene_to_packed(game)
 
 func _on_button_4_pressed() -> void:
-	var game = load("res://scenes/game_manager.tscn")
+	var game = load("res://scenes/encounter/encounter_scene.tscn")
 	get_tree().change_scene_to_packed(game)

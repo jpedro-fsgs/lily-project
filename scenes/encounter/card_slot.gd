@@ -1,8 +1,6 @@
 class_name CardSlot
 extends Node2D
 
-signal effect(card)
-
 @onready var card_slot_detector: Area2D = $CardSlotDetector
 @onready var cards_in_slot: Node2D = $Cards
 @onready var cards_count: Label = $CardsCount
@@ -20,7 +18,15 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 
-func add_card(card: Card):
+func add_card(card: Card, current_player: Player, opponent: Player):
+	
+
+	if card._defense:
+		current_player.add_defense(card._defense)
+
+	if card._attack:
+		opponent.receive_damage(card._attack)
+	
 	var global_position_card = card.global_position
 	
 	card.get_parent().get_parent().remove_card_from_hand(card)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b28nefqetg1rh"]
 
-[ext_resource type="Script" uid="uid://3k0sycnrkbs0" path="res://scripts/mapa.gd" id="1_k7lwh"]
+[ext_resource type="Script" uid="uid://3k0sycnrkbs0" path="res://scenes/global/mapa.gd" id="1_k7lwh"]
 [ext_resource type="Texture2D" uid="uid://c5shgjh2oag1t" path="res://assets/mapa_jardim.png" id="2_u1vf7"]
 
 [node name="Mapa" type="Node2D"]

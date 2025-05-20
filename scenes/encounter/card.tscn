@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://d152e4vnsy3dj"]
+[gd_scene load_steps=6 format=3 uid="uid://d152e4vnsy3dj"]
 
-[ext_resource type="Script" uid="uid://dc6ievvemefh2" path="res://scripts/card.gd" id="1_6u4wf"]
+[ext_resource type="Script" uid="uid://dc6ievvemefh2" path="res://scenes/encounter/card.gd" id="1_6u4wf"]
 [ext_resource type="Theme" uid="uid://cxsrpilaqw4ux" path="res://themes/main_theme.tres" id="1_kg30u"]
 [ext_resource type="Texture2D" uid="uid://cugu6n42tjw06" path="res://assets/Card1.png" id="3_8w5pg"]
-[ext_resource type="Texture2D" uid="uid://cct6mhduemxpd" path="res://assets/images/image4.png" id="3_sy11y"]
 [ext_resource type="Texture2D" uid="uid://3h6rk61w8klq" path="res://assets/Cardback1.png" id="5_sy11y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ligt"]
@@ -37,7 +36,6 @@ metadata/_edit_use_anchors_ = true
 [node name="CardImage" type="Sprite2D" parent="CardBody"]
 position = Vector2(276.192, 349.022)
 scale = Vector2(0.791717, 0.791717)
-texture = ExtResource("3_sy11y")
 
 [node name="Card" type="Sprite2D" parent="CardBody"]
 position = Vector2(272, 424)
@@ -84,7 +82,30 @@ text = "00"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="AttackLabel" type="Label" parent="CardBody"]
+offset_left = 224.0
+offset_top = 672.0
+offset_right = 306.0
+offset_bottom = 771.0
+theme_override_colors/font_color = Color(0.407843, 0.435294, 0.192157, 1)
+theme_override_font_sizes/font_size = 72
+text = "00"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="DefenseLabel" type="Label" parent="CardBody"]
+offset_left = 384.0
+offset_top = 676.0
+offset_right = 466.0
+offset_bottom = 775.0
+theme_override_colors/font_color = Color(0.407843, 0.435294, 0.192157, 1)
+theme_override_font_sizes/font_size = 72
+text = "00"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="Cardback" type="Sprite2D" parent="CardBody"]
+visible = false
 position = Vector2(273, 410)
 scale = Vector2(0.548828, 0.536458)
 texture = ExtResource("5_sy11y")

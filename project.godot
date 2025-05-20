@@ -17,7 +17,7 @@ config/icon="uid://ogjlk3va8ugi"
 
 [autoload]
 
-CardDatabase="*res://scripts/card_database.gd"
+CardDatabase="*res://scenes/card_database.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]

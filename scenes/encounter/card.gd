@@ -6,6 +6,8 @@ extends Control
 @onready var name_label: Label = $CardBody/Name
 @onready var effect_label: Label = $CardBody/Effect
 @onready var cost_label: Label = $CardBody/CostLabel
+@onready var attack_label: Label = $CardBody/AttackLabel
+@onready var defense_label: Label = $CardBody/DefenseLabel
 @onready var drop_point_detector: Area2D = $DropPointDetector
 
 signal card_selected(card)
@@ -57,11 +59,14 @@ func set_attributes(card_attributes) -> void:
 func _ready():
 	position = _startpos
 	rotation = _startrot
+	print(cardback)
 	cardback.visible = false
 	card_image.texture = load(str(PATH, _name, '.png'))
 	name_label.text = _name
 	effect_label.text = _effect
 	cost_label.text = str(int(_cost))
+	attack_label.text = str(int(_attack) if _attack else "X")
+	defense_label.text = str(int(_defense) if _defense else "X")
 
 func _process(_delta: float) -> void:
 	pass
@@ -136,7 +141,6 @@ func _on_turn_changed(index):
 	if state == states.InSlot:
 		return
 	selectable = index == get_parent().get_parent().index
-	print(get_parent().get_parent().index, selectable)
 
 
 func _gui_input(event):

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://byx08v0k1vcqy"]
 
-[ext_resource type="Script" uid="uid://b3idsscv5y25l" path="res://scripts/card_slot.gd" id="1_hrxt0"]
+[ext_resource type="Script" uid="uid://b3idsscv5y25l" path="res://scenes/encounter/card_slot.gd" id="1_hrxt0"]
 [ext_resource type="Texture2D" uid="uid://csrj66u21xlft" path="res://assets/Card.png" id="2_dwl65"]
 [ext_resource type="Texture2D" uid="uid://f3i6lsd0mfi6" path="res://assets/borda.png" id="3_dt6cf"]
 
