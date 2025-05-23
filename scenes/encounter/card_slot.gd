@@ -3,7 +3,6 @@ extends Node2D
 
 @onready var card_slot_detector: Area2D = $CardSlotDetector
 @onready var cards_in_slot: Node2D = $Cards
-@onready var cards_count: Label = $CardsCount
 
 var count = 0
 
@@ -35,7 +34,6 @@ func add_card(card: Card, current_player: Player, opponent: Player):
 	cards_in_slot.add_child(card)
 	cards.append(card)
 	count += card._cost
-	cards_count.text = str(count)
 	card.global_position = global_position_card
 	
 	card._targetpos = Vector2.ZERO - card.size/2

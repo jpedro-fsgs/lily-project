@@ -4,9 +4,9 @@ var DATA
 
 enum DeckType {
 	AMOR,
-	LIRIO_DO_VALE,
+	PUREZA,
 	GANANCIA,
-	LIRIO_ARANHA,
+	RAIVA,
 	TRISTEZA,
 	ESPERANCA
 }
@@ -22,6 +22,4 @@ func get_deck(deck_type: DeckType):
 		for i in range(card["copias_permitidas"]):
 			cards.append(card.duplicate())
 		
-	if not cards:
-		print("cards")
 	return cards

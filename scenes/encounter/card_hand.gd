@@ -11,8 +11,14 @@ func _process(_delta: float) -> void:
 	pass
 
 @onready var CentreCardOval = Vector2(get_viewport().size) * Vector2(0.5, 1.2)
-@onready var Hor_rad = get_viewport().size.x * 0.45
-@onready var Ver_rad = get_viewport().size.y * 0.4
+@onready var Hor_rad = get_viewport().size.x * 0.5
+
+@onready var Focus_Ver_rad = get_viewport().size.y * 0.4
+@onready var Unfocus_Ver_rad = get_viewport().size.y * 0.25
+
+var on_focus = true
+
+
 
 var angle = 0
 var OvalAngleVector: Vector2
@@ -65,7 +71,8 @@ func update_hand():
 	for i in range(card_count):
 		var card = hand[i]
 		var current_angle = start_angle + angle_step * i
-		var oval_pos = Vector2(Hor_rad * cos(current_angle), -Ver_rad * sin(current_angle))
+		var oval_pos = Vector2(Hor_rad * cos(current_angle), -(Focus_Ver_rad if on_focus else Unfocus_Ver_rad
+		) * sin(current_angle))
 		
 		card._targetpos = CentreCardOval + oval_pos - card.size/2
 		

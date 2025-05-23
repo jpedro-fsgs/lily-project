@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://byx08v0k1vcqy"]
+[gd_scene load_steps=4 format=3 uid="uid://byx08v0k1vcqy"]
 
 [ext_resource type="Script" uid="uid://b3idsscv5y25l" path="res://scenes/encounter/card_slot.gd" id="1_hrxt0"]
-[ext_resource type="Texture2D" uid="uid://csrj66u21xlft" path="res://assets/Card.png" id="2_dwl65"]
 [ext_resource type="Texture2D" uid="uid://f3i6lsd0mfi6" path="res://assets/borda.png" id="3_dt6cf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3r7o"]
@@ -9,11 +8,6 @@ size = Vector2(128, 192)
 
 [node name="CardSlot" type="Node2D"]
 script = ExtResource("1_hrxt0")
-
-[node name="Card" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_dwl65")
 
 [node name="Borda" type="Sprite2D" parent="."]
 position = Vector2(-2, -3.45707e-06)
@@ -26,13 +20,3 @@ texture = ExtResource("3_dt6cf")
 shape = SubResource("RectangleShape2D_c3r7o")
 
 [node name="Cards" type="Node2D" parent="."]
-
-[node name="CardsCount" type="Label" parent="."]
-visible = false
-offset_left = -56.0
-offset_top = -200.0
-offset_right = 56.0
-offset_bottom = -101.0
-theme_override_font_sizes/font_size = 72
-text = "0"
-horizontal_alignment = 1

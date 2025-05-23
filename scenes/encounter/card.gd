@@ -2,7 +2,7 @@ class_name Card
 extends Control
 
 @onready var cardback: Sprite2D = $CardBody/Cardback
-@onready var card_image: Sprite2D = $CardBody/CardImage
+@onready var card_image: Sprite2D = $CardBody/CardMask/CardImage
 @onready var name_label: Label = $CardBody/Name
 @onready var effect_label: Label = $CardBody/Effect
 @onready var cost_label: Label = $CardBody/CostLabel
@@ -13,7 +13,7 @@ extends Control
 signal card_selected(card)
 signal card_released(card)
 
-const PATH = "res://assets/DECK/"
+const PATH = "res://assets/"
 
 var _name #: String
 var _type #: String
@@ -21,6 +21,7 @@ var _attack #: int
 var _defense #: int
 var _cost #: int
 var _effect #: String
+var _image_path
 
 var selectable: bool = false
 
@@ -53,20 +54,20 @@ func set_attributes(card_attributes) -> void:
 	_defense = card_attributes["área_ou_def"]
 	_cost = card_attributes["mana"]
 	_effect = card_attributes["efeito"]
+	_image_path = card_attributes["image_url"]
 	
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	position = _startpos
 	rotation = _startrot
-	print(cardback)
 	cardback.visible = false
-	card_image.texture = load(str(PATH, _name, '.png'))
+	card_image.texture = load(str(PATH, _image_path))
 	name_label.text = _name
 	effect_label.text = _effect
 	cost_label.text = str(int(_cost))
-	attack_label.text = str(int(_attack) if _attack else "X")
-	defense_label.text = str(int(_defense) if _defense else "X")
+	attack_label.text = str(int(_attack) if _attack else 0)
+	defense_label.text = str(int(_defense) if _defense else 0)
 
 func _process(_delta: float) -> void:
 	pass

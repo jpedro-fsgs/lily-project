@@ -23,7 +23,7 @@ var index: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	cards_deck = CardDatabase.get_deck(CardDatabase.DeckType.LIRIO_DO_VALE)
+	cards_deck = CardDatabase.get_deck(CardDatabase.DeckType.PUREZA)
 	cards_deck.shuffle()
 			
 func set_player_type(type):
@@ -31,7 +31,7 @@ func set_player_type(type):
 	match type:
 		HumanPlayer:
 			card_hand.set_cards_position(card_hand.BOTTOM)
-			cards_deck = CardDatabase.get_deck(CardDatabase.DeckType.LIRIO_DO_VALE)
+			cards_deck = CardDatabase.get_deck(CardDatabase.DeckType.PUREZA)
 			cards_deck.shuffle()
 		Opponent:
 			card_hand.set_cards_position(card_hand.TOP)

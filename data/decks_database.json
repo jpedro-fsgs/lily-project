@@ -7,7 +7,8 @@
 			"área_ou_def": 5,
 			"mana": 7,
 			"efeito": "Enfeitiça uma unidade inimiga de custo 5 ou menos por 2 turnos.",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/AMOR/rosa-vermelha.png"
 		},
 		{
 			"carta": "Cravo Vermelho",
@@ -16,7 +17,8 @@
 			"área_ou_def": 4,
 			"mana": 5,
 			"efeito": "Ataca duas vezes (o segundo ataque tem -1 de dano).",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/AMOR/cravo-vermelho.png"
 		},
 		{
 			"carta": "Narciso",
@@ -25,7 +27,8 @@
 			"área_ou_def": 3,
 			"mana": 5,
 			"efeito": "(Ao descer): cria cópia de uma unidade aliada (dura 2 turnos).",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/AMOR/narciso.png"
 		},
 		{
 			"carta": "Espinhos",
@@ -34,7 +37,8 @@
 			"área_ou_def": 3,
 			"mana": 3,
 			"efeito": "Ao entrar, causa 2 de dano direto a uma unidade inimiga.",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/AMOR/espinhos.png"
 		},
 		{
 			"carta": "Jasmim Branco",
@@ -43,7 +47,8 @@
 			"área_ou_def": 8,
 			"mana": 6,
 			"efeito": "Ao entrar, cura 3 de HP do jogador.",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/AMOR/jasmim-branco.png"
 		},
 		{
 			"carta": "Perfume",
@@ -52,7 +57,8 @@
 			"área_ou_def": null,
 			"mana": 4,
 			"efeito": "Aplica \"Tontura\": alvo não pode atacar nem bloquear por 2 turnos.",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/AMOR/perfume.png"
 		},
 		{
 			"carta": "Rouxinol",
@@ -61,25 +67,38 @@
 			"área_ou_def": 4,
 			"mana": 3,
 			"efeito": "Diminua o custo da próxima carta que jogar em -1 (mínimo de 1).",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/AMOR/rouxinol.png"
 		},
 		{
-			"carta": "Cisnes",
+			"carta": "Cisne",
 			"tipo": "Unidade de Compra",
 			"duração_ou_atk": 2,
 			"área_ou_def": 5,
 			"mana": 6,
 			"efeito": "Ao entrar, compra 2 cartas (3 se houver outro Cisne em campo).",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/AMOR/cisne.png"
+		},
+		{
+			"carta": "Borboleta",
+			"tipo": "Buff de Flores",
+			"duração_ou_atk": null,
+			"área_ou_def": null,
+			"mana": 5,
+			"efeito": "Dá +2 de ATK para uma flor aliada até o final do turno.",
+			"copias_permitidas": 3,
+			"image_url": null
 		},
 		{
 			"carta": "Fonte dos Suspiros",
-			"tipo": "Buff Progressiv o",
+			"tipo": "Buff Progressivo",
 			"duração_ou_atk": null,
 			"área_ou_def": null,
 			"mana": 5,
 			"efeito": "Escolha 1 flor: cada ataque dela gera 1 stack de \"suspiro\" (+1 ATK cumulativo, até 5).",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/AMOR/fonte-dos-suspiros.png"
 		},
 		{
 			"carta": "Banco sob a Lua",
@@ -88,16 +107,18 @@
 			"área_ou_def": 2,
 			"mana": 5,
 			"efeito": "Dá +2 de DEF para flores na área.",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/AMOR/banco-sob-a-lua.png"
 		},
 		{
-			"carta": "Velas",
+			"carta": "Vela",
 			"tipo": "Evento de Buff de Ataque",
 			"duração_ou_atk": 2,
 			"área_ou_def": 3,
 			"mana": 4,
 			"efeito": "Dá +1 de ATK para flores na área.",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/AMOR/vela.png"
 		},
 		{
 			"carta": "Arco de Trepadeiras",
@@ -106,7 +127,8 @@
 			"área_ou_def": 4,
 			"mana": 7,
 			"efeito": "O oponente não pode comprar cartas no próximo turno.",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/AMOR/arco-de-trepadeiras.png"
 		},
 		{
 			"carta": "Visco",
@@ -115,10 +137,11 @@
 			"área_ou_def": 2,
 			"mana": 4,
 			"efeito": "Recupera 1 de HP por turno para flores na área.",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/AMOR/visco.png"
 		}
 	],
-	"LIRIO_DO_VALE": [
+	"PUREZA": [
 		{
 			"carta": "Lírio do Vale",
 			"tipo": "Unidade de Suporte",
@@ -126,7 +149,8 @@
 			"área_ou_def": 4,
 			"mana": 4,
 			"efeito": "Ao entrar, remove todos efeitos negativos de uma unidade aliada.",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/PUREZA/lírio-do-vale.png"
 		},
 		{
 			"carta": "Trilho de Névoa",
@@ -135,7 +159,8 @@
 			"área_ou_def": null,
 			"mana": 3,
 			"efeito": "Aplica \"Cegueira\" em uma unidade inimiga: ela erra o próximo ataque.",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/PUREZA/trilho-de-névoa.png"
 		},
 		{
 			"carta": "Sino de Brisa Suave",
@@ -144,7 +169,8 @@
 			"área_ou_def": 3,
 			"mana": 5,
 			"efeito": "Unidades na área ganham Ataque Rápido (podem atacar sem token de ataque) e ficam imunes a controle de grupo.",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/PUREZA/sino-de-brisa-suave.png"
 		},
 		{
 			"carta": "Cachoeira Oculta",
@@ -153,16 +179,18 @@
 			"área_ou_def": 2,
 			"mana": 4,
 			"efeito": "Unidades na área recebem -2 de dano de todas as fontes enquanto o evento durar.",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/PUREZA/cachoeira-oculta.png"
 		},
 		{
 			"carta": "Eco da Colina Branca",
-			"tipo": "Spell de Recuperaç ão",
+			"tipo": "Spell de Recuperação",
 			"duração_ou_atk": null,
 			"área_ou_def": null,
 			"mana": 5,
-			"efeito": "Restaura 4 de mana instantaneament e.",
-			"copias_permitidas": 2
+			"efeito": "Restaura 4 de mana instantaneamente.",
+			"copias_permitidas": 2,
+			"image_url": "DECKS/PUREZA/eco-da-colina-branca.png"
 		},
 		{
 			"carta": "Esquilo Guardião",
@@ -171,7 +199,8 @@
 			"área_ou_def": 6,
 			"mana": 4,
 			"efeito": "(Início do round) Remova todo controle de grupo da carta de custo mais alto no deck.",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/PUREZA/esquilo-guardião.png"
 		},
 		{
 			"carta": "Cogumelo Luminoso",
@@ -180,7 +209,8 @@
 			"área_ou_def": 3,
 			"mana": 3,
 			"efeito": "Ao entrar, escolha uma carta aliada: ela ganha 2|2 permanente.",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/PUREZA/cogumelo-luminoso.png"
 		},
 		{
 			"carta": "Ninho de Beija-flor",
@@ -189,7 +219,8 @@
 			"área_ou_def": 2,
 			"mana": 3,
 			"efeito": "Ao atacar, causa 2 de dano adicional diretamente no jogador inimigo. Se tiver um escudo, da +1 de dano.",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/PUREZA/ninho-de-beija-flor.png"
 		},
 		{
 			"carta": "Porta de Vime",
@@ -198,7 +229,8 @@
 			"área_ou_def": null,
 			"mana": 4,
 			"efeito": "Causa 4 de dano a uma unidade inimiga. Se destruir, compre 1 carta.",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/PUREZA/porta-de-vime.png"
 		},
 		{
 			"carta": "Orvalho Matinal",
@@ -207,7 +239,8 @@
 			"área_ou_def": null,
 			"mana": 2,
 			"efeito": "Concede Escudo de 2 de DEF e imunidade a controle de grupo por 1 round para uma unidade aliada.",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/PUREZA/orvalho-matinal.png"
 		},
 		{
 			"carta": "Chave de Prata",
@@ -216,7 +249,8 @@
 			"área_ou_def": null,
 			"mana": 3,
 			"efeito": "Compre 2 cartas.",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/PUREZA/chave-de-prata.png"
 		}
 	],
 	"GANANCIA": [
@@ -227,7 +261,8 @@
 			"área_ou_def": 7,
 			"mana": 8,
 			"efeito": "Rouba 2 cartas de custo 5 ou mais do deck inimigo e embaralha no seu deck.",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/GANANCIA/lírio-tigre.png"
 		},
 		{
 			"carta": "Magnólia",
@@ -236,7 +271,8 @@
 			"área_ou_def": 5,
 			"mana": 6,
 			"efeito": "Enquanto Magnólia estiver em campo, todas suas cartas de custo 5+ ganham +2 de ATK.",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/GANANCIA/magnólia.png"
 		},
 		{
 			"carta": "Orquídea",
@@ -245,7 +281,8 @@
 			"área_ou_def": 4,
 			"mana": 5,
 			"efeito": "Ao entrar, reduz o custo de todas as cartas de custo 5+ em 1.",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/GANANCIA/orquídea.png"
 		},
 		{
 			"carta": "Lavanda",
@@ -254,7 +291,8 @@
 			"área_ou_def": 3,
 			"mana": 4,
 			"efeito": "Ao entrar, causa 2 de dano a uma unidade aliada e espelha seu ataque.",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/GANANCIA/lavanda.png"
 		},
 		{
 			"carta": "Ruínas de Mármore",
@@ -263,16 +301,18 @@
 			"área_ou_def": null,
 			"mana": 5,
 			"efeito": "Remove um evento ativo (aliado ou inimigo).",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/GANANCIA/ruínas-de-mármore.png"
 		},
 		{
 			"carta": "Espelho de Prata",
-			"tipo": "Unidade de Espelhament o",
+			"tipo": "Unidade de Espelhamento",
 			"duração_ou_atk": 3,
 			"área_ou_def": 5,
 			"mana": 5,
 			"efeito": "A cada início de turno, copia o ATK/DEF da unidade inimiga no slot oposto (ou mais próximo dele).",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/GANANCIA/espelho-de-prata.png"
 		},
 		{
 			"carta": "Pavão",
@@ -281,7 +321,8 @@
 			"área_ou_def": null,
 			"mana": 6,
 			"efeito": "Selecione até 2 unidades inimigas: elas não podem atacar no próximo turno.",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/GANANCIA/pavão.png"
 		},
 		{
 			"carta": "Peixe das Escamas Douradas",
@@ -290,7 +331,8 @@
 			"área_ou_def": 3,
 			"mana": 4,
 			"efeito": "Unidades bloqueadas por essa carta não podem atacar no turno seguinte.",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/GANANCIA/peixe-das-escamas-douradas.png"
 		},
 		{
 			"carta": "Fonte de Nefelita",
@@ -299,7 +341,8 @@
 			"área_ou_def": 3,
 			"mana": 4,
 			"efeito": "Todas as flores na área recebem +2 de DEF enquanto o evento durar.",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/GANANCIA/fonte-de-nefelita.png"
 		},
 		{
 			"carta": "Escadaria em Espiral",
@@ -308,7 +351,8 @@
 			"área_ou_def": null,
 			"mana": 3,
 			"efeito": "Compre 2 cartas.",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/GANANCIA/escadaria-em-espiral.png"
 		},
 		{
 			"carta": "Anel de Marfim",
@@ -317,7 +361,8 @@
 			"área_ou_def": null,
 			"mana": 7,
 			"efeito": "Escolha uma flor: ela recebe +X de ATK (X = soma dos custos das cartas jogadas ÷ 5).",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/GANANCIA/anel-de-marfim.png"
 		},
 		{
 			"carta": "Pórtico de Videiras Negras",
@@ -326,7 +371,8 @@
 			"área_ou_def": 3,
 			"mana": 5,
 			"efeito": "Unidades na área recebem +2 de ATK enquanto o evento durar.",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/GANANCIA/pórtico-de-videiras-negras.png"
 		},
 		{
 			"carta": "Lanterna de Pedra Musgosa",
@@ -335,7 +381,8 @@
 			"área_ou_def": null,
 			"mana": 3,
 			"efeito": "Revele as 3 próximas cartas do seu baralho; escolha 1 para a mão.",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/GANANCIA/lanterna-de-pedra-musgosa.png"
 		},
 		{
 			"carta": "Baluarte Verde",
@@ -344,10 +391,11 @@
 			"área_ou_def": 8,
 			"mana": 6,
 			"efeito": "Enquanto em campo, todas as unidades inimigas causam -1 de dano com ataques normais.",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/GANANCIA/baluarte-verde.png"
 		}
 	],
-	"LIRIO_ARANHA": [
+	"RAIVA": [
 		{
 			"carta": "Lírio-Aranha",
 			"tipo": "Flor de Ataque",
@@ -355,7 +403,8 @@
 			"área_ou_def": 4,
 			"mana": 8,
 			"efeito": "(Ao jogar) Selecione uma carta aliada e uma carta inimiga. Dê dano à inimiga igual ao ataque da aliada, e depois mate a aliada para ganhar um bônus de ATQ igual à soma do ATQ das cartas selecionadas.",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/RAIVA/lírio-aranha.png"
 		},
 		{
 			"carta": "Cravo Amarelo",
@@ -364,7 +413,8 @@
 			"área_ou_def": 5,
 			"mana": 4,
 			"efeito": "Ao entrar, aplica \"Provocação\" em uma unidade inimiga.",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/RAIVA/cravo-amarelo.png"
 		},
 		{
 			"carta": "Cicuta",
@@ -373,7 +423,8 @@
 			"área_ou_def": 4,
 			"mana": 5,
 			"efeito": "Ao entrar, causa 3 de dano a si mesma e 3 de dano direto ao jogador inimigo.",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/RAIVA/cicuta.png"
 		},
 		{
 			"carta": "Ranúnculo",
@@ -382,7 +433,8 @@
 			"área_ou_def": 4,
 			"mana": 4,
 			"efeito": "Ao entrar, concede +2 de ATK para todas as flores aliadas.",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/RAIVA/ranúnculo.png"
 		},
 		{
 			"carta": "Mariposa Sombria",
@@ -391,16 +443,18 @@
 			"área_ou_def": 2,
 			"mana": 2,
 			"efeito": "Ao morrer, concede +1 de ATK a uma unidade aliada aleatória.",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/RAIVA/mariposa-sombria.png"
 		},
 		{
-			"carta": "Formigueir o Selvagem",
+			"carta": "Formigueiro Selvagem",
 			"tipo": "Criatura de rotação",
 			"duração_ou_atk": 3,
 			"área_ou_def": 3,
 			"mana": 3,
 			"efeito": "Descarte 1 criatura para comprar 2 cartas",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/RAIVA/formigueiro-selvagem.png"
 		},
 		{
 			"carta": "Poça de Seiva Ácida",
@@ -409,7 +463,8 @@
 			"área_ou_def": 3,
 			"mana": 4,
 			"efeito": "Unidades inimigas na área recebem -1 DEF no início de cada turno enquanto durar.",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/RAIVA/poça-de-seiva-ácida.png"
 		},
 		{
 			"carta": "Chuva de Agulhas",
@@ -418,7 +473,8 @@
 			"área_ou_def": null,
 			"mana": 3,
 			"efeito": "Causa 2 de dano a todas as unidades inimigas e 1 de dano a todas as suas flores.",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/RAIVA/chuva-de-agulhas.png"
 		},
 		{
 			"carta": "Trepadeiras Furiosas",
@@ -427,16 +483,18 @@
 			"área_ou_def": 2,
 			"mana": 5,
 			"efeito": "As flores na área recebem +2 de ATK",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/RAIVA/trepadeiras-furiosas.png"
 		},
 		{
-			"carta": "Frutos Explosivo s",
+			"carta": "Frutos Explosivos",
 			"tipo": "Spell de Dano Direto",
 			"duração_ou_atk": null,
 			"área_ou_def": null,
 			"mana": 6,
 			"efeito": "Causa 3 de dano direto ao jogador inimigo.",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/RAIVA/frutos-explosivos.png"
 		},
 		{
 			"carta": "Raízes Furiosas",
@@ -445,7 +503,8 @@
 			"área_ou_def": 2,
 			"mana": 4,
 			"efeito": "As unidades na área recebem +2 de DEF",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/RAIVA/raízes-furiosas.png"
 		},
 		{
 			"carta": "Folhas Cortantes",
@@ -454,7 +513,8 @@
 			"área_ou_def": null,
 			"mana": 3,
 			"efeito": "Concede \"Atropelar\" (dano excedente atravessa bloqueio) para uma unidade até o fim do turno.",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/RAIVA/folhas-cortantes.png"
 		},
 		{
 			"carta": "Erva Selvagem",
@@ -463,16 +523,18 @@
 			"área_ou_def": 1,
 			"mana": 1,
 			"efeito": "Se atacar sem ser bloqueada, causa +1 de dano adicional ao jogador inimigo.",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/RAIVA/erva-selvagem.png"
 		},
 		{
 			"carta": "Orvalho Rubro",
-			"tipo": "Spell de Recuperaç ão de Mana",
+			"tipo": "Spell de Recuperação de Mana",
 			"duração_ou_atk": null,
 			"área_ou_def": null,
 			"mana": 2,
 			"efeito": "Recupera 2 de mana instantaneame nte.",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/RAIVA/orvalho-rubro.png"
 		}
 	],
 	"TRISTEZA": [
@@ -483,7 +545,8 @@
 			"área_ou_def": 6,
 			"mana": 5,
 			"efeito": "Ao entrar, reduz o ATK de todas unidades inimigas em -2 até o fim do turno.",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/TRISTEZA/íris-roxa.png"
 		},
 		{
 			"carta": "Violeta",
@@ -492,7 +555,8 @@
 			"área_ou_def": 6,
 			"mana": 3,
 			"efeito": "Cura 2 de HP do jogador ao entrar.",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/TRISTEZA/violeta.png"
 		},
 		{
 			"carta": "Salgueiro-Chorão",
@@ -501,7 +565,8 @@
 			"área_ou_def": 7,
 			"mana": 4,
 			"efeito": "1 unidade inimiga atacando recebe -1 ATK enquanto esta flor estiver viva.",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/TRISTEZA/salgueiro-chorão.png"
 		},
 		{
 			"carta": "Amor-Perfeito",
@@ -510,7 +575,8 @@
 			"área_ou_def": 4,
 			"mana": 3,
 			"efeito": "Dá +2 de DEF permanente para uma flor aliada ao entrar.",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/TRISTEZA/amor-perfeito.png"
 		},
 		{
 			"carta": "Grilo Solitário",
@@ -519,7 +585,8 @@
 			"área_ou_def": 3,
 			"mana": 2,
 			"efeito": "1x por partida, ao final do turno, se esta unidade não atacou ou defendeu, cura 1 de HP do jogador.",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/TRISTEZA/grilo-solitário.png"
 		},
 		{
 			"carta": "Besouro de Outono",
@@ -528,16 +595,18 @@
 			"área_ou_def": 5,
 			"mana": 3,
 			"efeito": "Enquanto em campo, reduz em 1 todo dano que o jogador sofreria.",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/TRISTEZA/besouro-de-outono.png"
 		},
 		{
-			"carta": "Nevoeiro do Amanhece r",
+			"carta": "Nevoeiro do Amanhecer",
 			"tipo": "Evento de Controle Suave",
 			"duração_ou_atk": 2,
 			"área_ou_def": 2,
 			"mana": 4,
 			"efeito": "Unidades inimigas na área perdem 1 ATK por turno.",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/TRISTEZA/nevoeiro-do-amanhecer.png"
 		},
 		{
 			"carta": "Folhas Caídas",
@@ -546,16 +615,18 @@
 			"área_ou_def": null,
 			"mana": 2,
 			"efeito": "Dá Escudo (bloqueia o próximo dano recebido) para uma carta aliada.",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/TRISTEZA/folhas-caídas.png"
 		},
 		{
 			"carta": "Orvalho da Saudade",
-			"tipo": "Evento de Fortaleciment o",
+			"tipo": "Evento de Fortalecimento",
 			"duração_ou_atk": 2,
 			"área_ou_def": 2,
 			"mana": 5,
 			"efeito": "Flores na área recebem +2 DEF enquanto durar.",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/TRISTEZA/orvalho-da-saudade.png"
 		},
 		{
 			"carta": "Lágrima de Seiva",
@@ -564,7 +635,8 @@
 			"área_ou_def": null,
 			"mana": 3,
 			"efeito": "Causa 2 de dano em uma unidade inimiga",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/TRISTEZA/lágrima-de-seiva.png"
 		},
 		{
 			"carta": "Pétalas ao Vento",
@@ -573,7 +645,8 @@
 			"área_ou_def": null,
 			"mana": 3,
 			"efeito": "Compre 2 cartas.",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/TRISTEZA/pétalas-ao-vento.png"
 		},
 		{
 			"carta": "Raiz Quebrada",
@@ -582,7 +655,8 @@
 			"área_ou_def": 2,
 			"mana": 2,
 			"efeito": "Ao morrer, reduz a DEF de uma unidade inimiga em 2 até o fim do próximo turno.",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/TRISTEZA/raiz-quebrada.png"
 		},
 		{
 			"carta": "Chuva Silenciosa",
@@ -591,7 +665,8 @@
 			"área_ou_def": null,
 			"mana": 4,
 			"efeito": "Adormece uma unidade inimiga por 1 turno (não pode atacar ou bloquear).",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/TRISTEZA/chuva-silenciosa.png"
 		},
 		{
 			"carta": "Brisa da Recordação",
@@ -600,7 +675,8 @@
 			"área_ou_def": 2,
 			"mana": 5,
 			"efeito": "Recupera 1 de mana e 1 de DEF para todas as cartas afetadas ao início de cada turno enquanto durar.",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/TRISTEZA/brisa-da-recordação.png"
 		}
 	],
 	"ESPERANCA": [
@@ -611,16 +687,18 @@
 			"área_ou_def": 4,
 			"mana": 3,
 			"efeito": "Ao morrer, volta ao topo do seu deck com -1 de ATK.",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/ESPERANCA/dente-de-leão.png"
 		},
 		{
-			"carta": "Campânul a",
+			"carta": "Campânula",
 			"tipo": "Flor Protetora",
 			"duração_ou_atk": 2,
 			"área_ou_def": 6,
 			"mana": 3,
 			"efeito": "Enquanto estiver em campo, flores aliadas recebem -1 de dano de todas as fontes.",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/ESPERANCA/campânula.png"
 		},
 		{
 			"carta": "Açafrão",
@@ -629,7 +707,8 @@
 			"área_ou_def": 5,
 			"mana": 4,
 			"efeito": "Ganha +1 de ATK ao final de cada turno em que não atacar.",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/ESPERANCA/açafrão.png"
 		},
 		{
 			"carta": "Trevo de Quatro Folhas",
@@ -638,16 +717,18 @@
 			"área_ou_def": 3,
 			"mana": 3,
 			"efeito": "Ao entrar, concede Escudo a uma flor aleatória. Se o jogador tiver menos de 10 de vida, concede a todas as flores.",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/ESPERANCA/trevo-de-quatro-folhas.png"
 		},
 		{
-			"carta": "Broto Persistent e",
+			"carta": "Broto Persistente",
 			"tipo": "Criatura Renascente",
 			"duração_ou_atk": 1,
 			"área_ou_def": 2,
 			"mana": 2,
 			"efeito": "Ao morrer, volta ao campo no próximo turno. Só pode reviver uma vez por partida.",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/ESPERANCA/broto-persistente.png"
 		},
 		{
 			"carta": "Beija-flor Vigilante",
@@ -656,7 +737,8 @@
 			"área_ou_def": 2,
 			"mana": 2,
 			"efeito": "No início do turno, concede +1 de DEF a uma flor aliada aleatória.",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/ESPERANCA/beija-flor-vigilante.png"
 		},
 		{
 			"carta": "Raiz Escondida",
@@ -665,25 +747,28 @@
 			"área_ou_def": 4,
 			"mana": 2,
 			"efeito": "Enquanto estiver na última posição do campo, não pode ser alvo de ataques diretos.",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/ESPERANCA/raiz-escondida.png"
 		},
 		{
 			"carta": "Orvalho da Manhã Clara",
-			"tipo": "Evento de Fortaleciment o",
+			"tipo": "Evento de Fortalecimento",
 			"duração_ou_atk": 2,
 			"área_ou_def": 2,
 			"mana": 4,
 			"efeito": "Flores na área recebem +1 de ATK por turno enquanto o evento durar.",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/ESPERANCA/orvalho-da-manhã-clara.png"
 		},
 		{
-			"carta": "Brisa Renovador a",
+			"carta": "Brisa Renovadora",
 			"tipo": "Evento de Regeneração",
 			"duração_ou_atk": 2,
 			"área_ou_def": 2,
 			"mana": 5,
 			"efeito": "Ao final de cada turno, flores na área ganham 1 de DEF se não atacaram.",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/ESPERANCA/brisa-renovadora.png"
 		},
 		{
 			"carta": "Aurora Silenciosa",
@@ -692,16 +777,18 @@
 			"área_ou_def": 3,
 			"mana": 4,
 			"efeito": "As flores na área não podem ser alvo de spells inimigos enquanto o evento durar.",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/ESPERANCA/aurora-silenciosa.png"
 		},
 		{
-			"carta": "Luz Persistent e",
+			"carta": "Luz Persistente",
 			"tipo": "Spell de Buff Adiado",
 			"duração_ou_atk": null,
 			"área_ou_def": null,
 			"mana": 2,
 			"efeito": "Escolha uma flor: no próximo turno, ela ganha +3 de DEF e Escudo.",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/ESPERANCA/luz-persistente.png"
 		},
 		{
 			"carta": "Folha Nascente",
@@ -710,7 +797,8 @@
 			"área_ou_def": null,
 			"mana": 5,
 			"efeito": "Revive uma flor destruída nesta partida com -1 de ATK e -1 de DEF.",
-			"copias_permitidas": 2
+			"copias_permitidas": 2,
+			"image_url": "DECKS/ESPERANCA/folha-nascente.png"
 		},
 		{
 			"carta": "Sementes que Esperam",
@@ -719,7 +807,8 @@
 			"área_ou_def": null,
 			"mana": 3,
 			"efeito": "Olhe as 3 próximas cartas do seu deck. Escolha 1 para a mão, 1 para o topo e descarte 1.",
-			"copias_permitidas": 3
+			"copias_permitidas": 3,
+			"image_url": "DECKS/ESPERANCA/sementes-que-esperam.png"
 		}
 	]
 }

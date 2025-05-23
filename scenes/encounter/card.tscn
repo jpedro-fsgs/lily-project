@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://d152e4vnsy3dj"]
+[gd_scene load_steps=9 format=3 uid="uid://d152e4vnsy3dj"]
 
 [ext_resource type="Script" uid="uid://dc6ievvemefh2" path="res://scenes/encounter/card.gd" id="1_6u4wf"]
 [ext_resource type="Theme" uid="uid://cxsrpilaqw4ux" path="res://themes/main_theme.tres" id="1_kg30u"]
-[ext_resource type="Texture2D" uid="uid://cugu6n42tjw06" path="res://assets/Card1.png" id="3_8w5pg"]
+[ext_resource type="Texture2D" uid="uid://bwpgpq0s6h3lp" path="res://assets/CardMask.png" id="3_do18g"]
+[ext_resource type="Texture2D" uid="uid://cgeg6m4tgcxye" path="res://assets/DECKS/PUREZA/lírio-do-vale.png" id="3_hyinx"]
+[ext_resource type="Texture2D" uid="uid://d2hihmep71ka7" path="res://assets/Card2.png" id="4_do18g"]
+[ext_resource type="Theme" uid="uid://bia38n0xiq6e1" path="res://themes/card_theme.tres" id="5_lv7ue"]
 [ext_resource type="Texture2D" uid="uid://3h6rk61w8klq" path="res://assets/Cardback1.png" id="5_sy11y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ligt"]
@@ -14,8 +17,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1072.0
-offset_bottom = -488.0
+offset_right = -1648.0
+offset_bottom = -672.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(136, 204)
@@ -25,92 +28,92 @@ script = ExtResource("1_6u4wf")
 [node name="CardBody" type="Node2D" parent="."]
 scale = Vector2(0.5, 0.5)
 
-[node name="ColorRect" type="ColorRect" parent="CardBody"]
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 520.0
-offset_bottom = 450.0
-mouse_filter = 2
-metadata/_edit_use_anchors_ = true
+[node name="CardMask" type="Sprite2D" parent="CardBody"]
+clip_children = 1
+position = Vector2(272, 376)
+scale = Vector2(0.59375, 0.53125)
+texture = ExtResource("3_do18g")
 
-[node name="CardImage" type="Sprite2D" parent="CardBody"]
-position = Vector2(276.192, 349.022)
-scale = Vector2(0.791717, 0.791717)
+[node name="CardImage" type="Sprite2D" parent="CardBody/CardMask"]
+position = Vector2(0, -15.0588)
+scale = Vector2(1.49562, 1.67158)
+texture = ExtResource("3_hyinx")
 
 [node name="Card" type="Sprite2D" parent="CardBody"]
-position = Vector2(272, 424)
-scale = Vector2(0.59375, 0.59375)
-texture = ExtResource("3_8w5pg")
+position = Vector2(272, 376)
+scale = Vector2(0.59375, 0.53125)
+texture = ExtResource("4_do18g")
 
 [node name="Name" type="Label" parent="CardBody"]
+visible = false
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = 62.0
-offset_top = 426.0
-offset_right = 478.0
-offset_bottom = 498.0
+offset_left = 66.0
+offset_top = 252.0
+offset_right = 482.0
+offset_bottom = 324.0
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.407796, 0.434746, 0.193418, 1)
+theme = ExtResource("5_lv7ue")
 theme_override_font_sizes/font_size = 42
 text = "Card Test"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Effect" type="Label" parent="CardBody"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 64.0
-offset_top = 512.0
-offset_right = 512.0
-offset_bottom = 704.0
+offset_left = 86.0
+offset_top = 382.0
+offset_right = 460.0
+offset_bottom = 574.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.407843, 0.435294, 0.192157, 1)
-theme_override_font_sizes/font_size = 32
+theme = ExtResource("5_lv7ue")
 text = "Impede ataque direto ao jogador enquanto estiver ativa"
 autowrap_mode = 3
 
 [node name="CostLabel" type="Label" parent="CardBody"]
-offset_left = 40.0
-offset_top = 676.0
-offset_right = 122.0
-offset_bottom = 775.0
-theme_override_colors/font_color = Color(0.407843, 0.435294, 0.192157, 1)
-theme_override_font_sizes/font_size = 72
-text = "00"
+offset_left = 38.0
+offset_top = 10.0
+offset_right = 120.0
+offset_bottom = 124.0
+theme = ExtResource("5_lv7ue")
+theme_override_font_sizes/font_size = 80
+text = "0"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="AttackLabel" type="Label" parent="CardBody"]
-offset_left = 224.0
-offset_top = 672.0
-offset_right = 306.0
-offset_bottom = 771.0
-theme_override_colors/font_color = Color(0.407843, 0.435294, 0.192157, 1)
-theme_override_font_sizes/font_size = 72
-text = "00"
+offset_left = 22.0
+offset_top = 626.0
+offset_right = 104.0
+offset_bottom = 725.0
+theme = ExtResource("5_lv7ue")
+theme_override_font_sizes/font_size = 64
+text = "0"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="DefenseLabel" type="Label" parent="CardBody"]
-offset_left = 384.0
-offset_top = 676.0
-offset_right = 466.0
-offset_bottom = 775.0
-theme_override_colors/font_color = Color(0.407843, 0.435294, 0.192157, 1)
-theme_override_font_sizes/font_size = 72
-text = "00"
+offset_left = 440.0
+offset_top = 626.0
+offset_right = 522.0
+offset_bottom = 728.0
+theme = ExtResource("5_lv7ue")
+theme_override_font_sizes/font_size = 64
+text = "0"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Cardback" type="Sprite2D" parent="CardBody"]
-visible = false
-position = Vector2(273, 410)
-scale = Vector2(0.548828, 0.536458)
+position = Vector2(273, 375)
+scale = Vector2(0.548828, 0.490885)
 texture = ExtResource("5_sy11y")
 
 [node name="DropPointDetector" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DropPointDetector"]
 position = Vector2(136, 204)

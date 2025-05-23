@@ -82,9 +82,6 @@ texture = ExtResource("5_dxpkq")
 
 [node name="Deck" type="Node2D" parent="."]
 
-[node name="CardSlots" type="Node2D" parent="."]
-position = Vector2(896, 688)
-
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="PlayerHP" type="Label" parent="UI"]
