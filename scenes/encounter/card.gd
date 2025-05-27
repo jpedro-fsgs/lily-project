@@ -13,6 +13,9 @@ extends Control
 signal card_selected(card)
 signal card_released(card)
 
+signal card_hovered(card)
+signal card_unhovered(card)
+
 const PATH = "res://assets/"
 
 var _name #: String
@@ -23,9 +26,7 @@ var _cost #: int
 var _effect #: String
 var _image_path
 
-var selectable: bool = false
 
-var mouse_position_on_card
 var _original_scale = Vector2(0.5, 0.5)
 var _startpos = Vector2(0,0)
 var _targetpos = Vector2(0,0)
@@ -37,6 +38,7 @@ var current_tween: Tween = null
 enum states {
 	InHand,
 	InSlot,
+	Selected,
 	InPlay,
 	InMouse,
 	FocusInHand,
@@ -70,7 +72,8 @@ func _ready():
 	defense_label.text = str(int(_defense) if _defense else 0)
 
 func _process(_delta: float) -> void:
-	pass
+	if state == states.Selected:
+		global_position = get_global_mouse_position() - size * 0.25
 
 func change_state(new_state):
 	state = new_state
@@ -78,6 +81,8 @@ func change_state(new_state):
 	if current_tween and current_tween.is_valid():
 		current_tween.kill()
 	
+	if state == states.Selected:
+		return
 	# Cria um novo tween baseado no estado
 	current_tween = create_tween()
 	
@@ -90,9 +95,9 @@ func change_state(new_state):
 			current_tween.tween_property(self, "rotation", _targetrot, 0.2)
 		states.InSlot:
 			current_tween.set_parallel()
-			current_tween.tween_property(self, "position", _targetpos, 0.2)
+			#current_tween.tween_property(self, "position", _targetpos, 0.2)
 			current_tween.tween_property(self, "rotation", _startrot, 0.2)
-			current_tween.tween_property(self, "scale", _original_scale, 0.2)
+			#current_tween.tween_property(self, "scale", _original_scale, 0.2)
 		states.InPlay:
 			pass
 		states.InMouse:
@@ -120,14 +125,16 @@ func change_state(new_state):
 		
 	
 func _on_mouse_entered() -> void:
-	if !hover_enabled or not selectable:
-		return
-	if state == states.InHand:
-		change_state(states.FocusInHand)
+	emit_signal("card_hovered", self)
+	#if !hover_enabled or not selectable:
+		#return
+	#if state == states.InHand:
+		#change_state(states.FocusInHand)
 
 func _on_mouse_exited() -> void:
-	if state == states.FocusInHand:
-		change_state(states.InHand)
+	emit_signal("card_unhovered", self)
+	#if state == states.FocusInHand:
+		#change_state(states.InHand)
 		
 func _set_hover_state(hover_state: bool):
 	hover_enabled = hover_state
@@ -141,15 +148,12 @@ func show_card():
 func _on_turn_changed(index):
 	if state == states.InSlot:
 		return
-	selectable = index == get_parent().get_parent().index
+
 
 
 func _gui_input(event):
-	if state == states.InSlot or not selectable:
-		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			emit_signal("card_selected", self)
-			mouse_position_on_card = event.position
 		elif event.is_released():
 			emit_signal("card_released", self)

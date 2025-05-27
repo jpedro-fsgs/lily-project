@@ -1,12 +1,10 @@
-class_name CardSlot
 extends Node2D
+class_name CardSlot
 
 @onready var card_slot_detector: Area2D = $CardSlotDetector
-@onready var cards_in_slot: Node2D = $Cards
+@onready var card_in_slot: Node2D = $CardInSlot
 
-var count = 0
-
-var cards = []
+var card: Card = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,26 +15,19 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 
-func add_card(card: Card, current_player: Player, opponent: Player):
+func add_card(new_card: Card):
 	
-
-	if card._defense:
-		current_player.add_defense(card._defense)
-
-	if card._attack:
-		opponent.receive_damage(card._attack)
-	
+	card = new_card
 	var global_position_card = card.global_position
 	
-	card.get_parent().get_parent().remove_card_from_hand(card)
-	card.z_index = 1
-	card.show_card()
-	cards_in_slot.add_child(card)
-	cards.append(card)
-	count += card._cost
-	card.global_position = global_position_card
+	new_card.get_parent().remove_child(card)
+	card_in_slot.add_child(new_card)
+	new_card.z_index = 1
+	new_card.show_card()
+
+	new_card.global_position = global_position_card
 	
-	card._targetpos = Vector2.ZERO - card.size/2
-	card.change_state(Card.states.InSlot)
+	new_card._targetpos = Vector2.ZERO - card.size/2
+	new_card.change_state(Card.states.InSlot)
 
 	

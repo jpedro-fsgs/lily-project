@@ -1,8 +1,6 @@
-class_name Player
 extends Node2D
 
 @onready var card_hand: Node2D = $CardHand
-
 
 
 enum {
@@ -10,7 +8,7 @@ enum {
 	Opponent
 }
 
-var player_type = HumanPlayer
+var player_type = Opponent
 
 var HP = 30
 var defense = 0
@@ -23,7 +21,7 @@ var index: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	cards_deck = CardDatabase.get_deck(CardDatabase.DeckType.PUREZA)
+	cards_deck = CardDatabase.get_deck(CardDatabase.DeckType.RAIVA)
 	cards_deck.shuffle()
 			
 func set_player_type(type):
@@ -56,7 +54,6 @@ func remove_card_from_hand(card: Card):
 	
 func receive_damage(dmg: int):
 	HP -= dmg
-	emit_signal("update_hp", HP)
 	
 func add_defense(def: int):
 	defense += def

@@ -22,4 +22,5 @@ func get_deck(deck_type: DeckType):
 		for i in range(card["copias_permitidas"]):
 			cards.append(card.duplicate())
 		
-	return cards
+	cards.shuffle()
+	return cards.slice(0, 30)
