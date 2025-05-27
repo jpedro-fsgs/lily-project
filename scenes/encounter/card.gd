@@ -1,5 +1,5 @@
-class_name Card
 extends Control
+class_name Card
 
 @onready var cardback: Sprite2D = $CardBody/Cardback
 @onready var card_image: Sprite2D = $CardBody/CardMask/CardImage
@@ -38,15 +38,22 @@ var current_tween: Tween = null
 enum states {
 	InHand,
 	InSlot,
-	Selected,
 	InPlay,
 	InMouse,
 	FocusInHand,
 	MoveDrawnCardToHand,
 	ReOrganizeHand
 }
-var state
-var hover_enabled = true
+
+enum fields {
+	Hand,
+	Bench,
+	Combat
+}
+
+var state: states
+var field: fields
+
 var bottom_card = true
 
 func set_attributes(card_attributes) -> void:
@@ -57,6 +64,7 @@ func set_attributes(card_attributes) -> void:
 	_cost = card_attributes["mana"]
 	_effect = card_attributes["efeito"]
 	_image_path = card_attributes["image_url"]
+	field = fields.Hand
 	
 
 # Called when the node enters the scene tree for the first time.
@@ -72,7 +80,7 @@ func _ready():
 	defense_label.text = str(int(_defense) if _defense else 0)
 
 func _process(_delta: float) -> void:
-	if state == states.Selected:
+	if state == states.InMouse:
 		global_position = get_global_mouse_position() - size * 0.25
 
 func change_state(new_state):
@@ -81,8 +89,6 @@ func change_state(new_state):
 	if current_tween and current_tween.is_valid():
 		current_tween.kill()
 	
-	if state == states.Selected:
-		return
 	# Cria um novo tween baseado no estado
 	current_tween = create_tween()
 	
@@ -136,8 +142,8 @@ func _on_mouse_exited() -> void:
 	#if state == states.FocusInHand:
 		#change_state(states.InHand)
 		
-func _set_hover_state(hover_state: bool):
-	hover_enabled = hover_state
+#func _set_hover_state(hover_state: bool):
+	#hover_enabled = hover_state
 	
 func hide_card():
 	cardback.visible = true

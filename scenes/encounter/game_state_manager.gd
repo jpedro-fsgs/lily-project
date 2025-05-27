@@ -2,6 +2,10 @@ extends Node2D
 
 @onready var card_manager: CardManager = $"../CardManager"
 
+enum players {
+	PLAYER,
+	OPPONENT
+}
 
 # --- Atributos do Jogador Humano ---
 var player_current_hp: int = 30  # HP atual do Nexus do jogador
@@ -14,9 +18,9 @@ var opponent_max_hp: int = 30
 var opponent_current_mana: int = 0
 
 # Outras variáveis de estado importantes gerenciadas aqui:
-var current_turn_player: String = "Player" # Quem tem o turno ("Player" ou "Opponent")
+var current_turn_player: players = players.PLAYER # Quem tem o turno ("Player" ou "Opponent")
 var current_round: int = 1                 # Rodada atual do jogo
-var has_attack_token: String = "Player"    # Quem tem a permissão para iniciar um ataque
+var has_attack_token: players = players.PLAYER   # Quem tem a permissão para iniciar um ataque
 
 # Sinais para notificar outras partes do jogo sobre mudanças nesses atributos
 signal player_hp_changed(new_hp)

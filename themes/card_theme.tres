@@ -1,9 +1,0 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bia38n0xiq6e1"]
-
-[ext_resource type="FontFile" uid="uid://deb1mlfs1kf8b" path="res://assets/ViaodaLibre-Regular.ttf" id="1_wydgw"]
-
-[resource]
-default_font = ExtResource("1_wydgw")
-default_font_size = 65
-Label/font_sizes/font_size = 32
-Label/fonts/font = ExtResource("1_wydgw")

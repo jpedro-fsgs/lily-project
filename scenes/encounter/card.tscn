@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bwpgpq0s6h3lp" path="res://assets/CardMask.png" id="3_do18g"]
 [ext_resource type="Texture2D" uid="uid://cgeg6m4tgcxye" path="res://assets/DECKS/PUREZA/lírio-do-vale.png" id="3_hyinx"]
 [ext_resource type="Texture2D" uid="uid://d2hihmep71ka7" path="res://assets/Card2.png" id="4_do18g"]
-[ext_resource type="Theme" uid="uid://bia38n0xiq6e1" path="res://themes/card_theme.tres" id="5_lv7ue"]
+[ext_resource type="Theme" uid="uid://bia38n0xiq6e1" path="res://themes/card_title_theme.tres" id="5_lv7ue"]
 [ext_resource type="Texture2D" uid="uid://3h6rk61w8klq" path="res://assets/Cardback1.png" id="5_sy11y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ligt"]
@@ -29,7 +29,7 @@ script = ExtResource("1_6u4wf")
 scale = Vector2(0.5, 0.5)
 
 [node name="CardMask" type="Sprite2D" parent="CardBody"]
-clip_children = 1
+clip_children = 2
 position = Vector2(272, 376)
 scale = Vector2(0.59375, 0.53125)
 texture = ExtResource("3_do18g")
@@ -108,6 +108,7 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Cardback" type="Sprite2D" parent="CardBody"]
+visible = false
 position = Vector2(273, 375)
 scale = Vector2(0.548828, 0.490885)
 texture = ExtResource("5_sy11y")
