@@ -27,6 +27,7 @@ func add_card_to_hand(card: Card):
 	card_hand.add_child(card)
 	card_hand.update_hand()
 	card.change_state(Card.states.MoveDrawnCardToHand)
+	card.change_field(Card.fields.Hand)
 
 func remove_card_from_hand(card: Card):
 	card_hand.remove_child(card)
@@ -38,6 +39,7 @@ func add_card_to_bench(card: Card):
 			card_slot.add_card(card)
 			return
 	card.change_state(Card.states.InBench)
+	card.change_field(Card.fields.Bench)
 
 func remove_card_from_bench(card: Card):
 	var card_slot: CardSlot = card.card_slot
@@ -49,6 +51,7 @@ func add_card_to_field(card: Card):
 			card_slot.add_card(card)
 			return
 	card.change_state(Card.states.InField)
+	card.change_field(Card.fields.Combat)
 
 func remove_card_from_field(card: Card):
 	pass

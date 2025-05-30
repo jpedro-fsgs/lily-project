@@ -1,10 +1,11 @@
-[gd_scene load_steps=25 format=4 uid="uid://bu14yy0jt0jpw"]
+[gd_scene load_steps=26 format=4 uid="uid://bu14yy0jt0jpw"]
 
 [ext_resource type="Script" uid="uid://cujbdg01s7lcu" path="res://scenes/encounter/encounter_scene.gd" id="1_5eihc"]
 [ext_resource type="Texture2D" uid="uid://dttdoxrc247vp" path="res://assets/board3.png" id="2_pe3it"]
 [ext_resource type="Script" uid="uid://c7hsrp7eysvj7" path="res://scenes/encounter/game_state_manager.gd" id="2_sc6ix"]
 [ext_resource type="Script" uid="uid://kmnfpgd716d2" path="res://scenes/encounter/player_field.gd" id="3_5eihc"]
 [ext_resource type="Script" uid="uid://dihvh8shr0d0f" path="res://scenes/encounter/card_manager.gd" id="3_dxpkq"]
+[ext_resource type="Script" uid="uid://dsn4v2uv4m43q" path="res://scenes/encounter/opponent_ai_manager.gd" id="4_bqpli"]
 [ext_resource type="Script" uid="uid://c0hn4x1uegueg" path="res://scenes/encounter/player.gd" id="6_dxpkq"]
 [ext_resource type="Script" uid="uid://cx5pcqafp8h8q" path="res://scenes/encounter/player_hand.gd" id="7_e52p7"]
 [ext_resource type="Script" uid="uid://c3skla3jq1khs" path="res://scenes/encounter/opponent_ui.gd" id="7_pe3it"]
@@ -42,6 +43,9 @@ script = ExtResource("2_sc6ix")
 
 [node name="CardManager" type="Node2D" parent="."]
 script = ExtResource("3_dxpkq")
+
+[node name="OpponentAIManager" type="Node2D" parent="."]
+script = ExtResource("4_bqpli")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
@@ -332,6 +336,7 @@ parameters/looping = true
 
 [connection signal="opponent_hp_changed" from="GameStateManager" to="UI/OpponentUI" method="_on_game_state_manager_opponent_hp_changed"]
 [connection signal="opponent_mana_changed" from="GameStateManager" to="UI/OpponentUI" method="_on_game_state_manager_opponent_mana_changed"]
+[connection signal="opponent_turn" from="GameStateManager" to="OpponentAIManager" method="_on_game_state_manager_opponent_turn"]
 [connection signal="player_hp_changed" from="GameStateManager" to="UI/PlayerUI" method="_on_game_state_manager_player_hp_changed"]
 [connection signal="player_mana_changed" from="GameStateManager" to="UI/PlayerUI" method="_on_game_state_manager_player_mana_changed"]
 [connection signal="focus_hand" from="CardManager" to="Players/Player/PlayerHand" method="_on_card_manager_focus_hand"]
