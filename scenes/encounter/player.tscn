@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://jdqun6djieyw"]
 
 [ext_resource type="Script" uid="uid://c0hn4x1uegueg" path="res://scenes/encounter/player.gd" id="1_3vyb7"]
-[ext_resource type="Script" uid="uid://cx5pcqafp8h8q" path="res://scenes/encounter/card_hand.gd" id="2_g2els"]
+[ext_resource type="Script" uid="uid://cx5pcqafp8h8q" path="res://scenes/encounter/player_hand.gd" id="2_g2els"]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_3vyb7")

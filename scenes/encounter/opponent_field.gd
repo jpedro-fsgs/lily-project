@@ -1,5 +1,5 @@
 extends Node2D
-class_name PlayerField
+class_name OpponentField
 
 @onready var card_slots: Node2D = $CardSlots
 
@@ -13,7 +13,6 @@ func _process(_delta: float) -> void:
 	pass
 
 func add_card(card: Card):
-	
 	
 	card.get_parent().remove_child(card)
 	card.z_index = 1

@@ -1,14 +1,10 @@
 extends Node2D
+class_name Opponent
 
-@onready var card_hand: Node2D = $CardHand
+@onready var card_hand: Node2D = $OpponentHand
+@onready var opponent_bench: OpponentBench = $OpponentBench
+@onready var opponent_field: OpponentField = $OpponentField
 
-
-enum {
-	HumanPlayer,
-	Opponent
-}
-
-var player_type = Opponent
 
 var HP = 30
 var defense = 0
@@ -21,36 +17,37 @@ var index: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	cards_deck = CardDatabase.get_deck(CardDatabase.DeckType.RAIVA)
-	cards_deck.shuffle()
-			
-func set_player_type(type):
-	player_type = type
-	match type:
-		HumanPlayer:
-			card_hand.set_cards_position(card_hand.BOTTOM)
-			cards_deck = CardDatabase.get_deck(CardDatabase.DeckType.PUREZA)
-			cards_deck.shuffle()
-		Opponent:
-			card_hand.set_cards_position(card_hand.TOP)
-			cards_deck = CardDatabase.get_deck(CardDatabase.DeckType.AMOR)
-			cards_deck.shuffle()
+	card_hand.set_cards_position(card_hand.TOP)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
 
-func add_card_to_hand(new_card: Card):
-	card_hand.add_child(new_card)
+
+func add_card_to_hand(card: Card):
+	card_hand.add_child(card)
 	card_hand.update_hand()
-	new_card.change_state(Card.states.MoveDrawnCardToHand)
-	if player_type == Opponent:
-		new_card.hide_card()
-		new_card.bottom_card = false
-	
+	card.change_state(Card.states.MoveDrawnCardToHand)
+
 func remove_card_from_hand(card: Card):
 	card_hand.remove_child(card)
 	card_hand.update_hand()
+	
+func add_card_to_bench(card: Card):
+	for card_slot: CardSlot in opponent_bench.card_slots.get_children():
+		if !card_slot.card:
+			card_slot.add_card(card)
+			return
+
+func remove_card_from_bench(card: Card):
+	var card_slot: CardSlot = card.card_slot
+	card_slot.remove_card(card)
+	
+func add_card_to_field(card: Card):
+	for card_slot: CardSlot in opponent_field.card_slots.get_children():
+		if !card_slot.card:
+			card_slot.add_card(card)
+			return
 	
 func receive_damage(dmg: int):
 	HP -= dmg

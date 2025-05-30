@@ -10,6 +10,8 @@ class_name Card
 @onready var defense_label: Label = $CardBody/DefenseLabel
 @onready var drop_point_detector: Area2D = $DropPointDetector
 
+var card_slot: CardSlot = null
+
 signal card_selected(card)
 signal card_released(card)
 
@@ -37,7 +39,8 @@ var current_tween: Tween = null
 
 enum states {
 	InHand,
-	InSlot,
+	InBench,
+	InField,
 	InPlay,
 	InMouse,
 	FocusInHand,
@@ -55,6 +58,7 @@ var state: states
 var field: fields
 
 var bottom_card = true
+var mouse_position_on_card
 
 func set_attributes(card_attributes) -> void:
 	_name = card_attributes["carta"]
@@ -81,9 +85,12 @@ func _ready():
 
 func _process(_delta: float) -> void:
 	if state == states.InMouse:
-		global_position = get_global_mouse_position() - size * 0.25
+		global_position = get_global_mouse_position() - mouse_position_on_card * scale
+		
+func change_field(new_field: fields):
+	field = new_field
 
-func change_state(new_state):
+func change_state(new_state: states):
 	state = new_state
 	# Cancela qualquer tween anterior
 	if current_tween and current_tween.is_valid():
@@ -99,11 +106,16 @@ func change_state(new_state):
 			current_tween.tween_property(self, "position", _targetpos, 0.3)
 			current_tween.tween_property(self, "scale", _original_scale, 0.1)
 			current_tween.tween_property(self, "rotation", _targetrot, 0.2)
-		states.InSlot:
+		states.InBench:
 			current_tween.set_parallel()
-			#current_tween.tween_property(self, "position", _targetpos, 0.2)
+			current_tween.tween_property(self, "position", _targetpos, 0.2)
 			current_tween.tween_property(self, "rotation", _startrot, 0.2)
-			#current_tween.tween_property(self, "scale", _original_scale, 0.2)
+			current_tween.tween_property(self, "scale", _original_scale, 0.2)
+		states.InField:
+			current_tween.set_parallel()
+			current_tween.tween_property(self, "position", _targetpos, 0.2)
+			current_tween.tween_property(self, "rotation", _startrot, 0.2)
+			current_tween.tween_property(self, "scale", _original_scale, 0.2)
 		states.InPlay:
 			pass
 		states.InMouse:
@@ -111,11 +123,13 @@ func change_state(new_state):
 			z_index = 2
 			current_tween.set_parallel()
 			current_tween.tween_property(self, "rotation", _startrot, 0.1)
-			current_tween.tween_property(self, "scale", _original_scale * 1.2, 0.2)
+			current_tween.tween_property(self, "scale", _original_scale * 1.1, 0.1)
 		states.FocusInHand:
 			current_tween.set_parallel()
-			current_tween.tween_property(self, "position:y", _targetpos.y - (70 if bottom_card else - 70), 0.2)
+			current_tween.tween_property(self, "position", _targetpos, 0.3)
+			current_tween.tween_property(self, "rotation", _targetrot, 0.2)
 			current_tween.tween_property(self, "scale", _original_scale * 1.2, 0.2)
+			z_index = 2
 		states.MoveDrawnCardToHand:
 			z_index = 2
 			current_tween.set_parallel()
@@ -152,14 +166,14 @@ func show_card():
 	cardback.visible = false
 	
 func _on_turn_changed(index):
-	if state == states.InSlot:
-		return
+	pass
 
 
 
 func _gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
+			mouse_position_on_card = event.position
 			emit_signal("card_selected", self)
 		elif event.is_released():
 			emit_signal("card_released", self)

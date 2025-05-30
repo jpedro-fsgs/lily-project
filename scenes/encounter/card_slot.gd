@@ -16,18 +16,18 @@ func _process(_delta: float) -> void:
 	pass
 
 func add_card(new_card: Card):
-	
 	card = new_card
-	var global_position_card = card.global_position
+	card.card_slot = self
 	
-	new_card.get_parent().remove_child(card)
 	card_in_slot.add_child(new_card)
 	new_card.z_index = 1
 	new_card.show_card()
-
-	new_card.global_position = global_position_card
 	
 	new_card._targetpos = Vector2.ZERO - card.size/2
-	new_card.change_state(Card.states.InSlot)
+	new_card.change_state(Card.states.InBench)
+	new_card.change_field(Card.fields.Bench)
 
-	
+func remove_card(new_card: Card):
+	new_card.card_slot = null
+	card = null
+	card_in_slot.remove_child(new_card)

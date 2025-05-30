@@ -13,12 +13,10 @@ func _process(_delta: float) -> void:
 @onready var CentreCardOval = Vector2(get_viewport().size) * Vector2(0.5, 1.2)
 @onready var Hor_rad = get_viewport().size.x * 0.5
 
-@onready var Focus_Ver_rad = get_viewport().size.y * 0.4
+@onready var Focus_Ver_rad = get_viewport().size.y * 0.375
 @onready var Unfocus_Ver_rad = get_viewport().size.y * 0.25
 
-var on_focus = true
-
-
+var on_focus = false
 
 var angle = 0
 var OvalAngleVector: Vector2
@@ -83,5 +81,13 @@ func update_hand():
 				card._targetrot = (270 - rad_to_deg(current_angle)) * 0.0075
 			
 		
+		if card.state != Card.states.FocusInHand:
+			card.change_state(Card.states.InHand)
+		else:
+			card.change_state(Card.states.FocusInHand)
 
-		card.change_state(Card.states.InHand)
+
+func _on_card_manager_focus_hand(focus: bool) -> void:
+	if on_focus != focus:
+		on_focus = focus
+		update_hand()

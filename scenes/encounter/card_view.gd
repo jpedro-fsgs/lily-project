@@ -14,7 +14,7 @@ const PATH = "res://assets/"
 func _ready():
 	visible=false
 	
-func _process(delta: float):
+func _process(_delta: float):
 	pass
 
 func _on_card_manager_view_card(card):

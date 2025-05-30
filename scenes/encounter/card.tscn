@@ -75,10 +75,10 @@ text = "Impede ataque direto ao jogador enquanto estiver ativa"
 autowrap_mode = 3
 
 [node name="CostLabel" type="Label" parent="CardBody"]
-offset_left = 38.0
-offset_top = 10.0
-offset_right = 120.0
-offset_bottom = 124.0
+offset_left = 36.0
+offset_top = 26.0
+offset_right = 118.0
+offset_bottom = 140.0
 theme = ExtResource("5_lv7ue")
 theme_override_font_sizes/font_size = 80
 text = "0"
@@ -86,10 +86,10 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="AttackLabel" type="Label" parent="CardBody"]
-offset_left = 22.0
-offset_top = 626.0
-offset_right = 104.0
-offset_bottom = 725.0
+offset_left = 18.0
+offset_top = 638.0
+offset_right = 100.0
+offset_bottom = 737.0
 theme = ExtResource("5_lv7ue")
 theme_override_font_sizes/font_size = 64
 text = "0"
@@ -97,10 +97,10 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="DefenseLabel" type="Label" parent="CardBody"]
-offset_left = 440.0
-offset_top = 626.0
-offset_right = 522.0
-offset_bottom = 728.0
+offset_left = 442.0
+offset_top = 640.0
+offset_right = 524.0
+offset_bottom = 742.0
 theme = ExtResource("5_lv7ue")
 theme_override_font_sizes/font_size = 64
 text = "0"
