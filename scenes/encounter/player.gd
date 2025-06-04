@@ -1,7 +1,7 @@
 extends Node2D
 class_name Player
 
-@onready var card_hand: Node2D = $PlayerHand
+@onready var card_hand: CanvasLayer = $PlayerHand
 @onready var player_bench: PlayerBench = $PlayerBench
 @onready var player_field: PlayerField = $PlayerField
 @onready var drop_detector: Area2D = $DropDetector

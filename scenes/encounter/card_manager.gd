@@ -7,8 +7,8 @@ var player_deck = []
 var opponent_deck = []
 
 @onready var game_state_manager: GameStateManager = $"../GameStateManager"
-@onready var player_card_hand: Node2D = $"../Players/Player/PlayerHand"
-@onready var opponent_card_hand: Node2D = $"../Players/Opponent/OpponentHand"
+@onready var player_card_hand: CanvasLayer = $"../Players/Player/PlayerHand"
+@onready var opponent_card_hand: CanvasLayer = $"../Players/Opponent/OpponentHand"
 
 @onready var player: Player = $"../Players/Player"
 
@@ -47,8 +47,7 @@ func draw_card_opponent():
 		return null
 	var card_data = opponent_deck.pop_front()
 	var new_card = CARD.instantiate()
-	new_card.set_attributes(card_data)
-	
+	new_card.set_attributes(card_data, true)
 	opponent_card_hand.add_child(new_card)
 	opponent_card_hand.update_hand()
 	return new_card

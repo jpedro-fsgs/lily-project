@@ -8,19 +8,19 @@
 [ext_resource type="Script" uid="uid://dsn4v2uv4m43q" path="res://scenes/encounter/opponent_ai_manager.gd" id="4_bqpli"]
 [ext_resource type="Script" uid="uid://c0hn4x1uegueg" path="res://scenes/encounter/player.gd" id="6_dxpkq"]
 [ext_resource type="Script" uid="uid://cx5pcqafp8h8q" path="res://scenes/encounter/player_hand.gd" id="7_e52p7"]
-[ext_resource type="Script" uid="uid://c3skla3jq1khs" path="res://scenes/encounter/opponent_ui.gd" id="7_pe3it"]
 [ext_resource type="Script" uid="uid://cw7vbdtjoimgq" path="res://scenes/encounter/player_bench.gd" id="8_e52p7"]
 [ext_resource type="PackedScene" uid="uid://byx08v0k1vcqy" path="res://scenes/encounter/card_slot.tscn" id="8_l13s2"]
 [ext_resource type="Script" uid="uid://cjpn3pkhwrw54" path="res://scenes/encounter/opponent.gd" id="8_sc6ix"]
-[ext_resource type="Script" uid="uid://mqfc8svcxymd" path="res://scenes/encounter/player_ui.gd" id="9_dxpkq"]
 [ext_resource type="Script" uid="uid://c4p1mb8k3rndo" path="res://scenes/encounter/opponent_field.gd" id="11_lpcqs"]
 [ext_resource type="Script" uid="uid://bv8yk8qst3lfy" path="res://scenes/encounter/opponent_hand.gd" id="11_rk4nq"]
 [ext_resource type="Script" uid="uid://c7m1bf7jof7ti" path="res://scenes/encounter/opponent_bench.gd" id="12_rk4nq"]
 [ext_resource type="Script" uid="uid://cv1fmwwn7a3rx" path="res://scenes/encounter/card_view.gd" id="13_vhu1a"]
 [ext_resource type="Texture2D" uid="uid://bwpgpq0s6h3lp" path="res://assets/CardMask.png" id="14_qj38i"]
 [ext_resource type="Texture2D" uid="uid://cgeg6m4tgcxye" path="res://assets/DECKS/PUREZA/lírio-do-vale.png" id="15_jcv0n"]
+[ext_resource type="Script" uid="uid://3hs238egyhgu" path="res://scenes/encounter/ui.gd" id="15_vy5yj"]
 [ext_resource type="Texture2D" uid="uid://d2hihmep71ka7" path="res://assets/Card2.png" id="16_lpcqs"]
 [ext_resource type="Theme" uid="uid://bia38n0xiq6e1" path="res://themes/card_title_theme.tres" id="17_rk4nq"]
+[ext_resource type="FontFile" uid="uid://6pctfi4lxcnw" path="res://assets/CDType - Voga Medium.otf" id="22_b3sdp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fm2uc"]
 size = Vector2(1312, 180)
@@ -57,7 +57,7 @@ texture = ExtResource("2_pe3it")
 [node name="Player" type="Node2D" parent="Players"]
 script = ExtResource("6_dxpkq")
 
-[node name="PlayerHand" type="Node2D" parent="Players/Player"]
+[node name="PlayerHand" type="CanvasLayer" parent="Players/Player"]
 script = ExtResource("7_e52p7")
 
 [node name="PlayerField" type="Node2D" parent="Players/Player"]
@@ -117,7 +117,7 @@ shape = SubResource("RectangleShape2D_fm2uc")
 [node name="Opponent" type="Node2D" parent="Players"]
 script = ExtResource("8_sc6ix")
 
-[node name="OpponentHand" type="Node2D" parent="Players/Opponent"]
+[node name="OpponentHand" type="CanvasLayer" parent="Players/Opponent"]
 script = ExtResource("11_rk4nq")
 
 [node name="OpponentField" type="Node2D" parent="Players/Opponent"]
@@ -168,6 +168,7 @@ position = Vector2(1128, 240)
 position = Vector2(1296, 240)
 
 [node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("15_vy5yj")
 
 [node name="ActionButton" type="Button" parent="UI"]
 offset_left = 1520.0
@@ -192,7 +193,6 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("9_dxpkq")
 
 [node name="PlayerHP" type="Label" parent="UI/PlayerUI"]
 layout_mode = 0
@@ -200,7 +200,7 @@ offset_top = 720.0
 offset_right = 247.0
 offset_bottom = 857.0
 theme_override_font_sizes/font_size = 100
-text = "HP: 0"
+text = "HP: 30"
 horizontal_alignment = 1
 
 [node name="PlayerMana" type="Label" parent="UI/PlayerUI"]
@@ -209,7 +209,7 @@ offset_top = 832.0
 offset_right = 382.0
 offset_bottom = 969.0
 theme_override_font_sizes/font_size = 100
-text = "Mana: 0"
+text = "Mana: 15"
 horizontal_alignment = 1
 
 [node name="OpponentUI" type="Control" parent="UI"]
@@ -217,7 +217,6 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("7_pe3it")
 
 [node name="OpponentHP" type="Label" parent="UI/OpponentUI"]
 layout_mode = 0
@@ -225,7 +224,7 @@ offset_top = 200.0
 offset_right = 247.0
 offset_bottom = 337.0
 theme_override_font_sizes/font_size = 100
-text = "HP: 0"
+text = "HP: 30"
 horizontal_alignment = 1
 
 [node name="OpponentMana" type="Label" parent="UI/OpponentUI"]
@@ -234,7 +233,7 @@ offset_top = 304.0
 offset_right = 247.0
 offset_bottom = 441.0
 theme_override_font_sizes/font_size = 100
-text = "Mana: 0"
+text = "Mana: 15"
 horizontal_alignment = 1
 
 [node name="CardView" type="Control" parent="UI"]
@@ -328,18 +327,93 @@ text = "0"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="VictoryDialog" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="ColorRect" type="ColorRect" parent="UI/VictoryDialog"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.8)
+
+[node name="Label" type="Label" parent="UI/VictoryDialog"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_fonts/font = ExtResource("22_b3sdp")
+theme_override_font_sizes/font_size = 272
+text = "VITÓRIA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DefeatDialog" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="ColorRect" type="ColorRect" parent="UI/DefeatDialog"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.8)
+
+[node name="Label" type="Label" parent="UI/DefeatDialog"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_fonts/font = ExtResource("22_b3sdp")
+theme_override_font_sizes/font_size = 272
+text = "DERROTA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RoundUI" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -304.0
+offset_bottom = 120.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="RoundNumber" type="Label" parent="UI/RoundUI"]
+layout_mode = 0
+offset_right = 304.0
+offset_bottom = 120.0
+theme_override_font_sizes/font_size = 32
+text = "Round: 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Audio" type="Node2D" parent="."]
 
 [node name="TemaDoJardim" type="AudioStreamPlayer" parent="Audio"]
 stream = SubResource("AudioStreamMP3_ternb")
 parameters/looping = true
 
-[connection signal="opponent_hp_changed" from="GameStateManager" to="UI/OpponentUI" method="_on_game_state_manager_opponent_hp_changed"]
-[connection signal="opponent_mana_changed" from="GameStateManager" to="UI/OpponentUI" method="_on_game_state_manager_opponent_mana_changed"]
-[connection signal="opponent_turn" from="GameStateManager" to="OpponentAIManager" method="_on_game_state_manager_opponent_turn"]
-[connection signal="player_hp_changed" from="GameStateManager" to="UI/PlayerUI" method="_on_game_state_manager_player_hp_changed"]
-[connection signal="player_mana_changed" from="GameStateManager" to="UI/PlayerUI" method="_on_game_state_manager_player_mana_changed"]
+[connection signal="opponent_dead" from="GameStateManager" to="UI" method="_on_game_state_manager_opponent_dead"]
+[connection signal="opponent_hp_changed" from="GameStateManager" to="UI" method="_on_game_state_manager_opponent_hp_changed"]
+[connection signal="opponent_mana_changed" from="GameStateManager" to="UI" method="_on_game_state_manager_opponent_mana_changed"]
+[connection signal="player_dead" from="GameStateManager" to="UI" method="_on_game_state_manager_player_dead"]
+[connection signal="player_hp_changed" from="GameStateManager" to="UI" method="_on_game_state_manager_player_hp_changed"]
+[connection signal="player_mana_changed" from="GameStateManager" to="UI" method="_on_game_state_manager_player_mana_changed"]
+[connection signal="round_changed" from="GameStateManager" to="UI" method="_on_game_state_manager_round_changed"]
+[connection signal="turn_changed" from="GameStateManager" to="UI" method="_on_game_state_manager_turn_changed"]
 [connection signal="focus_hand" from="CardManager" to="Players/Player/PlayerHand" method="_on_card_manager_focus_hand"]
 [connection signal="view_card" from="CardManager" to="UI/CardView" method="_on_card_manager_view_card"]
-[connection signal="pressed" from="UI/ActionButton" to="." method="_on_turn_button_pressed"]
+[connection signal="pressed" from="UI/ActionButton" to="GameStateManager" method="_on_action_button_pressed"]
 [connection signal="pressed" from="UI/Quit" to="." method="_on_quit_pressed"]

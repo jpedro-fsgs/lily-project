@@ -27,6 +27,7 @@ var _defense #: int
 var _cost #: int
 var _effect #: String
 var _image_path
+var _is_face_down
 
 
 var _original_scale = Vector2(0.5, 0.5)
@@ -60,7 +61,7 @@ var field: fields
 var bottom_card = true
 var mouse_position_on_card
 
-func set_attributes(card_attributes) -> void:
+func set_attributes(card_attributes, is_face_down=false) -> void:
 	_name = card_attributes["carta"]
 	_type = card_attributes["tipo"]
 	_attack = card_attributes["duração_ou_atk"]
@@ -68,20 +69,26 @@ func set_attributes(card_attributes) -> void:
 	_cost = card_attributes["mana"]
 	_effect = card_attributes["efeito"]
 	_image_path = card_attributes["image_url"]
+	_is_face_down = is_face_down
 	field = fields.Hand
+	_update_card()
 	
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _update_card():
+	await ready
 	position = _startpos
 	rotation = _startrot
-	cardback.visible = false
 	card_image.texture = load(str(PATH, _image_path))
 	name_label.text = _name
 	effect_label.text = _effect
 	cost_label.text = str(int(_cost))
 	attack_label.text = str(int(_attack) if _attack else 0)
 	defense_label.text = str(int(_defense) if _defense else 0)
+	if _is_face_down:
+		cardback.visible = true
+		cardback.flip_v = true
+
 
 func _process(_delta: float) -> void:
 	if state == states.InMouse:

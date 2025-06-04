@@ -1,4 +1,4 @@
-extends Node2D
+extends CanvasLayer
 
 
 # Called when the node enters the scene tree for the first time.
@@ -34,7 +34,7 @@ func set_cards_position(new_hand_position) -> void:
 	# Atualiza a posição do centro do oval e a visibilidade das cartas
 		TOP:
 			hand_position = TOP
-			CentreCardOval = Vector2(get_viewport().size) * Vector2(0.5, -0.275)
+			CentreCardOval = Vector2(get_viewport().size) * Vector2(0.5, -0.35)
 		BOTTOM:
 			hand_position = BOTTOM
 			CentreCardOval = Vector2(get_viewport().size) * Vector2(0.5, 1.275)

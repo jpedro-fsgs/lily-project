@@ -1,7 +1,7 @@
 extends Node2D
 class_name Opponent
 
-@onready var card_hand: Node2D = $OpponentHand
+@onready var card_hand: CanvasLayer = $OpponentHand
 @onready var opponent_bench: OpponentBench = $OpponentBench
 @onready var opponent_field: OpponentField = $OpponentField
 
@@ -25,6 +25,7 @@ func _process(_delta: float) -> void:
 
 
 func add_card_to_hand(card: Card):
+	card.hide_card()
 	card_hand.add_child(card)
 	card_hand.update_hand()
 	card.change_state(Card.states.MoveDrawnCardToHand)
@@ -34,6 +35,7 @@ func remove_card_from_hand(card: Card):
 	card_hand.update_hand()
 	
 func add_card_to_bench(card: Card):
+	card.show_card()
 	for card_slot: CardSlot in opponent_bench.card_slots.get_children():
 		if !card_slot.card:
 			card_slot.add_card(card)
