@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://bu14yy0jt0jpw"]
+[gd_scene load_steps=27 format=4 uid="uid://bu14yy0jt0jpw"]
 
 [ext_resource type="Script" uid="uid://cujbdg01s7lcu" path="res://scenes/encounter/encounter_scene.gd" id="1_5eihc"]
 [ext_resource type="Texture2D" uid="uid://dttdoxrc247vp" path="res://assets/board3.png" id="2_pe3it"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://kmnfpgd716d2" path="res://scenes/encounter/player_field.gd" id="3_5eihc"]
 [ext_resource type="Script" uid="uid://dihvh8shr0d0f" path="res://scenes/encounter/card_manager.gd" id="3_dxpkq"]
 [ext_resource type="Script" uid="uid://dsn4v2uv4m43q" path="res://scenes/encounter/opponent_ai_manager.gd" id="4_bqpli"]
+[ext_resource type="Script" uid="uid://c5pgopkk4ifbo" path="res://scenes/encounter/combat_resolver.gd" id="5_b3sdp"]
 [ext_resource type="Script" uid="uid://c0hn4x1uegueg" path="res://scenes/encounter/player.gd" id="6_dxpkq"]
 [ext_resource type="Script" uid="uid://cx5pcqafp8h8q" path="res://scenes/encounter/player_hand.gd" id="7_e52p7"]
 [ext_resource type="Script" uid="uid://cw7vbdtjoimgq" path="res://scenes/encounter/player_bench.gd" id="8_e52p7"]
@@ -46,6 +47,9 @@ script = ExtResource("3_dxpkq")
 
 [node name="OpponentAIManager" type="Node2D" parent="."]
 script = ExtResource("4_bqpli")
+
+[node name="CombatResolver" type="Node2D" parent="."]
+script = ExtResource("5_b3sdp")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
@@ -327,6 +331,26 @@ text = "0"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="RoundUI" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -304.0
+offset_bottom = 120.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="RoundNumber" type="Label" parent="UI/RoundUI"]
+layout_mode = 0
+offset_right = 304.0
+offset_bottom = 120.0
+theme_override_font_sizes/font_size = 32
+text = "Round: 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="VictoryDialog" type="Control" parent="UI"]
 visible = false
 layout_mode = 3
@@ -379,32 +403,13 @@ text = "DERROTA"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RoundUI" type="Control" parent="UI"]
-layout_mode = 3
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -304.0
-offset_bottom = 120.0
-grow_horizontal = 0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="RoundNumber" type="Label" parent="UI/RoundUI"]
-layout_mode = 0
-offset_right = 304.0
-offset_bottom = 120.0
-theme_override_font_sizes/font_size = 32
-text = "Round: 1"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Audio" type="Node2D" parent="."]
 
 [node name="TemaDoJardim" type="AudioStreamPlayer" parent="Audio"]
 stream = SubResource("AudioStreamMP3_ternb")
 parameters/looping = true
 
+[connection signal="attack_token_changed" from="GameStateManager" to="UI" method="_on_game_state_manager_attack_token_changed"]
 [connection signal="opponent_dead" from="GameStateManager" to="UI" method="_on_game_state_manager_opponent_dead"]
 [connection signal="opponent_hp_changed" from="GameStateManager" to="UI" method="_on_game_state_manager_opponent_hp_changed"]
 [connection signal="opponent_mana_changed" from="GameStateManager" to="UI" method="_on_game_state_manager_opponent_mana_changed"]

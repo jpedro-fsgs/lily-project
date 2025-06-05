@@ -7,14 +7,6 @@ class_name Player
 @onready var drop_detector: Area2D = $DropDetector
 
 
-var HP = 30
-var defense = 0
-var mana = 1
-
-
-var your_turn = false
-var index: int
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	card_hand.set_cards_position(card_hand.BOTTOM)
@@ -53,12 +45,12 @@ func add_card_to_field(card: Card):
 	card.change_state(Card.states.InField)
 	card.change_field(Card.fields.Combat)
 
-func remove_card_from_field(card: Card):
-	pass
+#func remove_card_from_field(card: Card):
+	#pass
 	
-func receive_damage(dmg: int):
-	HP -= dmg
-	emit_signal("update_hp", HP)
+#func receive_damage(dmg: int):
+	#HP -= dmg
+	#emit_signal("update_hp", HP)
 	
-func add_defense(def: int):
-	defense += def
+#func add_defense(def: int):
+	#defense += def

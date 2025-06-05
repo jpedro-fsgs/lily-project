@@ -17,6 +17,8 @@ var selected_card: Card = null
 signal view_card(card: Card)
 signal focus_hand(focus: bool)
 
+var is_hovering := false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	player_deck = EncounterSetup.get_player_deck()
@@ -57,8 +59,8 @@ func draw_card_opponent():
 func _on_card_selected(card: Card) -> void:
 	match card.field:
 		Card.fields.Hand:
-			#emit_signal("view_card", null)
-			pass
+			selected_card = card
+			card.change_state(Card.states.InMouse)
 		Card.fields.Bench:
 			selected_card = card
 			card.change_state(Card.states.InMouse)
@@ -68,19 +70,27 @@ func _on_card_selected(card: Card) -> void:
 func _on_card_released(card: Card) -> void:
 	match card.field:
 		Card.fields.Hand:
-			game_state_manager.player_buy_card(card)
+			selected_card = null
+			if card.drop_point_detector.get_overlapping_areas().has(player.drop_detector):
+				if game_state_manager.player_buy_card(card):
+					return
+			
+			card.change_state(Card.states.InHand)
 		Card.fields.Bench:
 			selected_card = null
 			if card.drop_point_detector.get_overlapping_areas().has(player.drop_detector):
-				game_state_manager.player_play_card(card)
-			else:
-				card.change_state(Card.states.InBench)
-
+				if game_state_manager.player_play_card(card):
+					return
+			
+			card.change_state(Card.states.InBench)
 			
 
 
 # Called when the mouse cursor enters the card's area.
 func _on_card_hovered(card) -> void:
+	if selected_card:
+		return
+
 	match card.field:
 		Card.fields.Hand:
 			card.change_state(Card.states.FocusInHand)
@@ -90,6 +100,9 @@ func _on_card_hovered(card) -> void:
 			emit_signal("view_card", card)
 	
 func _on_card_unhovered(card: Card) -> void:
+	if selected_card:
+		return
+		
 	match card.field:
 		Card.fields.Hand:
 			card.change_state(Card.states.InHand)

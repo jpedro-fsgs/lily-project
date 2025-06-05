@@ -14,13 +14,9 @@ class_name OpponentAIManager
 @onready var player: Player = $"../Players/Player"
 @onready var opponent: Opponent = $"../Players/Opponent"
 
-var can_buy_cards = []
-var can_play_cards = []
 var available_plays = []
 
 func update_available_cards():
-	can_buy_cards.clear()
-	can_play_cards.clear()
 	available_plays.clear()
 	available_plays.append({
 				"card": null,
@@ -35,16 +31,16 @@ func update_available_cards():
 			})
 	for slot in opponent_bench.card_slots.get_children():
 		var card = slot.card
-		if card:
-			var play = Callable(game_state_manager, "opponent_play_card")
+		if card and game_state_manager.opponent_play_card(card, true):
 			available_plays.append({
 				"card": card,
-				"play": play
+				"play": Callable(game_state_manager, "opponent_play_card")
 			})
 
 func exec_random_play(plays: Array):
 	if plays:
-		var play = plays[randi() % plays.size()]
+		var i = randi() % plays.size()
+		var play = plays[i]
 		exec_play(play)
 		
 func exec_play(play):
@@ -56,6 +52,7 @@ func exec_play(play):
 
 func next_play() -> void:
 	update_available_cards()
+	#print(available_plays)
 	await get_tree().create_timer(1).timeout
 	exec_random_play(available_plays)
 

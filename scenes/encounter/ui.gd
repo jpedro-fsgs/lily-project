@@ -25,15 +25,16 @@ func _on_game_state_manager_opponent_mana_changed(new_mana: int) -> void:
 
 func _on_game_state_manager_player_hp_changed(new_hp: int) -> void:
 	player_hp.text = str("HP: ", new_hp)
-
-func _on_game_state_manager_player_dead() -> void:
-	victory_dialog.visible = true
-
+	
 func _on_game_state_manager_player_mana_changed(new_mana: int) -> void:
 	player_mana.text = str("Mana: ", new_mana)
-	
-func _on_game_state_manager_opponent_dead() -> void:
+
+
+func _on_game_state_manager_player_dead() -> void:
 	defeat_dialog.visible = true
+
+func _on_game_state_manager_opponent_dead() -> void:
+	victory_dialog.visible = true
 
 func _on_game_state_manager_turn_changed(turn_player: GameStateManager.players) -> void:
 	match turn_player:
@@ -42,5 +43,9 @@ func _on_game_state_manager_turn_changed(turn_player: GameStateManager.players) 
 		GameStateManager.players.OPPONENT:
 			action_button.text = "Turno do Oponente"
 
-func _on_game_state_manager_round_changed(round: int) -> void:
-	round_number.text = str("Round: ", round)
+func _on_game_state_manager_round_changed(number: int) -> void:
+	round_number.text = str("Round: ", number)
+
+
+func _on_game_state_manager_attack_token_changed(attack_token_player: GameStateManager.players) -> void:
+	print(GameStateManager.players.keys()[attack_token_player])

@@ -88,7 +88,7 @@
 			"mana": 5,
 			"efeito": "Dá +2 de ATK para uma flor aliada até o final do turno.",
 			"copias_permitidas": 3,
-			"image_url": null
+			"image_url": "null"
 		},
 		{
 			"carta": "Fonte dos Suspiros",

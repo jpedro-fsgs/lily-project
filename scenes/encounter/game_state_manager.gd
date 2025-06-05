@@ -2,6 +2,8 @@ extends Node2D
 class_name GameStateManager
 
 @onready var card_manager: CardManager = $"../CardManager"
+@onready var combat_resolver: CombatResolver = $"../CombatResolver"
+
 @onready var opponent_ai_manager: OpponentAIManager = $"../OpponentAIManager"
 
 @onready var player: Player = $"../Players/Player"
@@ -18,31 +20,33 @@ enum players {
 	OPPONENT
 }
 
-# --- Atributos do Jogador Humano ---
-var player_hp: int = 30  # HP atual do Nexus do jogador
-var player_max_hp: int = 30      # HP máximo do Nexus do jogador
-var player_mana: int = 15  # Mana de ação disponível neste turno
+var player_hp: int = 30  
+var player_max_hp: int = 30      
+var player_mana: int = 15  
 
-# --- Atributos do Oponente (IA) ---
+
 var opponent_hp: int = 30
 var opponent_max_hp: int = 30
 var opponent_mana: int = 15
 
 var base_mana = 1
 
-# Outras variáveis de estado importantes gerenciadas aqui:
+
 signal round_changed(round: int)
 signal turn_changed(turn_player: players)
+signal attack_token_changed(attack_token_player: players)
 
-var current_turn_player: players = players.PLAYER # Quem tem o turno ("Player" ou "Opponent")
-var current_round: int = 1                 # Rodada atual do jogo
-var has_attack_token: players = players.PLAYER   # Quem tem a permissão para iniciar um ataque
+var current_turn_player: players = players.PLAYER 
+var current_round: int = 1                 
+var has_attack_token: players = players.PLAYER
+var attack_started := false
 
-var number_of_plays_last_turn_player = 0
-var number_of_plays_last_turn_opponent = 0
-var is_first_turn = true
+var number_of_plays_last_turn_player := 0
+var number_of_plays_last_turn_opponent := 0
+var is_first_turn := true
+var attack_answered := false
 
-# Sinais para notificar outras partes do jogo sobre mudanças nesses atributos
+
 signal player_hp_changed(new_hp: int)
 signal player_mana_changed(new_mana: int)
 signal opponent_hp_changed(new_hp: int)
@@ -78,16 +82,23 @@ func next_round():
 	emit_signal("round_changed", current_round)
 	current_turn_player = players.PLAYER
 	emit_signal("turn_changed", current_turn_player)
+	has_attack_token = (
+		players.PLAYER 
+		if has_attack_token == players.OPPONENT 
+		else players.OPPONENT
+		)
+	attack_started = false
+	emit_signal("attack_token_changed", has_attack_token)
 
-#func change_turn():
-	#
-	#if current_turn_player == players.PLAYER:
-		#current_turn_player = players.OPPONENT
-	#else:
-		#current_turn_player = players.PLAYER
-	#emit_signal("turn_changed", current_turn_player)
-
-
+func check_win():
+	if player_hp <=0:
+		emit_signal("player_dead")
+		return
+		
+	if opponent_hp <= 0:
+		emit_signal("opponent_dead")
+		return
+		
 
 func is_player_turn():
 	return current_turn_player == players.PLAYER
@@ -98,18 +109,16 @@ func is_opponent_turn():
 	
 # --- Setter Functions for HP ---
 func set_player_hp(new_value: int) -> void:
-	player_hp = new_value
-	if player_hp <= 0:
-		emit_signal("player_dead")
-		return
+
+	player_hp = new_value if new_value > 0 else 0
 	emit_signal("player_hp_changed", player_hp)
+	check_win()
 
 func set_opponent_hp(new_value: int) -> void:
-	opponent_hp = new_value
-	if opponent_hp <= 0:
-		emit_signal("opponent_dead")
-		return
+
+	opponent_hp = new_value if new_value > 0 else 0
 	emit_signal("opponent_hp_changed", opponent_hp)
+	check_win()
 
 # --- Setter Functions for Mana ---
 func set_player_mana(new_value: int) -> void:
@@ -140,6 +149,7 @@ func opponent_buy_card(card: Card, check: bool=false):
 	number_of_plays_last_turn_opponent +=1
 	
 	opponent_ai_manager.next_play()
+	return true
 	
 	
 func player_buy_card(card: Card, check: bool=false):
@@ -152,12 +162,18 @@ func player_buy_card(card: Card, check: bool=false):
 	player.add_card_to_bench(card)
 	
 	number_of_plays_last_turn_player +=1
+	return true
 	
 func opponent_play_card(card: Card, check: bool=false):
-	if (card.state != Card.fields.Bench
-		or not is_opponent_turn()
-		or has_attack_token == players.OPPONENT):
-			
+	var can_play: = (
+		card.field == Card.fields.Bench
+		and is_opponent_turn()
+		and (
+			has_attack_token == players.OPPONENT
+			or attack_started
+			)
+		)
+	if not can_play:
 		return false
 	if check:
 		return true
@@ -166,21 +182,34 @@ func opponent_play_card(card: Card, check: bool=false):
 	card.change_state(Card.states.InField)
 	card.change_field(Card.fields.Combat)
 	
+	attack_started = true
 	number_of_plays_last_turn_opponent += 1
 	
 	opponent_ai_manager.next_play()
+	return true
 	
 func player_play_card(card: Card, check: bool=false):
-	if not is_player_turn():
+	var can_play: = (
+		card.field == Card.fields.Bench
+		and is_player_turn()
+		and (
+			has_attack_token == players.PLAYER
+			or attack_started
+			)
+		)
+	if not can_play:
 		return false
 	if check:
 		return true
+		
 	player.remove_card_from_bench(card)
 	player.add_card_to_field(card)
 	card.change_state(Card.states.InField)
 	card.change_field(Card.fields.Combat)
 	
+	attack_started = true
 	number_of_plays_last_turn_player += 1
+	return true
 	
 func increase_number_of_plays_last_turn_player():
 	pass
@@ -189,16 +218,15 @@ func increase_number_of_plays_last_turn_opponent():
 	pass
 	
 func end_turn():
-	print(number_of_plays_last_turn_opponent, number_of_plays_last_turn_player, is_first_turn)
 	if (
 		number_of_plays_last_turn_opponent == 0 and
 		number_of_plays_last_turn_player == 0 and
 		not is_first_turn
 	):
-		print("next_round")
 		number_of_plays_last_turn_opponent = 0
 		number_of_plays_last_turn_player = 0
 		is_first_turn = true
+		attack_answered = false
 		next_round()
 		
 	else:
@@ -211,7 +239,13 @@ func end_turn():
 			players.OPPONENT:
 				number_of_plays_last_turn_player = 0
 				current_turn_player = players.PLAYER
-			
+
+	if combat_resolver.has_card_on_field():
+		if attack_answered:
+			combat_resolver.resolve_combat()
+		else:
+			attack_answered = true
+		
 	emit_signal("turn_changed", current_turn_player)
 
 

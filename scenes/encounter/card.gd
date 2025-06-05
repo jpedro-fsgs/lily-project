@@ -18,16 +18,18 @@ signal card_released(card)
 signal card_hovered(card)
 signal card_unhovered(card)
 
+signal dead_card(card)
+
 const PATH = "res://assets/"
 
-var _name #: String
-var _type #: String
-var _attack #: int
-var _defense #: int
-var _cost #: int
-var _effect #: String
-var _image_path
-var _is_face_down
+var _name: String
+var _type: String
+var _attack: int
+var _defense: int
+var _cost: int
+var _effect: String
+var _image_path: String
+var _is_face_down: bool
 
 
 var _original_scale = Vector2(0.5, 0.5)
@@ -64,8 +66,8 @@ var mouse_position_on_card
 func set_attributes(card_attributes, is_face_down=false) -> void:
 	_name = card_attributes["carta"]
 	_type = card_attributes["tipo"]
-	_attack = card_attributes["duração_ou_atk"]
-	_defense = card_attributes["área_ou_def"]
+	_attack = card_attributes["duração_ou_atk"] if card_attributes["duração_ou_atk"] else 0
+	_defense = card_attributes["área_ou_def"] if card_attributes["área_ou_def"] else 0
 	_cost = card_attributes["mana"]
 	_effect = card_attributes["efeito"]
 	_image_path = card_attributes["image_url"]
@@ -153,18 +155,11 @@ func change_state(new_state: states):
 	
 func _on_mouse_entered() -> void:
 	emit_signal("card_hovered", self)
-	#if !hover_enabled or not selectable:
-		#return
-	#if state == states.InHand:
-		#change_state(states.FocusInHand)
+
 
 func _on_mouse_exited() -> void:
 	emit_signal("card_unhovered", self)
-	#if state == states.FocusInHand:
-		#change_state(states.InHand)
-		
-#func _set_hover_state(hover_state: bool):
-	#hover_enabled = hover_state
+
 	
 func hide_card():
 	cardback.visible = true
@@ -172,10 +167,16 @@ func hide_card():
 func show_card():
 	cardback.visible = false
 	
-func _on_turn_changed(index):
-	pass
-
-
+func receive_damage(dmg: int):
+	_defense -= dmg
+	if _defense <= 0:
+		emit_signal("dead_card", self)
+		dead_card_animation()
+		
+	defense_label.text = str(int(_defense))
+	
+func dead_card_animation():
+	card_image.visible = false
 
 func _gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
