@@ -51,8 +51,8 @@ class_name CombatResolver
 var start_combat := false
 
 
-func _process(delta: float) -> void:
-	pass
+#func _process(delta: float) -> void:
+	#pass
 	
 	
 func has_card_on_field():
@@ -68,9 +68,10 @@ func resolve_combat():
 	for f in field:
 		var player_card = f["player_side"].card
 		var opponent_card = f["opponent_side"].card
-		
+		await get_tree().create_timer(0.5).timeout
 		if player_card and opponent_card:
 			player_card.receive_damage(opponent_card._attack)
+			await get_tree().create_timer(0.25).timeout
 			opponent_card.receive_damage(player_card._attack)
 		else:
 			if player_card:

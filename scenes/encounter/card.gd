@@ -1,6 +1,8 @@
 extends Control
 class_name Card
 
+@onready var card_body: Node2D = $CardBody
+
 @onready var cardback: Sprite2D = $CardBody/Cardback
 @onready var card_image: Sprite2D = $CardBody/CardMask/CardImage
 @onready var name_label: Label = $CardBody/Name
@@ -10,9 +12,11 @@ class_name Card
 @onready var defense_label: Label = $CardBody/DefenseLabel
 @onready var drop_point_detector: Area2D = $DropPointDetector
 
+var belongs_to: GameStateManager.players
+
 var card_slot: CardSlot = null
 
-signal card_selected(card)
+signal card_selected(card, mouse_position_on_card)
 signal card_released(card)
 
 signal card_hovered(card)
@@ -48,7 +52,8 @@ enum states {
 	InMouse,
 	FocusInHand,
 	MoveDrawnCardToHand,
-	ReOrganizeHand
+	ReOrganizeHand,
+	Dead
 }
 
 enum fields {
@@ -91,10 +96,13 @@ func _update_card():
 		cardback.visible = true
 		cardback.flip_v = true
 
+#func _ready() -> void:
+	#pass
 
-func _process(_delta: float) -> void:
-	if state == states.InMouse:
-		global_position = get_global_mouse_position() - mouse_position_on_card * scale
+
+#func _process(_delta: float) -> void:
+	#if state == states.InMouse:
+		#global_position = get_global_mouse_position() - mouse_position_on_card * scale
 		
 func change_field(new_field: fields):
 	field = new_field
@@ -151,6 +159,17 @@ func change_state(new_state: states):
 			)
 		states.ReOrganizeHand:
 			pass
+		states.Dead:
+			current_tween.tween_method(
+			  func(value): card_image.material.set_shader_parameter("amount", value),  
+			  0.0,  # Start value
+			  20.0,  # End value
+			  2
+			)
+			current_tween.chain().tween_callback(func():
+				queue_free()
+			)
+
 		
 	
 func _on_mouse_entered() -> void:
@@ -170,18 +189,16 @@ func show_card():
 func receive_damage(dmg: int):
 	_defense -= dmg
 	if _defense <= 0:
+		_defense = 0
 		emit_signal("dead_card", self)
-		dead_card_animation()
+		change_state(states.Dead)
 		
 	defense_label.text = str(int(_defense))
-	
-func dead_card_animation():
-	card_image.visible = false
 
 func _gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			mouse_position_on_card = event.position
-			emit_signal("card_selected", self)
+			emit_signal("card_selected", self, mouse_position_on_card)
 		elif event.is_released():
 			emit_signal("card_released", self)

@@ -1,12 +1,20 @@
-[gd_scene load_steps=9 format=3 uid="uid://d152e4vnsy3dj"]
+[gd_scene load_steps=12 format=3 uid="uid://d152e4vnsy3dj"]
 
 [ext_resource type="Script" uid="uid://dc6ievvemefh2" path="res://scenes/encounter/card.gd" id="1_6u4wf"]
 [ext_resource type="Theme" uid="uid://cxsrpilaqw4ux" path="res://themes/main_theme.tres" id="1_kg30u"]
-[ext_resource type="Texture2D" uid="uid://bwpgpq0s6h3lp" path="res://assets/CardMask.png" id="3_do18g"]
+[ext_resource type="Shader" uid="uid://co4ujqiw8fck7" path="res://shaders/dissintegrate.gdshader" id="1_lv7ue"]
+[ext_resource type="Texture2D" uid="uid://bwpgpq0s6h3lp" path="res://assets/encounter/CardMask.png" id="3_do18g"]
 [ext_resource type="Texture2D" uid="uid://cgeg6m4tgcxye" path="res://assets/DECKS/PUREZA/lírio-do-vale.png" id="3_hyinx"]
-[ext_resource type="Texture2D" uid="uid://d2hihmep71ka7" path="res://assets/Card2.png" id="4_do18g"]
+[ext_resource type="Texture2D" uid="uid://d2hihmep71ka7" path="res://assets/encounter/Card2.png" id="4_do18g"]
 [ext_resource type="Theme" uid="uid://bia38n0xiq6e1" path="res://themes/card_title_theme.tres" id="5_lv7ue"]
-[ext_resource type="Texture2D" uid="uid://3h6rk61w8klq" path="res://assets/Cardback1.png" id="5_sy11y"]
+[ext_resource type="Texture2D" uid="uid://3h6rk61w8klq" path="res://assets/encounter/Cardback1.png" id="5_sy11y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_do18g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lv7ue"]
+resource_local_to_scene = true
+shader = ExtResource("1_lv7ue")
+shader_parameter/amount = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ligt"]
 size = Vector2(272, 408)
@@ -26,15 +34,18 @@ theme = ExtResource("1_kg30u")
 script = ExtResource("1_6u4wf")
 
 [node name="CardBody" type="Node2D" parent="."]
+material = SubResource("ShaderMaterial_do18g")
 scale = Vector2(0.5, 0.5)
 
 [node name="CardMask" type="Sprite2D" parent="CardBody"]
-clip_children = 2
+show_behind_parent = true
+clip_children = 1
 position = Vector2(272, 376)
 scale = Vector2(0.59375, 0.53125)
 texture = ExtResource("3_do18g")
 
 [node name="CardImage" type="Sprite2D" parent="CardBody/CardMask"]
+material = SubResource("ShaderMaterial_lv7ue")
 position = Vector2(0, -15.0588)
 scale = Vector2(1.49562, 1.67158)
 texture = ExtResource("3_hyinx")

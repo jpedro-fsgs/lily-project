@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=3 format=3 uid="uid://ch8gknmyb57hc"]
 
-[ext_resource type="FontFile" uid="uid://d1wet7x55yxld" path="res://assets/Plantin Infant MT Std Regular.otf" id="1_dan0e"]
-[ext_resource type="FontFile" uid="uid://deb1mlfs1kf8b" path="res://assets/ViaodaLibre-Regular.ttf" id="2_1kpwf"]
+[ext_resource type="FontFile" uid="uid://d1wet7x55yxld" path="res://assets/fonts/Plantin Infant MT Std Regular.otf" id="1_dan0e"]
+[ext_resource type="FontFile" uid="uid://deb1mlfs1kf8b" path="res://assets/fonts/ViaodaLibre-Regular.ttf" id="2_1kpwf"]
 
 [resource]
 default_font = ExtResource("2_1kpwf")

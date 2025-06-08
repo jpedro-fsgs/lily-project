@@ -14,12 +14,23 @@ class_name OpponentAIManager
 @onready var player: Player = $"../Players/Player"
 @onready var opponent: Opponent = $"../Players/Opponent"
 
-var available_plays = []
+
+
+func get_game_snapshot():
+	pass
+	
 
 func update_available_cards():
-	available_plays.clear()
+	var available_plays = []
+	var available_card_slots = []
+	
+	for card_slot in opponent_field.card_slots.get_children():
+		if not card_slot.card:
+			available_card_slots.append(card_slot)
+	
 	available_plays.append({
 				"card": null,
+				"card_slot": null,
 				"play": Callable(game_state_manager, "end_turn")
 			})
 	
@@ -27,15 +38,29 @@ func update_available_cards():
 		if game_state_manager.opponent_buy_card(card, true):
 			available_plays.append({
 				"card": card,
+				"card_slot": null,
 				"play": Callable(game_state_manager, "opponent_buy_card")
 			})
 	for slot in opponent_bench.card_slots.get_children():
 		var card = slot.card
 		if card and game_state_manager.opponent_play_card(card, true):
+			for card_slot in available_card_slots:
+				available_plays.append({
+					"card": card,
+					"card_slot": card_slot,
+					"play": Callable(game_state_manager, "opponent_play_card")
+				})
+			
+	for slot in opponent_field.card_slots.get_children():
+		var card = slot.card
+		if card and game_state_manager.opponent_play_card(card, true):
 			available_plays.append({
 				"card": card,
-				"play": Callable(game_state_manager, "opponent_play_card")
+				"card_slot": null,
+				"play": Callable(game_state_manager, "opponent_reallocate_card")
 			})
+			
+	return available_plays
 
 func exec_random_play(plays: Array):
 	if plays:
@@ -45,19 +70,16 @@ func exec_random_play(plays: Array):
 		
 func exec_play(play):
 	if play["card"]:
+		if play["card_slot"]:
+			play["play"].call(play["card"], false, play["card_slot"])
+			return
 		play["play"].call(play["card"])
+		
 		return
 	play["play"].call()
 
 
 func next_play() -> void:
-	update_available_cards()
-	#print(available_plays)
+	var available_plays = update_available_cards()
 	await get_tree().create_timer(1).timeout
 	exec_random_play(available_plays)
-
-
-#func _on_game_state_manager_turn_changed(turn_player: GameStateManager.players) -> void:
-	#update_available_cards()
-	#await get_tree().create_timer(1).timeout
-	#exec_random_play(available_plays)

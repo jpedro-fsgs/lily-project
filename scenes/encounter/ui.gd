@@ -15,6 +15,8 @@ extends CanvasLayer
 @onready var defeat_dialog: Control = $DefeatDialog
 
 @onready var round_number: Label = $RoundUI/RoundNumber
+@onready var attack_token: Label = $RoundUI/AttackToken
+	
 
 
 func _on_game_state_manager_opponent_hp_changed(new_hp: int) -> void:
@@ -48,4 +50,8 @@ func _on_game_state_manager_round_changed(number: int) -> void:
 
 
 func _on_game_state_manager_attack_token_changed(attack_token_player: GameStateManager.players) -> void:
-	print(GameStateManager.players.keys()[attack_token_player])
+	attack_token.text = str("Attack Token:", (
+		"Player"
+		if attack_token_player == GameStateManager.players.PLAYER
+		else "Opponent"
+		))

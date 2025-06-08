@@ -14,19 +14,23 @@ class_name GameStateManager
 @onready var opponent_bench: OpponentBench = $"../Players/Opponent/OpponentBench"
 @onready var opponent_field: OpponentField = $"../Players/Opponent/OpponentField"
 
+@onready var background: Sprite2D = $"../Background"
+@onready var ui: CanvasLayer = $"../UI"
+
+
 
 enum players {
 	PLAYER,
 	OPPONENT
 }
 
-var player_hp: int = 30  
-var player_max_hp: int = 30      
+var player_hp: int = 15
+var player_max_hp: int = 15
 var player_mana: int = 15  
 
 
-var opponent_hp: int = 30
-var opponent_max_hp: int = 30
+var opponent_hp: int = 15
+var opponent_max_hp: int = 15
 var opponent_mana: int = 15
 
 var base_mana = 1
@@ -59,6 +63,13 @@ func _ready():
 	initialize_game_attributes()
 
 func initialize_game_attributes():
+	await $"../UI".ready
+	set_player_hp(player_hp)
+	set_player_mana(player_mana)
+	
+	set_opponent_hp(opponent_hp)
+	set_opponent_mana(opponent_mana)
+	
 	initial_cards()
 
 func initial_cards():
@@ -71,6 +82,7 @@ func initial_cards():
 func next_round():
 	current_round += 1
 	
+	cards_back_on_bench()
 	
 	set_player_mana(player_mana + base_mana)
 	set_opponent_mana(opponent_mana + base_mana)
@@ -89,15 +101,56 @@ func next_round():
 		)
 	attack_started = false
 	emit_signal("attack_token_changed", has_attack_token)
+	
+func end_turn():
+	if combat_resolver.has_card_on_field():
+		if current_turn_player != has_attack_token:
+			combat_resolver.resolve_combat()
+	
+	var should_go_to_next_round := (
+		number_of_plays_last_turn_opponent == 0 and
+		number_of_plays_last_turn_player == 0 and
+		not is_first_turn
+	)
+	if should_go_to_next_round:
+		number_of_plays_last_turn_opponent = 0
+		number_of_plays_last_turn_player = 0
+		is_first_turn = true
+		attack_answered = false
+		next_round()
+		
+	else:
+		is_first_turn = false
+		match current_turn_player:
+			players.PLAYER:
+				number_of_plays_last_turn_opponent = 0
+				current_turn_player = players.OPPONENT
+				opponent_ai_manager.next_play()
+			players.OPPONENT:
+				number_of_plays_last_turn_player = 0
+				current_turn_player = players.PLAYER
+		
+	emit_signal("turn_changed", current_turn_player)
+	
+func blur_background():
+	var tween = create_tween()
+	tween.tween_method(
+		(func(value):
+			background.material.set_shader_parameter("radius", value)),
+			0, 4.0, 2
+			)
 
 func check_win():
 	if player_hp <=0:
 		emit_signal("player_dead")
+		blur_background()
 		return
 		
 	if opponent_hp <= 0:
 		emit_signal("opponent_dead")
+		blur_background()
 		return
+		
 		
 
 func is_player_turn():
@@ -109,13 +162,11 @@ func is_opponent_turn():
 	
 # --- Setter Functions for HP ---
 func set_player_hp(new_value: int) -> void:
-
 	player_hp = new_value if new_value > 0 else 0
 	emit_signal("player_hp_changed", player_hp)
 	check_win()
 
 func set_opponent_hp(new_value: int) -> void:
-
 	opponent_hp = new_value if new_value > 0 else 0
 	emit_signal("opponent_hp_changed", opponent_hp)
 	check_win()
@@ -164,7 +215,7 @@ func player_buy_card(card: Card, check: bool=false):
 	number_of_plays_last_turn_player +=1
 	return true
 	
-func opponent_play_card(card: Card, check: bool=false):
+func opponent_play_card(card: Card, check: bool=false, card_slot: CardSlot=null):
 	var can_play: = (
 		card.field == Card.fields.Bench
 		and is_opponent_turn()
@@ -177,10 +228,9 @@ func opponent_play_card(card: Card, check: bool=false):
 		return false
 	if check:
 		return true
+	print("aqui")
 	opponent.remove_card_from_bench(card)
-	opponent.add_card_to_field(card)
-	card.change_state(Card.states.InField)
-	card.change_field(Card.fields.Combat)
+	opponent.add_card_to_field(card, card_slot)
 	
 	attack_started = true
 	number_of_plays_last_turn_opponent += 1
@@ -188,9 +238,9 @@ func opponent_play_card(card: Card, check: bool=false):
 	opponent_ai_manager.next_play()
 	return true
 	
-func player_play_card(card: Card, check: bool=false):
+func player_play_card(card: Card, check: bool=false, card_slot: CardSlot=null):
 	var can_play: = (
-		card.field == Card.fields.Bench
+		card.field != Card.fields.Hand
 		and is_player_turn()
 		and (
 			has_attack_token == players.PLAYER
@@ -203,50 +253,68 @@ func player_play_card(card: Card, check: bool=false):
 		return true
 		
 	player.remove_card_from_bench(card)
-	player.add_card_to_field(card)
-	card.change_state(Card.states.InField)
-	card.change_field(Card.fields.Combat)
+	player.add_card_to_field(card, card_slot)
 	
 	attack_started = true
 	number_of_plays_last_turn_player += 1
 	return true
 	
-func increase_number_of_plays_last_turn_player():
-	pass
-	
-func increase_number_of_plays_last_turn_opponent():
-	pass
-	
-func end_turn():
-	if (
-		number_of_plays_last_turn_opponent == 0 and
-		number_of_plays_last_turn_player == 0 and
-		not is_first_turn
-	):
-		number_of_plays_last_turn_opponent = 0
-		number_of_plays_last_turn_player = 0
-		is_first_turn = true
-		attack_answered = false
-		next_round()
+func opponent_reallocate_card(card: Card, check: bool=false, card_slot: CardSlot=null):
+	var can_play: = (
+		card.field == Card.fields.Combat
+		and is_opponent_turn()
+		and (
+			has_attack_token == players.OPPONENT
+			or attack_started
+			)
+		)
+	if not can_play:
+		return false
+	if check:
+		return true
 		
-	else:
-		is_first_turn = false
-		match current_turn_player:
-			players.PLAYER:
-				number_of_plays_last_turn_opponent = 0
-				current_turn_player = players.OPPONENT
-				opponent_ai_manager.next_play()
-			players.OPPONENT:
-				number_of_plays_last_turn_player = 0
-				current_turn_player = players.PLAYER
+	opponent.remove_card_from_field(card)
+	opponent.add_card_to_field(card, card_slot)
+	
+	attack_started = true
+	number_of_plays_last_turn_opponent += 1
+	
+	opponent_ai_manager.next_play()
+	return true
+	
+func player_reallocate_card(card: Card, check: bool=false, card_slot: CardSlot=null):
+	var can_play: = (
+		card.field == Card.fields.Combat
+		and is_player_turn()
+		and (
+			has_attack_token == players.PLAYER
+			or attack_started
+			)
+		)
+	if not can_play:
+		return false
+	if check:
+		return true
+		
+	player.remove_card_from_field(card)
+	player.add_card_to_field(card, card_slot)
+	
+	attack_started = true
+	number_of_plays_last_turn_player += 1
+	return true
 
-	if combat_resolver.has_card_on_field():
-		if attack_answered:
-			combat_resolver.resolve_combat()
-		else:
-			attack_answered = true
-		
-	emit_signal("turn_changed", current_turn_player)
+func cards_back_on_bench():
+	for card_slot in player_field.card_slots.get_children():
+		if card_slot.card:
+			var card = card_slot.card
+			player.remove_card_from_field(card)
+			player.add_card_to_bench(card)
+	
+	for card_slot in opponent_field.card_slots.get_children():
+		if card_slot.card:
+			var card = card_slot.card
+			opponent.remove_card_from_field(card)
+			opponent.add_card_to_bench(card)
 
 
 func _on_action_button_pressed() -> void:

@@ -24,10 +24,10 @@ EncounterSetup="*res://scenes/global/encounter_setup.gd"
 [dialogic]
 
 directories/dch_directory={
-"Lily": "res://assets/dialogic/timeline/Lily.dch"
+"Lily": "res://characters/Lily.dch"
 }
 directories/dtl_directory={
-"timeline": "res://assets/dialogic/timeline/timeline.dtl"
+"timeline": "res://timeline/timeline.dtl"
 }
 glossary/default_case_sensitive=true
 layout/style_list=["res://assets/dialogic/timeline/timeline.tres"]
@@ -58,7 +58,7 @@ text/autopauses={}
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
+window/size/resizable=false
 window/stretch/mode="viewport"
 
 [dotnet]

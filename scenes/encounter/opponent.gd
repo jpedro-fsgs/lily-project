@@ -45,14 +45,14 @@ func remove_card_from_bench(card: Card):
 	var card_slot: CardSlot = card.card_slot
 	card_slot.remove_card(card)
 	
-func add_card_to_field(card: Card):
-	for card_slot: CardSlot in opponent_field.card_slots.get_children():
-		if !card_slot.card:
-			card_slot.add_card(card)
-			return
+func add_card_to_field(card: Card, target_card_slot: CardSlot=null):
+	if target_card_slot:
+		target_card_slot.add_card(card)
 	
-func receive_damage(dmg: int):
-	HP -= dmg
+		card.change_state(Card.states.InField)
+		card.change_field(Card.fields.Combat)
+		
+func remove_card_from_field(card: Card):
+	var card_slot: CardSlot = card.card_slot
+	card_slot.remove_card(card)
 	
-func add_defense(def: int):
-	defense += def
