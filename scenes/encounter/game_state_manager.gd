@@ -1,6 +1,9 @@
 extends Node2D
 class_name GameStateManager
 
+@onready var endgame_dialog: EndgameDialog = $"../EndgameDialog"
+
+
 @onready var card_manager: CardManager = $"../CardManager"
 @onready var combat_resolver: CombatResolver = $"../CombatResolver"
 
@@ -17,6 +20,8 @@ class_name GameStateManager
 @onready var background: Sprite2D = $"../Background"
 @onready var ui: CanvasLayer = $"../UI"
 
+const ENDGAME_DIALOG: PackedScene = preload("res://scenes/encounter/endgame_dialog.tscn")
+
 
 
 enum players {
@@ -24,12 +29,12 @@ enum players {
 	OPPONENT
 }
 
-var player_hp: int = 15
+var player_hp: int = 1
 var player_max_hp: int = 15
 var player_mana: int = 15  
 
 
-var opponent_hp: int = 15
+var opponent_hp: int = 1
 var opponent_max_hp: int = 15
 var opponent_mana: int = 15
 
@@ -55,9 +60,6 @@ signal player_hp_changed(new_hp: int)
 signal player_mana_changed(new_mana: int)
 signal opponent_hp_changed(new_hp: int)
 signal opponent_mana_changed(new_mana: int)
-
-signal player_dead
-signal opponent_dead
 
 func _ready():
 	initialize_game_attributes()
@@ -142,15 +144,18 @@ func blur_background():
 
 func check_win():
 	if player_hp <=0:
-		emit_signal("player_dead")
+		print_debug("p")
+		endgame_dialog.set_winner("DERROTA")
+		endgame_dialog.visible = true
 		blur_background()
 		return
 		
 	if opponent_hp <= 0:
-		emit_signal("opponent_dead")
+		print_debug("o")
+		endgame_dialog.set_winner("VITÓRIA")
+		endgame_dialog.visible = true
 		blur_background()
 		return
-		
 		
 
 func is_player_turn():
@@ -228,7 +233,6 @@ func opponent_play_card(card: Card, check: bool=false, card_slot: CardSlot=null)
 		return false
 	if check:
 		return true
-	print("aqui")
 	opponent.remove_card_from_bench(card)
 	opponent.add_card_to_field(card, card_slot)
 	

@@ -22,7 +22,7 @@
 [ext_resource type="Script" uid="uid://3hs238egyhgu" path="res://scenes/encounter/ui.gd" id="15_vy5yj"]
 [ext_resource type="Texture2D" uid="uid://d2hihmep71ka7" path="res://assets/encounter/Card2.png" id="16_lpcqs"]
 [ext_resource type="Theme" uid="uid://bia38n0xiq6e1" path="res://themes/card_title_theme.tres" id="17_rk4nq"]
-[ext_resource type="FontFile" uid="uid://6pctfi4lxcnw" path="res://assets/fonts/CDType - Voga Medium.otf" id="22_b3sdp"]
+[ext_resource type="PackedScene" uid="uid://da46hernlgs6p" path="res://scenes/encounter/endgame_dialog.tscn" id="23_yh8c4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yh8c4"]
 shader = ExtResource("6_vy5yj")
@@ -258,10 +258,10 @@ horizontal_alignment = 1
 [node name="CardView" type="Control" parent="UI"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 759.0
-offset_top = 340.0
-offset_right = 759.0
-offset_bottom = 340.0
+offset_left = 753.0
+offset_top = 144.0
+offset_right = 753.0
+offset_bottom = 144.0
 script = ExtResource("13_vhu1a")
 
 [node name="CardBody" type="Node2D" parent="UI/CardView"]
@@ -299,6 +299,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Effect" type="Label" parent="UI/CardView/CardBody"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -378,69 +379,18 @@ text = "Attack Token: Player"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="VictoryDialog" type="Control" parent="UI"]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-
-[node name="ColorRect" type="ColorRect" parent="UI/VictoryDialog"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.8)
-
-[node name="Label" type="Label" parent="UI/VictoryDialog"]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-theme_override_fonts/font = ExtResource("22_b3sdp")
-theme_override_font_sizes/font_size = 272
-text = "VITÓRIA"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="DefeatDialog" type="Control" parent="UI"]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-
-[node name="ColorRect" type="ColorRect" parent="UI/DefeatDialog"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.8)
-
-[node name="Label" type="Label" parent="UI/DefeatDialog"]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-theme_override_fonts/font = ExtResource("22_b3sdp")
-theme_override_font_sizes/font_size = 272
-text = "DERROTA"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Audio" type="Node2D" parent="."]
 
 [node name="TemaDoJardim" type="AudioStreamPlayer" parent="Audio"]
 stream = SubResource("AudioStreamMP3_ternb")
 parameters/looping = true
 
+[node name="EndgameDialog" parent="." instance=ExtResource("23_yh8c4")]
+visible = false
+
 [connection signal="attack_token_changed" from="GameStateManager" to="UI" method="_on_game_state_manager_attack_token_changed"]
-[connection signal="opponent_dead" from="GameStateManager" to="UI" method="_on_game_state_manager_opponent_dead"]
 [connection signal="opponent_hp_changed" from="GameStateManager" to="UI" method="_on_game_state_manager_opponent_hp_changed"]
 [connection signal="opponent_mana_changed" from="GameStateManager" to="UI" method="_on_game_state_manager_opponent_mana_changed"]
-[connection signal="player_dead" from="GameStateManager" to="UI" method="_on_game_state_manager_player_dead"]
 [connection signal="player_hp_changed" from="GameStateManager" to="UI" method="_on_game_state_manager_player_hp_changed"]
 [connection signal="player_mana_changed" from="GameStateManager" to="UI" method="_on_game_state_manager_player_mana_changed"]
 [connection signal="round_changed" from="GameStateManager" to="UI" method="_on_game_state_manager_round_changed"]

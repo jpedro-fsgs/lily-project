@@ -1,11 +1,11 @@
-join Lily (Frown) leftmost [animation="Bounce In"]
+join Lily (Neutro) leftmost [animation="Bounce In"]
 [background arg="res://assets/backgrounds/Garden_VNBackground_Florassence/4.png" fade="0.0"]
 Lily: ...Hnng... minha cabeça...
 Lily: Isso é... grama?
-Lily (Open): Um jardim...? Mas... eu não me lembro de ter vindo aqui...
+Lily (Surpreso): Um jardim...? Mas... eu não me lembro de ter vindo aqui...
 Lily: Onde é aqui?
 Lily: Essas flores... são tão estranhas. Eu nunca vi cores assim antes.
-Lily (Frown): Será que estou... sonhando?
-Lily (Open): Tem alguém aí? Alô?!
-Lily (Frown): ...Isso não está certo. Alguma coisa aconteceu. Eu sei que aconteceu.
-Lily (Shout): Eu preciso descobrir onde estou... e como sair daqui.
+Lily (Neutro): Será que estou... sonhando?
+Lily (Surpreso): Tem alguém aí? Alô?!
+Lily (Triste): ...Isso não está certo. Alguma coisa aconteceu. Eu sei que aconteceu.
+Lily (Feliz): Eu preciso descobrir onde estou... e como sair daqui.

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkf40ty1je0xn"
-path="res://.godot/imported/6.png-cab16eb7f75667cd9a4727de60b163f1.ctex"
+uid="uid://bdtrlt8n77xtk"
+path="res://.godot/imported/next.svg-aa76e21aa75ae33526c94354f26094cc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/Garden_VNBackground_Florassence/6.png"
-dest_files=["res://.godot/imported/6.png-cab16eb7f75667cd9a4727de60b163f1.ctex"]
+source_file="res://themes/character_themes/VisualNovelTextbox/next.svg"
+dest_files=["res://.godot/imported/next.svg-aa76e21aa75ae33526c94354f26094cc.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

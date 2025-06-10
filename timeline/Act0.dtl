@@ -1,0 +1,32 @@
+# Ato 0 – Os Sonhos de Lily
+
+# Primeira Noite
+Narrador (Neutro): Lily... volte para casa.
+# (Sons de pétalas caindo, uma figura entre sombras de flores murchas)​
+# (Luz branca pálida sobre um jardim vazio)
+[wait time="2.0"]
+[background arg="res://assets/backgrounds/garden/1.png" fade="0.5"]
+join Lily left
+Lily: ...Esse lugar de novo?
+Lily: Não conheço esse jardim, mas sinto que já estive aqui.
+Lily: Aquela voz... ela me chama com tanta tristeza.
+leave Lily [animation="Fade Out Down"]
+[wait time="1.0"]
+[background arg="res://assets/backgrounds/garden/2.png" fade="1.0"]
+
+# Segunda Noite
+# (O jardim está mais nítido. Flores murchas por toda parte. Um único ponto de luz ao fundo.)​
+# (A mesma voz, mais próxima agora.)
+Narrador: Você consegue me ouvir, Lily? O tempo está acabando.
+join Lily left
+Lily: Por que eu...
+Lily: Por que esse sonho voltou?
+Lily: Eu não deveria lembrar de nada, mas... sinto que algo quer florescer dentro de mim.
+leave Lily [animation="Fade Out Down"]
+
+# Terceira Noite
+[background arg="res://assets/backgrounds/garden/3.png" fade="1.0"]
+# (Agora, Lily caminha pelo jardim no sonho. O chão está coberto de folhas secas. Ao centro, um lírio do vale solitário, ainda vivo.)
+Narrador: Me encontre. Estou esperando.
+join Lily left
+Lily: Quem é você...? Por que sinto que te conheço?

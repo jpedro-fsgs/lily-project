@@ -24,14 +24,20 @@ EncounterSetup="*res://scenes/global/encounter_setup.gd"
 [dialogic]
 
 directories/dch_directory={
-"Lily": "res://characters/Lily.dch"
+"Lily": "res://characters/Lily.dch",
+"Narrador": "res://characters/Narrador.dch",
+"RosaVermelha": "res://characters/RosaVermelha.dch",
+"VozFeminina": "res://characters/VozFeminina.dch"
 }
 directories/dtl_directory={
+"Act0": "res://timeline/Act0.dtl",
+"Act1": "res://timeline/Act1.dtl",
+"Act2": "res://timeline/Act2.dtl",
 "timeline": "res://timeline/timeline.dtl"
 }
 glossary/default_case_sensitive=true
-layout/style_list=["res://assets/dialogic/timeline/timeline.tres"]
-layout/default_style="res://assets/dialogic/timeline/timeline.tres"
+layout/style_list=["res://themes/character_themes/lily.tres", "res://themes/character_themes/narrator.tres", "res://themes/character_themes/rosa_vermelha.tres"]
+layout/default_style="res://timeline/narration_style.tres"
 variables={}
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01

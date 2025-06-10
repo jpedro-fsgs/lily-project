@@ -11,9 +11,6 @@ extends CanvasLayer
 @onready var opponent_hp: Label = $OpponentUI/OpponentHP
 @onready var opponent_mana: Label = $OpponentUI/OpponentMana
 
-@onready var victory_dialog: Control = $VictoryDialog
-@onready var defeat_dialog: Control = $DefeatDialog
-
 @onready var round_number: Label = $RoundUI/RoundNumber
 @onready var attack_token: Label = $RoundUI/AttackToken
 	
@@ -31,12 +28,6 @@ func _on_game_state_manager_player_hp_changed(new_hp: int) -> void:
 func _on_game_state_manager_player_mana_changed(new_mana: int) -> void:
 	player_mana.text = str("Mana: ", new_mana)
 
-
-func _on_game_state_manager_player_dead() -> void:
-	defeat_dialog.visible = true
-
-func _on_game_state_manager_opponent_dead() -> void:
-	victory_dialog.visible = true
 
 func _on_game_state_manager_turn_changed(turn_player: GameStateManager.players) -> void:
 	match turn_player:

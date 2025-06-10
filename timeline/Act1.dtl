@@ -1,0 +1,32 @@
+# Ato 1 – A Caminho do Jardim
+
+# (Lily acorda. Céu cinzento pela janela. Silêncio em seu quarto.)
+[background arg="res://assets/backgrounds/garden/1.png" fade="1.0"]
+join Lily center
+Lily (Neutro): Terceira noite seguida.
+Lily: O mesmo lugar. A mesma voz. O mesmo... sentimento.
+[wait time="1.0"]
+leave Lily [animation="Fade Out Down"]
+
+# (Ela se levanta, sem falar com ninguém. Pega sua mochila. Sai sem saber para onde ir.)
+[background arg="res://assets/backgrounds/garden/2.png" fade="1.0"]
+Narrador: Ela andou sem rumo. Pela estrada, pelo mato, por bairros que nunca lembrava ter visto.
+Narrador: Como se fosse guiada. Como se seus pés já soubessem o caminho.
+
+# (Tela mostra Lily diante de um portão antigo de ferro, entreaberto. Do outro lado, um jardim abandonado.)
+[background arg="res://assets/backgrounds/garden/3.png" fade="1.0"]
+join Lily left
+Lily (em voz baixa): ...É o jardim.
+leave Lily [animation="Fade Out Down"]
+
+# (Ela entra. Folhas secas. O som do vento. No centro, o mesmo lírio do vale vivo.)
+[background arg="res://assets/backgrounds/garden/4.png" fade="1.0"]
+join Lily center
+Lily: Você é real?...
+[wait time="1.0"]
+
+# (Ela se ajoelha e toca o caule da flor.)
+# (Luz branca intensa. Tela branca.)
+leave Lily [animation="Fade Out Down"]
+[wait time="0.5"]
+[background arg="res://assets/backgrounds/garden/1.png" fade="0.2"]

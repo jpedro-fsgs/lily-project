@@ -21,6 +21,15 @@ class_name CombatResolver
 @onready var opponent_card_slot_5: CardSlot = $"../Players/Opponent/OpponentField/CardSlots/CardSlot5"
 @onready var opponent_card_slot_6: CardSlot = $"../Players/Opponent/OpponentField/CardSlots/CardSlot6"
 
+@onready var eq_field = {
+		player_card_slot: opponent_card_slot,
+		player_card_slot_2: opponent_card_slot_2,
+		player_card_slot_3: opponent_card_slot_3,
+		player_card_slot_4: opponent_card_slot_4,
+		player_card_slot_5: opponent_card_slot_5,
+		player_card_slot_6: opponent_card_slot_6,
+	}
+
 @onready var field = [
 	{
 		"player_side": player_card_slot,
@@ -63,6 +72,10 @@ func has_card_on_field():
 		if slot.card:
 			return true
 			
+func player_has_card_on_field():
+	for slot in player_field.card_slots.get_children():
+		if slot.card:
+			return true
 
 func resolve_combat():
 	for f in field:

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bx6dfx6enj0cq"
-path="res://.godot/imported/4.png-c16c26575f0b13b05c46515eab6c4562.ctex"
+uid="uid://btl7yp25tjlw0"
+path="res://.godot/imported/1.png-a29732648294c4db6ebded65aba27f73.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/Garden_VNBackground_Florassence/4.png"
-dest_files=["res://.godot/imported/4.png-c16c26575f0b13b05c46515eab6c4562.ctex"]
+source_file="res://assets/backgrounds/garden/1.png"
+dest_files=["res://.godot/imported/1.png-a29732648294c4db6ebded65aba27f73.ctex"]
 
 [params]
 
