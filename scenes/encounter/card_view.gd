@@ -2,12 +2,12 @@ extends Control
 
 const PATH = "res://assets/"
 
-@onready var card_image: Sprite2D = $CardBody/CardMask/CardImage
-@onready var name_label: Label = $CardBody/Name
-@onready var effect_label: Label = $CardBody/Effect
-@onready var cost_label: Label = $CardBody/CostLabel
-@onready var attack_label: Label = $CardBody/AttackLabel
-@onready var defense_label: Label = $CardBody/DefenseLabel
+@onready var card_image: Sprite2D = $CardBody2/CardImage
+@onready var name_label: Label = $CardBody2/Name
+@onready var effect_label: Label = $CardBody2/Effect
+@onready var cost_label: Label = $CardBody2/CostLabel
+@onready var attack_label: Label = $CardBody2/AttackLabel
+@onready var defense_label: Label = $CardBody2/DefenseLabel
 
 
 

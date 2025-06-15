@@ -4,7 +4,7 @@ class_name Card
 @onready var card_body: Node2D = $CardBody
 
 @onready var cardback: Sprite2D = $CardBody/Cardback
-@onready var card_image: Sprite2D = $CardBody/CardMask/CardImage
+@onready var card_image: Sprite2D = $CardBody/CardImage
 @onready var name_label: Label = $CardBody/Name
 @onready var effect_label: Label = $CardBody/Effect
 @onready var cost_label: Label = $CardBody/CostLabel
