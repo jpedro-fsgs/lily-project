@@ -29,14 +29,14 @@ enum players {
 	OPPONENT
 }
 
-var player_hp: int = 1
+var player_hp: int = 15
 var player_max_hp: int = 15
-var player_mana: int = 15  
+var player_mana: int = 1
 
 
-var opponent_hp: int = 1
+var opponent_hp: int = 15
 var opponent_max_hp: int = 15
-var opponent_mana: int = 15
+var opponent_mana: int = 1
 
 var base_mana = 1
 
@@ -54,6 +54,7 @@ var number_of_plays_last_turn_player := 0
 var number_of_plays_last_turn_opponent := 0
 var is_first_turn := true
 var attack_answered := false
+var attack_done := false
 
 
 signal player_hp_changed(new_hp: int)
@@ -84,7 +85,6 @@ func initial_cards():
 func next_round():
 	current_round += 1
 	
-	cards_back_on_bench()
 	
 	set_player_mana(player_mana + base_mana)
 	set_opponent_mana(opponent_mana + base_mana)
@@ -102,12 +102,14 @@ func next_round():
 		else players.OPPONENT
 		)
 	attack_started = false
+	attack_done = false
 	emit_signal("attack_token_changed", has_attack_token)
 	
 func end_turn():
 	if combat_resolver.has_card_on_field():
 		if current_turn_player != has_attack_token:
 			combat_resolver.resolve_combat()
+			attack_done = true
 	
 	var should_go_to_next_round := (
 		number_of_plays_last_turn_opponent == 0 and
@@ -151,7 +153,6 @@ func check_win():
 		return
 		
 	if opponent_hp <= 0:
-		print_debug("o")
 		endgame_dialog.set_winner("VITÓRIA")
 		endgame_dialog.visible = true
 		blur_background()
@@ -224,6 +225,7 @@ func opponent_play_card(card: Card, check: bool=false, card_slot: CardSlot=null)
 	var can_play: = (
 		card.field == Card.fields.Bench
 		and is_opponent_turn()
+		and not attack_done
 		and (
 			has_attack_token == players.OPPONENT
 			or attack_started
@@ -246,6 +248,7 @@ func player_play_card(card: Card, check: bool=false, card_slot: CardSlot=null):
 	var can_play: = (
 		card.field != Card.fields.Hand
 		and is_player_turn()
+		and not attack_done
 		and (
 			has_attack_token == players.PLAYER
 			or attack_started

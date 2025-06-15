@@ -21,6 +21,8 @@ class_name CombatResolver
 @onready var opponent_card_slot_5: CardSlot = $"../Players/Opponent/OpponentField/CardSlots/CardSlot5"
 @onready var opponent_card_slot_6: CardSlot = $"../Players/Opponent/OpponentField/CardSlots/CardSlot6"
 
+
+
 @onready var eq_field = {
 		player_card_slot: opponent_card_slot,
 		player_card_slot_2: opponent_card_slot_2,
@@ -91,3 +93,6 @@ func resolve_combat():
 				game_state_manager.opponent_take_damage(player_card._attack)
 			if opponent_card:
 				game_state_manager.player_take_damage(opponent_card._attack)
+				
+	game_state_manager.cards_back_on_bench()
+				
