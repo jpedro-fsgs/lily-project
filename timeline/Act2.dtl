@@ -1,13 +1,14 @@
 # Ato 2 – O Jardim dos Significados
+[background arg="res://assets/backgrounds/black-bg.jpg" fade="0.0"]
 
 Narrador: Lily acorda no chão. Céu roxo, flores etéreas ao redor. O mesmo jardim, agora em outro mundo.
 [background arg="res://assets/backgrounds/garden/5.png" fade="1.0"]
-join Lily left 
+join Lily leftmost
 Lily: Não é mais um sonho... Onde... onde eu tô?
 [wait time="1.0"]
 
-Narrador:  (Ela se levanta. À sua frente, uma mulher de longos cabelos vermelhos e vestido de pétalas aparece — Rosa Vermelha.)
-join RosaVermelha right
+Narrador: (Ela se levanta. À sua frente, uma mulher de longos cabelos vermelhos e vestido de pétalas aparece — Rosa Vermelha.)
+join RosaVermelha rightmost
 Lily: Você é a mulher dos meus sonhos.
 RosaVermelha: Finalmente, você chegou. E você é aquela por quem o jardim esperou. Este é o Jardim dos Significados, Lily. Aqui, tudo tem um porquê — e toda flor guarda uma história.
 Lily: Por que eu estou aqui?

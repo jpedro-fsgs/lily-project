@@ -6,7 +6,7 @@
 &"custom_info": {
 "sound_mood_default": "",
 "sound_moods": {},
-"style": "narration_style"
+"style": "rosa_vermelha"
 },
 &"default_portrait": "Neutro",
 &"description": "",
@@ -17,9 +17,9 @@
 &"portraits": {
 "Neutro": {
 "export_overrides": {
-"image": "\"res://assets/characters/Lily/Hair_Up/Miki_Casual_PoseD_Up_Shout.png\""
+"image": "\"res://assets/characters/ROSA VERMELHA/ROSA VERMELHA_NEUTRO.png\""
 },
-"mirror": false,
+"mirror": true,
 "offset": Vector2(0, 0),
 "scale": 1,
 "scene": ""

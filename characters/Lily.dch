@@ -26,36 +26,9 @@
 &"nicknames": [""],
 &"offset": Vector2(0, 0),
 &"portraits": {
-"Feliz": {
-"export_overrides": {
-"image": "\"res://assets/characters/Lily/Miki_Casual_PoseD_Smile.png\""
-},
-"mirror": false,
-"offset": Vector2(0, 0),
-"scale": 1,
-"scene": ""
-},
 "Neutro": {
 "export_overrides": {
-"image": "\"res://assets/characters/Lily/Miki_Casual_PoseD_Frown.png\""
-},
-"mirror": false,
-"offset": Vector2(0, 0),
-"scale": 1,
-"scene": ""
-},
-"Surpreso": {
-"export_overrides": {
-"image": "\"res://assets/characters/Lily/Miki_Casual_PoseD_Shout.png\""
-},
-"mirror": false,
-"offset": Vector2(0, 0),
-"scale": 1,
-"scene": ""
-},
-"Triste": {
-"export_overrides": {
-"image": "\"res://assets/characters/Lily/Miki_Casual_PoseD_Open.png\""
+"image": "\"res://assets/characters/Lily/LILY_NEUTRO.png\""
 },
 "mirror": false,
 "offset": Vector2(0, 0),

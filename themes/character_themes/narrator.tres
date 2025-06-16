@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="DialogicStyle" load_steps=20 format=3 uid="uid://djwxjmqc4t6b7"]
+[gd_resource type="Resource" script_class="DialogicStyle" load_steps=20 format=3 uid="uid://bukgobwu6ypxv"]
 
 [ext_resource type="Script" uid="uid://v4xc8ssqkevn" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="1_qebmt"]
 [ext_resource type="PackedScene" uid="uid://c1k5m0w3r40xf" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_FullBackground/full_background_layer.tscn" id="2_7julk"]
 [ext_resource type="PackedScene" uid="uid://cy1y14inwkplb" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Portraits/vn_portrait_layer.tscn" id="3_edlc2"]
 [ext_resource type="PackedScene" uid="uid://cn674foxwedqu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Input/full_advance_input_layer.tscn" id="4_ob0r1"]
-[ext_resource type="PackedScene" uid="uid://dhlyia2w1mac" path="res://themes/character_themes/VisualNovelTextbox/custom_visual_novel_textbox.tscn" id="5_qebmt"]
+[ext_resource type="PackedScene" uid="uid://7rvpb8df131l" path="res://themes/character_themes/narrator_style/VisualNovelTextbox/custom_visual_novel_textbox.tscn" id="5_qebmt"]
 [ext_resource type="PackedScene" uid="uid://dsbwnp5hegnu3" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Glossary/glossary_popup_layer.tscn" id="6_jjih4"]
 [ext_resource type="PackedScene" uid="uid://dhk6j6eb6e3q" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Choices/vn_choice_layer.tscn" id="7_vjghu"]
 [ext_resource type="PackedScene" uid="uid://cvgf4c6gg0tsy" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_TextInput/text_input_layer.tscn" id="8_fraav"]
@@ -33,9 +33,7 @@ overrides = {}
 [sub_resource type="Resource" id="Resource_r6fsn"]
 script = ExtResource("1_qebmt")
 scene = ExtResource("5_qebmt")
-overrides = {
-"text_alignment": "1"
-}
+overrides = {}
 
 [sub_resource type="Resource" id="Resource_ja418"]
 script = ExtResource("1_qebmt")
