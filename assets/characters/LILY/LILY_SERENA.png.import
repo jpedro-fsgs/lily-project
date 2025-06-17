@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfrio6oehqa1i"
-path="res://.godot/imported/Miki_Casual_PoseD_Smile_Blush.png-67b6365e1cad9912830b39f652f7d0b8.ctex"
+uid="uid://50qingsqn1cd"
+path="res://.godot/imported/LILY_SERENA.png-56e5c7718651d0f3d313671acddd8866.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/Lily/OLD/Miki_Casual_PoseD_Smile_Blush.png"
-dest_files=["res://.godot/imported/Miki_Casual_PoseD_Smile_Blush.png-67b6365e1cad9912830b39f652f7d0b8.ctex"]
+source_file="res://assets/characters/LILY/LILY_SERENA.png"
+dest_files=["res://.godot/imported/LILY_SERENA.png-56e5c7718651d0f3d313671acddd8866.ctex"]
 
 [params]
 

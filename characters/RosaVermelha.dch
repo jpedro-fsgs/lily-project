@@ -20,7 +20,7 @@
 "image": "\"res://assets/characters/ROSA VERMELHA/ROSA VERMELHA_NEUTRO.png\""
 },
 "mirror": true,
-"offset": Vector2(0, 0),
+"offset": Vector2(0, 150),
 "scale": 1,
 "scene": ""
 }

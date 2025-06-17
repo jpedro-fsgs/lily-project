@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cen75isyldeag"
-path="res://.godot/imported/Miki_Casual_PoseD_Open_Blush.png-aaa0d358c761fb1f4f09fbc5f9494bf3.ctex"
+uid="uid://ckoqbgk4q8tsm"
+path="res://.godot/imported/LILY_RAIVA.png-af60060cc4d08d9aac665e58eb971674.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/Lily/OLD/Miki_Casual_PoseD_Open_Blush.png"
-dest_files=["res://.godot/imported/Miki_Casual_PoseD_Open_Blush.png-aaa0d358c761fb1f4f09fbc5f9494bf3.ctex"]
+source_file="res://assets/characters/LILY/LILY_RAIVA.png"
+dest_files=["res://.godot/imported/LILY_RAIVA.png-af60060cc4d08d9aac665e58eb971674.ctex"]
 
 [params]
 

@@ -19,19 +19,64 @@
 },
 "style": "lily"
 },
-&"default_portrait": "Neutro",
+&"default_portrait": "Neutra",
 &"description": "",
 &"display_name": "Lily",
 &"mirror": false,
 &"nicknames": [""],
 &"offset": Vector2(0, 0),
 &"portraits": {
-"Neutro": {
+"Feliz": {
 "export_overrides": {
-"image": "\"res://assets/characters/Lily/LILY_NEUTRO.png\""
+"image": "\"res://assets/characters/LILY/LILY_FELIZ.png\""
 },
 "mirror": false,
-"offset": Vector2(0, 0),
+"offset": Vector2(0, 150),
+"scale": 1,
+"scene": ""
+},
+"Irritada": {
+"export_overrides": {
+"image": "\"res://assets/characters/LILY/LILY_IRRITADA.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 150),
+"scale": 1,
+"scene": ""
+},
+"Neutra": {
+"export_overrides": {
+"image": "\"res://assets/characters/LILY/LILY_NEUTRA.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 150),
+"scale": 1,
+"scene": ""
+},
+"Raiva": {
+"export_overrides": {
+"image": "\"res://assets/characters/LILY/LILY_RAIVA.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 150),
+"scale": 1,
+"scene": ""
+},
+"Serena": {
+"export_overrides": {
+"image": "\"res://assets/characters/LILY/LILY_SERENA.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 150),
+"scale": 1,
+"scene": ""
+},
+"Triste": {
+"export_overrides": {
+"image": "\"res://assets/characters/LILY/LILY_TRISTE.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 150),
 "scale": 1,
 "scene": ""
 }

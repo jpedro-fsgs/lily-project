@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpdqt03vs55eo"
-path="res://.godot/imported/Miki_Casual_PoseD_Up_Smile_Blush.png-ad709049dba9d2df99dfe7953e4a38bc.ctex"
+uid="uid://hfo6wjyc8vdb"
+path="res://.godot/imported/LILY_TRISTE.png-f10d17d5549fdea57fb51618ecb29e65.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/Lily/Hair_Up/Miki_Casual_PoseD_Up_Smile_Blush.png"
-dest_files=["res://.godot/imported/Miki_Casual_PoseD_Up_Smile_Blush.png-ad709049dba9d2df99dfe7953e4a38bc.ctex"]
+source_file="res://assets/characters/LILY/LILY_TRISTE.png"
+dest_files=["res://.godot/imported/LILY_TRISTE.png-f10d17d5549fdea57fb51618ecb29e65.ctex"]
 
 [params]
 

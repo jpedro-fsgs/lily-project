@@ -16,7 +16,7 @@ Narrador: Como se fosse guiada. Como se seus pés já soubessem o caminho.
 # (Tela mostra Lily diante de um portão antigo de ferro, entreaberto. Do outro lado, um jardim abandonado.)
 [background arg="res://assets/backgrounds/garden/3.png" fade="1.0"]
 join Lily left
-Lily (em voz baixa): ...É o jardim.
+Lily: ...É o jardim.
 leave Lily [animation="Fade Out Down"]
 
 # (Ela entra. Folhas secas. O som do vento. No centro, o mesmo lírio do vale vivo.)

@@ -6,7 +6,7 @@ Narrador (Neutro): Lily... volte para casa.
 # (Luz branca pálida sobre um jardim vazio)
 [wait time="2.0"]
 [background arg="res://assets/backgrounds/garden/1.png" fade="0.5"]
-join Lily left
+join Lily (Neutra) left
 Lily: ...Esse lugar de novo?
 Lily: Não conheço esse jardim, mas sinto que já estive aqui.
 Lily: Aquela voz... ela me chama com tanta tristeza.
@@ -20,7 +20,7 @@ leave Lily [animation="Fade Out Down"]
 Narrador: Você consegue me ouvir, Lily? O tempo está acabando.
 join Lily left
 Lily: Por que eu...
-Lily: Por que esse sonho voltou?
+Lily (Serena): Por que esse sonho voltou?
 Lily: Eu não deveria lembrar de nada, mas... sinto que algo quer florescer dentro de mim.
 leave Lily [animation="Fade Out Down"]
 

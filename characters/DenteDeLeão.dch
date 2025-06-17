@@ -19,7 +19,7 @@
 "export_overrides": {
 "image": "\"res://assets/characters/DENTE DE LEÃO/DENTE DE LEÃO_NEUTRO.png\""
 },
-"mirror": false,
+"mirror": true,
 "offset": Vector2(0, 0),
 "scale": 1,
 "scene": ""

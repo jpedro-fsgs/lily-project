@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doo3kd4vqlu28"
-path="res://.godot/imported/Miki_Casual_PoseD_Frown_Blush.png-c65a5f4093b05c4ef2a57c829436ee10.ctex"
+uid="uid://f1ai1hagelov"
+path="res://.godot/imported/LILY_IRRITADA.png-abe5bacc5088c89d59d5d89ea19f80fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/Lily/OLD/Miki_Casual_PoseD_Frown_Blush.png"
-dest_files=["res://.godot/imported/Miki_Casual_PoseD_Frown_Blush.png-c65a5f4093b05c4ef2a57c829436ee10.ctex"]
+source_file="res://assets/characters/LILY/LILY_IRRITADA.png"
+dest_files=["res://.godot/imported/LILY_IRRITADA.png-abe5bacc5088c89d59d5d89ea19f80fc.ctex"]
 
 [params]
 

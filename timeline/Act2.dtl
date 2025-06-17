@@ -3,7 +3,7 @@
 
 Narrador: Lily acorda no chão. Céu roxo, flores etéreas ao redor. O mesmo jardim, agora em outro mundo.
 [background arg="res://assets/backgrounds/garden/5.png" fade="1.0"]
-join Lily leftmost
+join Lily (Neutra) leftmost
 Lily: Não é mais um sonho... Onde... onde eu tô?
 [wait time="1.0"]
 
