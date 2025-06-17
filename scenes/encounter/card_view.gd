@@ -9,6 +9,8 @@ const PATH = "res://assets/"
 @onready var attack_label: Label = $CardBody2/AttackLabel
 @onready var defense_label: Label = $CardBody2/DefenseLabel
 
+const player_pos = Vector2(753.0, 144.0)
+const opponent_pos = Vector2(753.0, 532.0)
 
 
 func _ready():
@@ -17,8 +19,12 @@ func _ready():
 func _process(_delta: float):
 	pass
 
-func _on_card_manager_view_card(card):
+func _on_card_manager_view_card(card: Card):
 	if card:
+		if card.belongs_to == GameStateManager.players.PLAYER:
+			position = player_pos
+		else:
+			position = opponent_pos
 		visible = true
 		card_image.texture = load(str(PATH, card._image_path))
 		name_label.text = card._name

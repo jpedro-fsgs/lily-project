@@ -50,6 +50,7 @@ func draw_card_player():
 	new_card.connect("card_released", Callable(self, "_on_card_released"))
 	new_card.connect("card_hovered", Callable(self, "_on_card_hovered"))
 	new_card.connect("card_unhovered", Callable(self, "_on_card_unhovered"))
+	new_card.connect("dead_card", Callable(self, "kill_card"))
 	
 	player_card_hand.add_child(new_card)
 	player_card_hand.update_hand()
@@ -65,6 +66,7 @@ func draw_card_opponent():
 	
 	new_card.connect("card_hovered", Callable(self, "_on_card_hovered"))
 	new_card.connect("card_unhovered", Callable(self, "_on_card_unhovered"))
+	new_card.connect("dead_card", Callable(self, "kill_card"))
 	
 	opponent_card_hand.add_child(new_card)
 	opponent_card_hand.update_hand()
@@ -144,3 +146,10 @@ func _on_card_unhovered(card: Card) -> void:
 			emit_signal("view_card", null)
 		Card.fields.Combat:
 			emit_signal("view_card", null)
+			
+func kill_card(card: Card):
+	print_debug("3")
+	var card_slot = card.card_slot;
+	card_slot.remove_card(card)
+	card.queue_free()
+	

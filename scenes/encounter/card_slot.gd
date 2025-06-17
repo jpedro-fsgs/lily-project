@@ -18,8 +18,9 @@ func _process(_delta: float) -> void:
 func add_card(new_card: Card):
 	card = new_card
 	card.card_slot = self
-	
+	var global_pos = card.global_position
 	card_in_slot.add_child(new_card)
+	card.global_position = global_pos
 	new_card.z_index = 1
 	new_card.show_card()
 	

@@ -15,7 +15,9 @@ func _process(_delta: float) -> void:
 	pass
 
 func add_card_to_hand(card: Card):
+	var global_pos = card.global_position
 	card_hand.add_child(card)
+	card.global_position = global_pos
 	card_hand.update_hand()
 	card.change_state(Card.states.MoveDrawnCardToHand)
 	card.change_field(Card.fields.Hand)
@@ -27,7 +29,9 @@ func remove_card_from_hand(card: Card):
 func add_card_to_bench(card: Card):
 	for card_slot: CardSlot in player_bench.card_slots.get_children():
 		if !card_slot.card:
+			var global_pos = card.global_position
 			card_slot.add_card(card)
+			card.global_position = global_pos
 			return
 	card.change_state(Card.states.InBench)
 	card.change_field(Card.fields.Bench)
@@ -38,8 +42,8 @@ func remove_card_from_bench(card: Card):
 	
 func add_card_to_field(card: Card, target_card_slot: CardSlot=null):
 	if target_card_slot:
+
 		target_card_slot.add_card(card)
-	
 		card.change_state(Card.states.InField)
 		card.change_field(Card.fields.Combat)
 

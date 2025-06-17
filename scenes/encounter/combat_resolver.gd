@@ -93,6 +93,10 @@ func resolve_combat():
 				game_state_manager.opponent_take_damage(player_card._attack)
 			if opponent_card:
 				game_state_manager.player_take_damage(opponent_card._attack)
+		if player_card:
+			await player_card.check_health()
+		if opponent_card:
+			await opponent_card.check_health()
 				
 	game_state_manager.cards_back_on_bench()
 				

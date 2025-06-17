@@ -166,9 +166,7 @@ func change_state(new_state: states):
 			  20.0,  # End value
 			  2
 			)
-			current_tween.chain().tween_callback(func():
-				queue_free()
-			)
+			await current_tween.finished
 
 		
 	
@@ -190,10 +188,15 @@ func receive_damage(dmg: int):
 	_defense -= dmg
 	if _defense <= 0:
 		_defense = 0
-		emit_signal("dead_card", self)
-		change_state(states.Dead)
 		
 	defense_label.text = str(int(_defense))
+	
+func check_health():
+	if _defense <= 0:
+		print_debug("1")
+		await change_state(states.Dead)
+		print_debug("2")
+		emit_signal("dead_card", self)
 
 func _gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:

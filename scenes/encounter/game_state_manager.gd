@@ -31,12 +31,12 @@ enum players {
 
 var player_hp: int = 15
 var player_max_hp: int = 15
-var player_mana: int = 1
+var player_mana: int = 15
 
 
 var opponent_hp: int = 15
 var opponent_max_hp: int = 15
-var opponent_mana: int = 1
+var opponent_mana: int = 15
 
 var base_mana = 1
 
