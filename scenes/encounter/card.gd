@@ -193,6 +193,14 @@ func receive_damage(dmg: int):
 		
 	defense_label.text = str(int(_defense))
 	
+func add_attack(add: int):
+	_attack += add
+	attack_label.text = str(int(_attack))
+	
+func add_defense(add: int):
+	_defense += add
+	defense_label.text = str(int(_defense))
+	
 func check_health():
 	if _defense <= 0:
 		await change_state(states.Dead)

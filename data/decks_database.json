@@ -162,16 +162,16 @@
 			"duração_ou_atk": 3,
 			"área_ou_def": 4,
 			"mana": 4,
-			"efeito": "Ao entrar, remove todos efeitos negativos de uma unidade aliada.",
+			"efeito": "Recupera 3 pontos de HP",
 			"copias_permitidas": 2,
 			"image_url": "DECKS/PUREZA/lírio-do-vale.png",
-			"apply_effect": false
+			"apply_effect": true
 		},
 		{
 			"carta": "Trilho de Névoa",
 			"tipo": "Spell de Debuff",
-			"duração_ou_atk": null,
-			"área_ou_def": null,
+			"duração_ou_atk": 2,
+			"área_ou_def": 2,
 			"mana": 3,
 			"efeito": "Aplica \"Cegueira\" em uma unidade inimiga: ela erra o próximo ataque.",
 			"copias_permitidas": 3,
@@ -205,7 +205,7 @@
 			"tipo": "Spell de Recuperação",
 			"duração_ou_atk": null,
 			"área_ou_def": null,
-			"mana": 5,
+			"mana": 2,
 			"efeito": "Restaura 4 de mana instantaneamente.",
 			"copias_permitidas": 2,
 			"image_url": "DECKS/PUREZA/eco-da-colina-branca.png",
@@ -228,10 +228,10 @@
 			"duração_ou_atk": 3,
 			"área_ou_def": 3,
 			"mana": 3,
-			"efeito": "Ao entrar, escolha uma carta aliada: ela ganha 2|2 permanente.",
+			"efeito": "Ao entrar em combate, todas as cartas aliadas ganham 2|2",
 			"copias_permitidas": 3,
 			"image_url": "DECKS/PUREZA/cogumelo-luminoso.png",
-			"apply_effect": false
+			"apply_effect": true
 		},
 		{
 			"carta": "Ninho de Beija-flor",
