@@ -33,6 +33,7 @@ var _defense: int
 var _cost: int
 var _effect: String
 var _image_path: String
+var _apply_effect: bool
 var _is_face_down: bool
 
 
@@ -76,6 +77,7 @@ func set_attributes(card_attributes, is_face_down=false) -> void:
 	_cost = card_attributes["mana"]
 	_effect = card_attributes["efeito"]
 	_image_path = card_attributes["image_url"]
+	_apply_effect = card_attributes["apply_effect"]
 	_is_face_down = is_face_down
 	field = fields.Hand
 	_update_card()
@@ -193,9 +195,7 @@ func receive_damage(dmg: int):
 	
 func check_health():
 	if _defense <= 0:
-		print_debug("1")
 		await change_state(states.Dead)
-		print_debug("2")
 		emit_signal("dead_card", self)
 
 func _gui_input(event):

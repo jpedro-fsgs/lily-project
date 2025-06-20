@@ -15,8 +15,6 @@ var opponent_deck = []
 @onready var opponent_card_hand: CanvasLayer = $"../Players/Opponent/OpponentHand"
 
 @onready var bench_drop_detector: Area2D = $"../Players/Player/BenchDropDetector"
-@onready var field_drop_detector: Area2D = $"../Players/Player/FieldDropDetector"
-
 
 @onready var player: Player = $"../Players/Player"
 
@@ -148,7 +146,6 @@ func _on_card_unhovered(card: Card) -> void:
 			emit_signal("view_card", null)
 			
 func kill_card(card: Card):
-	print_debug("3")
 	var card_slot = card.card_slot;
 	card_slot.remove_card(card)
 	card.queue_free()

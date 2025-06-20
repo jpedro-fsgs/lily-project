@@ -30,13 +30,11 @@ enum players {
 }
 
 var player_hp: int = 15
-var player_max_hp: int = 15
-var player_mana: int = 15
+var player_mana: int = 5
 
 
 var opponent_hp: int = 15
-var opponent_max_hp: int = 15
-var opponent_mana: int = 15
+var opponent_mana: int = 5
 
 var base_mana = 1
 
@@ -55,6 +53,8 @@ var number_of_plays_last_turn_opponent := 0
 var is_first_turn := true
 var attack_answered := false
 var attack_done := false
+
+var live_game := true
 
 
 signal player_hp_changed(new_hp: int)
@@ -83,8 +83,10 @@ func initial_cards():
 		card_manager.draw_card_opponent()
 		
 func next_round():
+	if not live_game:
+		return
+		
 	current_round += 1
-	
 	
 	set_player_mana(player_mana + base_mana)
 	set_opponent_mana(opponent_mana + base_mana)
@@ -106,9 +108,12 @@ func next_round():
 	emit_signal("attack_token_changed", has_attack_token)
 	
 func end_turn():
+	if not live_game:
+		return
+		
 	if combat_resolver.has_card_on_field():
 		if current_turn_player != has_attack_token:
-			combat_resolver.resolve_combat()
+			await combat_resolver.resolve_combat()
 			attack_done = true
 	
 	var should_go_to_next_round := (
@@ -143,21 +148,22 @@ func blur_background():
 			background.material.set_shader_parameter("radius", value)),
 			0, 4.0, 2
 			)
+	await tween.finished
 
 func check_win():
+	if player_hp > 0 and opponent_hp > 0:
+		return
+	
 	if player_hp <=0:
-		print_debug("p")
 		endgame_dialog.set_winner("DERROTA")
-		endgame_dialog.visible = true
-		blur_background()
-		return
 		
-	if opponent_hp <= 0:
+	elif opponent_hp <= 0:
 		endgame_dialog.set_winner("VITÓRIA")
-		endgame_dialog.visible = true
-		blur_background()
-		return
-		
+	
+	endgame_dialog.visible = true
+	blur_background()
+	live_game = false
+	
 
 func is_player_turn():
 	return current_turn_player == players.PLAYER
@@ -185,6 +191,12 @@ func set_player_mana(new_value: int) -> void:
 func set_opponent_mana(new_value: int) -> void:
 	opponent_mana = new_value
 	emit_signal("opponent_mana_changed", opponent_mana)
+	
+func player_increase_mana(added_mana: int) -> void:
+	set_player_mana(player_mana + added_mana)
+	
+func opponent_increase_mana(added_mana: int) -> void:
+	set_opponent_mana(opponent_mana + added_mana)
 
 func player_take_damage(dmg: int):
 	set_player_hp(player_hp - dmg)
@@ -193,6 +205,8 @@ func opponent_take_damage(dmg: int):
 	set_opponent_hp(opponent_hp - dmg)
 
 func opponent_buy_card(card: Card, check: bool=false):
+	if not live_game:
+		return
 	if not is_opponent_turn() or opponent_mana < card._cost:
 		return false
 	if check:
@@ -210,11 +224,17 @@ func opponent_buy_card(card: Card, check: bool=false):
 	
 	
 func player_buy_card(card: Card, check: bool=false):
+	if not live_game:
+		return
 	if not is_player_turn() or player_mana < card._cost:
 		return false
 	if check:
 		return true
 	set_player_mana(player_mana - card._cost)
+	
+	if card._apply_effect:
+		var effect = CardDatabase.effects[card._name]
+		effect.call(card, self, card_manager)
 	player.remove_card_from_hand(card)
 	player.add_card_to_bench(card)
 	
@@ -222,6 +242,8 @@ func player_buy_card(card: Card, check: bool=false):
 	return true
 	
 func opponent_play_card(card: Card, check: bool=false, card_slot: CardSlot=null):
+	if not live_game:
+		return
 	var can_play: = (
 		card.field == Card.fields.Bench
 		and is_opponent_turn()
@@ -245,6 +267,8 @@ func opponent_play_card(card: Card, check: bool=false, card_slot: CardSlot=null)
 	return true
 	
 func player_play_card(card: Card, check: bool=false, card_slot: CardSlot=null):
+	if not live_game:
+		return
 	var can_play: = (
 		card.field != Card.fields.Hand
 		and is_player_turn()
@@ -267,6 +291,8 @@ func player_play_card(card: Card, check: bool=false, card_slot: CardSlot=null):
 	return true
 	
 func opponent_reallocate_card(card: Card, check: bool=false, card_slot: CardSlot=null):
+	if not live_game:
+		return
 	var can_play: = (
 		card.field == Card.fields.Combat
 		and is_opponent_turn()
@@ -290,6 +316,8 @@ func opponent_reallocate_card(card: Card, check: bool=false, card_slot: CardSlot
 	return true
 	
 func player_reallocate_card(card: Card, check: bool=false, card_slot: CardSlot=null):
+	if not live_game:
+		return
 	var can_play: = (
 		card.field == Card.fields.Combat
 		and is_player_turn()
@@ -311,6 +339,8 @@ func player_reallocate_card(card: Card, check: bool=false, card_slot: CardSlot=n
 	return true
 
 func cards_back_on_bench():
+	if not live_game:
+		return
 	for card_slot in player_field.card_slots.get_children():
 		if card_slot.card:
 			var card = card_slot.card
@@ -325,6 +355,8 @@ func cards_back_on_bench():
 
 
 func _on_action_button_pressed() -> void:
+	if not live_game:
+		return
 	match current_turn_player:
 		players.PLAYER:
 			end_turn()

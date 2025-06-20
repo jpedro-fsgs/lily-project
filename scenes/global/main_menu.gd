@@ -14,7 +14,7 @@ func _process(_delta: float) -> void:
 
 
 func _on_start_game_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/global/narrative_scene.tscn")
+	get_tree().change_scene_to_file("res://scenes/global/mapa.tscn")
 
 
 func _on_options_pressed() -> void:

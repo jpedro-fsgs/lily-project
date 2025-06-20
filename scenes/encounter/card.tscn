@@ -12,8 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ctyfh8cxen8ln" path="res://assets/card/FRAME_ENERGIA.png" id="7_i6m6p"]
 [ext_resource type="Texture2D" uid="uid://bowrrai3ilqdg" path="res://assets/card/FRAME_DEFESA.png" id="8_7mr8i"]
 [ext_resource type="Texture2D" uid="uid://txxiuiktrbed" path="res://assets/card/FRAME_ATAQUE.png" id="9_a4cdn"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_do18g"]
+[ext_resource type="Theme" uid="uid://dcnapnrmt5as4" path="res://themes/card_attributes_theme.tres" id="12_5ohrp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lv7ue"]
 resource_local_to_scene = true
@@ -38,8 +37,9 @@ theme = ExtResource("1_kg30u")
 script = ExtResource("1_6u4wf")
 
 [node name="CardBody" type="Node2D" parent="."]
-material = SubResource("ShaderMaterial_do18g")
 scale = Vector2(0.5, 0.5)
+
+[node name="SubViewport" type="SubViewport" parent="CardBody"]
 
 [node name="CardImage" type="Sprite2D" parent="CardBody"]
 material = SubResource("ShaderMaterial_lv7ue")
@@ -118,8 +118,7 @@ offset_left = 24.0
 offset_top = 36.0
 offset_right = 106.0
 offset_bottom = 150.0
-theme = ExtResource("5_lv7ue")
-theme_override_font_sizes/font_size = 80
+theme = ExtResource("12_5ohrp")
 text = "0"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -129,8 +128,7 @@ offset_left = 4.0
 offset_top = 630.0
 offset_right = 86.0
 offset_bottom = 729.0
-theme = ExtResource("5_lv7ue")
-theme_override_font_sizes/font_size = 80
+theme = ExtResource("12_5ohrp")
 text = "0"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -140,8 +138,7 @@ offset_left = 456.0
 offset_top = 630.0
 offset_right = 538.0
 offset_bottom = 732.0
-theme = ExtResource("5_lv7ue")
-theme_override_font_sizes/font_size = 80
+theme = ExtResource("12_5ohrp")
 text = "0"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true

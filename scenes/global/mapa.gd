@@ -30,3 +30,7 @@ func _on_button_4_pressed() -> void:
 	var game = load("res://scenes/encounter/encounter_scene.tscn")
 	EncounterSetup.set_opponent_deck(CardDatabase.DeckType.GANANCIA)
 	get_tree().change_scene_to_packed(game)
+
+
+func _on_quit_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/global/main.tscn")
