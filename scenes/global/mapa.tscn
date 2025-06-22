@@ -8,7 +8,7 @@
 script = ExtResource("1_k7lwh")
 
 [node name="MapaJardim2" type="Sprite2D" parent="."]
-position = Vector2(966, 449)
+position = Vector2(960, 449)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("2_u1vf7")
 

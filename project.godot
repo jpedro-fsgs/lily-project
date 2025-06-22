@@ -20,6 +20,7 @@ config/icon="uid://ogjlk3va8ugi"
 CardDatabase="*res://scenes/card_database.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 EncounterSetup="*res://scenes/global/encounter_setup.gd"
+AudioManager="*res://scenes/global/audio_manager.gd"
 
 [dialogic]
 
@@ -49,7 +50,9 @@ directories/dtl_directory={
 glossary/default_case_sensitive=true
 layout/style_list=["res://themes/character_themes/lily.tres", "res://themes/character_themes/rosa_vermelha.tres", "res://themes/character_themes/narrator.tres"]
 layout/default_style="res://timeline/narration_style.tres"
-variables={}
+variables={
+"enable_tutorial": true
+}
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true

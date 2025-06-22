@@ -1,7 +1,5 @@
 extends Node2D
 class_name TutorialManager
-
-var enable_tutorial = true
 	
 var tutoriais = [
 	"tutorial1",
@@ -13,12 +11,14 @@ var tutoriais = [
 ]
 var count := 0
 
+func _ready():
+	Dialogic.VAR.enable_tutorial = true
+
 func next_dialog(index: int):
-	print_debug(index)
-	if not enable_tutorial or index <= count:
+	if not Dialogic.VAR.enable_tutorial or index <= count:
 		return
 	if index > tutoriais.size():
-		enable_tutorial = false
+		Dialogic.VAR.enable_tutorial = false
 		return
 	
 	count = index

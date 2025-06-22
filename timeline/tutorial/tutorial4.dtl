@@ -1,4 +1,4 @@
-Narrador: As cartas frente a frente duelarão entre si.
-Narrador: Cada carta sofrerá o dano em sua defesa correspondente ao ataque da carta oposta.
-Narrador: Se a defesa de uma carta chegar a zero, ela se desintegrará.
-Narrador: Se uma carta não for defendida, o dano será infligido no HP do oponente.
+Narrador: Cartas posicionadas frente a frente entrarão em combate direto.
+Narrador: Cada uma causará dano à defesa da carta oposta, com base em seu poder de ataque.
+Narrador: Quando a defesa de uma carta chega a zero, ela é destruída.
+Narrador: Se uma carta atacar sem oposição, o dano será aplicado diretamente ao HP do oponente.

@@ -21,7 +21,7 @@ func update_available_cards():
 	var available_card_slots = []
 	var available_plays = []
 	
-	if combat_resolver.player_has_card_on_field() and randi() % 100 > 35:
+	if combat_resolver.player_has_card_on_field() and randi() % 100 > 15:
 		for card_slot in player_field.card_slots.get_children():
 			var eq_card_slot = combat_resolver.eq_field[card_slot]
 			if card_slot.card and not eq_card_slot.card:
@@ -48,11 +48,12 @@ func update_available_cards():
 					"play": Callable(game_state_manager, "opponent_play_card")
 				})
 	
-	available_plays.append({
-			"card": null,
-			"card_slot": null,
-			"play": Callable(game_state_manager, "end_turn")
-		})
+	if available_plays.size() == 0 or not combat_resolver.player_has_card_on_field():
+		available_plays.append({
+				"card": null,
+				"card_slot": null,
+				"play": Callable(game_state_manager, "end_turn")
+			})
 			
 	return available_plays
 

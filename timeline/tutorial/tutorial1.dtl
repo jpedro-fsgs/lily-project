@@ -1,1 +1,5 @@
-Narrador: Arraste uma carta para o seu campo para comprá-la com sua Mana.
+Narrador: Deseja ver o tutorial?
+- Sim
+	Narrador: Arraste uma carta até o seu campo para comprá-la usando sua Mana.
+- Não
+	set {enable_tutorial} = false

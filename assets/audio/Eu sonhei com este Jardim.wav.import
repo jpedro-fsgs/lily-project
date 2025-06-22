@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cyhbiqkbmi4v2"
+path="res://.godot/imported/Eu sonhei com este Jardim.wav-a7a0b1c4c6056ae7e17e8e191edaecb6.sample"
+
+[deps]
+
+source_file="res://assets/audio/Eu sonhei com este Jardim.wav"
+dest_files=["res://.godot/imported/Eu sonhei com este Jardim.wav-a7a0b1c4c6056ae7e17e8e191edaecb6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
