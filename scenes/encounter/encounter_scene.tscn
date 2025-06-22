@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=4 uid="uid://bu14yy0jt0jpw"]
+[gd_scene load_steps=64 format=4 uid="uid://bu14yy0jt0jpw"]
 
 [ext_resource type="Script" uid="uid://cujbdg01s7lcu" path="res://scenes/encounter/encounter_scene.gd" id="1_5eihc"]
 [ext_resource type="Script" uid="uid://bqhx7u4ewoa04" path="res://scenes/encounter/tutorial_manager.gd" id="2_1maby"]
@@ -23,6 +23,7 @@
 [ext_resource type="Script" uid="uid://3hs238egyhgu" path="res://scenes/encounter/ui.gd" id="15_vy5yj"]
 [ext_resource type="Theme" uid="uid://bia38n0xiq6e1" path="res://themes/card_title_theme.tres" id="17_rk4nq"]
 [ext_resource type="Texture2D" uid="uid://ddlqe2qnyt73t" path="res://assets/encounter/circlemask.png" id="19_bbktn"]
+[ext_resource type="Theme" uid="uid://ckkiha2ptx7fx" path="res://themes/board_ui.tres" id="20_7coiu"]
 [ext_resource type="Shader" uid="uid://co4ujqiw8fck7" path="res://shaders/dissintegrate.gdshader" id="23_ifurs"]
 [ext_resource type="PackedScene" uid="uid://da46hernlgs6p" path="res://scenes/encounter/endgame_dialog.tscn" id="23_yh8c4"]
 [ext_resource type="Texture2D" uid="uid://nlwkbd00wjss" path="res://assets/card/FRAME.png" id="24_j7pev"]
@@ -309,6 +310,7 @@ offset_left = -1028.0
 offset_top = -1024.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("20_7coiu")
 theme_override_font_sizes/font_size = 160
 text = "Encerrar Turno"
 autowrap_mode = 2
@@ -332,6 +334,7 @@ layout_mode = 0
 offset_top = 720.0
 offset_right = 247.0
 offset_bottom = 857.0
+theme = ExtResource("20_7coiu")
 theme_override_font_sizes/font_size = 100
 text = "HP: 30"
 horizontal_alignment = 1
@@ -341,6 +344,7 @@ layout_mode = 0
 offset_top = 832.0
 offset_right = 382.0
 offset_bottom = 969.0
+theme = ExtResource("20_7coiu")
 theme_override_font_sizes/font_size = 100
 text = "Mana: 15"
 horizontal_alignment = 1
@@ -356,6 +360,7 @@ layout_mode = 0
 offset_top = 200.0
 offset_right = 247.0
 offset_bottom = 337.0
+theme = ExtResource("20_7coiu")
 theme_override_font_sizes/font_size = 100
 text = "HP: 30"
 horizontal_alignment = 1
@@ -365,6 +370,7 @@ layout_mode = 0
 offset_top = 304.0
 offset_right = 247.0
 offset_bottom = 441.0
+theme = ExtResource("20_7coiu")
 theme_override_font_sizes/font_size = 100
 text = "Mana: 15"
 horizontal_alignment = 1
@@ -507,7 +513,8 @@ layout_mode = 0
 offset_top = 56.0
 offset_right = 304.0
 offset_bottom = 120.0
-theme_override_font_sizes/font_size = 32
+theme = ExtResource("20_7coiu")
+theme_override_font_sizes/font_size = 45
 text = "Round: 1"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -518,7 +525,8 @@ offset_left = -130.0
 offset_top = 120.0
 offset_right = 285.0
 offset_bottom = 172.0
-theme_override_font_sizes/font_size = 26
+theme = ExtResource("20_7coiu")
+theme_override_font_sizes/font_size = 30
 text = "Token de Ataque: Player"
 horizontal_alignment = 2
 vertical_alignment = 1

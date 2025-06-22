@@ -18,10 +18,18 @@ var index: int
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	card_hand.set_cards_position(card_hand.TOP)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+	
+func is_bench_full():
+	for card_slot: CardSlot in opponent_bench.card_slots.get_children():
+		if card_slot.card == null:
+			return false
+	return true
+	
+func is_field_full():
+	for card_slot: CardSlot in opponent_field.card_slots.get_children():
+		if card_slot.card == null:
+			return false
+	return true
 
 
 func add_card_to_hand(card: Card):

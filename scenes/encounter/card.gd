@@ -55,7 +55,9 @@ enum states {
 	FocusInHand,
 	MoveDrawnCardToHand,
 	ReOrganizeHand,
-	Dead
+	Dead,
+	Damage,
+	Attack
 }
 
 enum fields {
@@ -167,9 +169,17 @@ func change_state(new_state: states):
 			current_tween.tween_method(
 			  func(value): card_image.material.set_shader_parameter("amount", value),  
 			  0.0,  # Start value
-			  20.0,  # End value
-			  2
+			  10.0,  # End value
+			  1
 			)
+			await current_tween.finished
+		states.Damage:
+			current_tween.tween_property(self, "modulate", Color.RED, 0.5)
+			current_tween.chain().tween_property(self, "modulate", Color.WHITE, 0.5)
+			await current_tween.finished
+		states.Attack:
+			current_tween.tween_property(self, "modulate", Color.BLUE, 0.5)
+			current_tween.chain().tween_property(self, "modulate", Color.WHITE, 0.5)
 			await current_tween.finished
 
 		
@@ -189,11 +199,18 @@ func show_card():
 	cardback.visible = false
 	
 func receive_damage(dmg: int):
+	if dmg < 1:
+		return
 	_defense -= dmg
 	if _defense <= 0:
 		_defense = 0
-		
 	defense_label.text = str(int(_defense))
+	
+func damage_animation():
+	change_state(states.Damage)
+	
+func attack_animation():
+	change_state(states.Attack)
 	
 func add_attack(add: int):
 	_attack += add

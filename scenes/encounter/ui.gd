@@ -28,6 +28,18 @@ func _on_game_state_manager_player_hp_changed(new_hp: int) -> void:
 func _on_game_state_manager_player_mana_changed(new_mana: int) -> void:
 	player_mana.text = str("Mana: ", new_mana)
 
+func player_damage():
+	var current_tween = create_tween()
+	current_tween.tween_property(player_hp, "modulate", Color.RED, 0.5)
+	current_tween.chain().tween_property(player_hp, "modulate", Color.WHITE, 0.5)
+	await current_tween.finished
+
+func opponent_damage():
+	var current_tween = create_tween()
+	current_tween.tween_property(opponent_hp, "modulate", Color.RED, 0.5)
+	current_tween.chain().tween_property(opponent_hp, "modulate", Color.WHITE, 0.5)
+	await current_tween.finished
+
 
 func _on_game_state_manager_turn_changed(turn_player: GameStateManager.players) -> void:
 	match turn_player:
@@ -43,8 +55,8 @@ func _on_game_state_manager_round_changed(number: int) -> void:
 
 
 func _on_game_state_manager_attack_token_changed(attack_token_player: GameStateManager.players) -> void:
-	attack_token.text = str("Token de Ataque:", (
+	attack_token.text = str("Token de Ataque: ", (
 		"Player"
 		if attack_token_player == GameStateManager.players.PLAYER
-		else "Opponent"
+		else "Oponente"
 		))

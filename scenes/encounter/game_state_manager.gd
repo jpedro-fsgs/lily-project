@@ -213,9 +213,13 @@ func opponent_increase_hp(added_hp: int) -> void:
 
 func player_take_damage(dmg: int):
 	set_player_hp(player_hp - dmg)
+	if dmg > 0:
+		ui.player_damage()
 	
 func opponent_take_damage(dmg: int):
 	set_opponent_hp(opponent_hp - dmg)
+	if dmg > 0:
+		ui.opponent_damage()
 	
 func player_field_cards_increase_attributes(add_attack: int, add_defense: int):
 	for card_slot in player_field.card_slots.get_children():
@@ -228,7 +232,7 @@ func player_field_cards_increase_attributes(add_attack: int, add_defense: int):
 	
 
 func opponent_buy_card(card: Card, check: bool=false):
-	if not live_game:
+	if not live_game or opponent.is_bench_full():
 		return
 	if not is_opponent_turn() or opponent_mana < card._cost:
 		return false
@@ -247,7 +251,7 @@ func opponent_buy_card(card: Card, check: bool=false):
 	
 	
 func player_buy_card(card: Card, check: bool=false):
-	if not live_game:
+	if not live_game or player.is_bench_full():
 		return
 	# Tutorial 2
 	tutorial_manager.next_dialog(2)

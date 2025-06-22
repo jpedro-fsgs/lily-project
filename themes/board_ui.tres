@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://ckkiha2ptx7fx"]
+
+[ext_resource type="FontFile" uid="uid://d1wet7x55yxld" path="res://assets/fonts/Plantin Infant MT Std Regular.otf" id="1_xjnj3"]
+
+[resource]
+default_font = ExtResource("1_xjnj3")
