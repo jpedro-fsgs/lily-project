@@ -39,8 +39,6 @@ script = ExtResource("1_6u4wf")
 [node name="CardBody" type="Node2D" parent="."]
 scale = Vector2(0.5, 0.5)
 
-[node name="SubViewport" type="SubViewport" parent="CardBody"]
-
 [node name="CardImage" type="Sprite2D" parent="CardBody"]
 material = SubResource("ShaderMaterial_lv7ue")
 position = Vector2(274, 363.944)

@@ -35,6 +35,7 @@ var _effect: String
 var _image_path: String
 var _apply_effect: bool
 var _is_face_down: bool
+var _effect_applied: bool
 
 
 var _original_scale = Vector2(0.5, 0.5)
@@ -79,6 +80,7 @@ func set_attributes(card_attributes, is_face_down=false) -> void:
 	_image_path = card_attributes["image_url"]
 	_apply_effect = card_attributes["apply_effect"]
 	_is_face_down = is_face_down
+	_effect_applied = false
 	field = fields.Hand
 	_update_card()
 	

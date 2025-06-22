@@ -6,6 +6,7 @@ class_name GameStateManager
 
 @onready var card_manager: CardManager = $"../CardManager"
 @onready var combat_resolver: CombatResolver = $"../CombatResolver"
+@onready var tutorial_manager: TutorialManager = $"../TutorialManager"
 
 @onready var opponent_ai_manager: OpponentAIManager = $"../OpponentAIManager"
 
@@ -81,11 +82,14 @@ func initial_cards():
 		card_manager.draw_card_player()
 		await get_tree().create_timer(0.25).timeout
 		card_manager.draw_card_opponent()
+	
+	# Tutorial 1
+	await tutorial_manager.next_dialog(1)
 		
 func next_round():
 	if not live_game:
 		return
-		
+	await tutorial_manager.next_dialog(6)
 	current_round += 1
 	
 	set_player_mana(player_mana + base_mana)
@@ -110,10 +114,13 @@ func next_round():
 func end_turn():
 	if not live_game:
 		return
-		
+	
 	if combat_resolver.has_card_on_field():
 		if current_turn_player != has_attack_token:
+			# Tutorial 4
+			await tutorial_manager.next_dialog(4)
 			await combat_resolver.resolve_combat()
+			await tutorial_manager.next_dialog(5)
 			attack_done = true
 	
 	var should_go_to_next_round := (
@@ -197,12 +204,28 @@ func player_increase_mana(added_mana: int) -> void:
 	
 func opponent_increase_mana(added_mana: int) -> void:
 	set_opponent_mana(opponent_mana + added_mana)
+	
+func player_increase_hp(added_hp: int) -> void:
+	set_player_hp(player_hp + added_hp)
+	
+func opponent_increase_hp(added_hp: int) -> void:
+	set_opponent_hp(opponent_hp + added_hp)
 
 func player_take_damage(dmg: int):
 	set_player_hp(player_hp - dmg)
 	
 func opponent_take_damage(dmg: int):
 	set_opponent_hp(opponent_hp - dmg)
+	
+func player_field_cards_increase_attributes(add_attack: int, add_defense: int):
+	for card_slot in player_field.card_slots.get_children():
+		var card: Card = card_slot.card
+		if card and not card._effect_applied:
+			card.add_attack(add_attack)
+			card.add_defense(add_defense)
+			card._effect_applied = true
+		
+	
 
 func opponent_buy_card(card: Card, check: bool=false):
 	if not live_game:
@@ -226,19 +249,23 @@ func opponent_buy_card(card: Card, check: bool=false):
 func player_buy_card(card: Card, check: bool=false):
 	if not live_game:
 		return
+	# Tutorial 2
+	tutorial_manager.next_dialog(2)
 	if not is_player_turn() or player_mana < card._cost:
 		return false
 	if check:
 		return true
 	set_player_mana(player_mana - card._cost)
 	
+
+	player.remove_card_from_hand(card)
+	player.add_card_to_bench(card)
+	number_of_plays_last_turn_player +=1
+	
 	if card._apply_effect:
 		var effect = CardDatabase.effects[card._name]
 		effect.call(card, self, card_manager)
-	player.remove_card_from_hand(card)
-	player.add_card_to_bench(card)
 	
-	number_of_plays_last_turn_player +=1
 	return true
 	
 func opponent_play_card(card: Card, check: bool=false, card_slot: CardSlot=null):
@@ -288,6 +315,12 @@ func player_play_card(card: Card, check: bool=false, card_slot: CardSlot=null):
 	
 	attack_started = true
 	number_of_plays_last_turn_player += 1
+	# Tutorial 3
+	tutorial_manager.next_dialog(3)
+	
+	if card._apply_effect:
+		var effect = CardDatabase.effects[card._name]
+		effect.call(card, self, card_manager)
 	return true
 	
 func opponent_reallocate_card(card: Card, check: bool=false, card_slot: CardSlot=null):
