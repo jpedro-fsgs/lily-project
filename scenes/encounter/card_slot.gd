@@ -3,6 +3,7 @@ class_name CardSlot
 
 @onready var card_slot_detector: Area2D = $CardSlotDetector
 @onready var card_in_slot: Node2D = $CardInSlot
+@onready var borda: Sprite2D = $Borda
 
 var card: Card = null
 
@@ -10,6 +11,11 @@ var card: Card = null
 func _ready() -> void:
 	pass
 
+func set_field_slot():
+	borda.modulate = Color.RED
+	
+func set_bench_slot():
+	borda.modulate = Color.BLUE
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

@@ -38,7 +38,13 @@ directories/dtl_directory={
 "Act0": "res://timeline/Act0.dtl",
 "Act1": "res://timeline/Act1.dtl",
 "Act2": "res://timeline/Act2.dtl",
-"timeline": "res://timeline/timeline.dtl"
+"timeline": "res://timeline/timeline.dtl",
+"tutorial1": "res://timeline/tutorial/tutorial1.dtl",
+"tutorial2": "res://timeline/tutorial/tutorial2.dtl",
+"tutorial3": "res://timeline/tutorial/tutorial3.dtl",
+"tutorial4": "res://timeline/tutorial/tutorial4.dtl",
+"tutorial5": "res://timeline/tutorial/tutorial5.dtl",
+"tutorial6": "res://timeline/tutorial/tutorial6.dtl"
 }
 glossary/default_case_sensitive=true
 layout/style_list=["res://themes/character_themes/lily.tres", "res://themes/character_themes/rosa_vermelha.tres", "res://themes/character_themes/narrator.tres"]

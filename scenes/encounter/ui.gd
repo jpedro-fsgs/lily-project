@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@onready var action_button: Button = $ActionButton
+@onready var action_button: Button = $ActionButtonMask/ActionButton
 
 @onready var player_ui: Control = $PlayerUI
 @onready var opponent_ui: Control = $OpponentUI
@@ -33,15 +33,17 @@ func _on_game_state_manager_turn_changed(turn_player: GameStateManager.players) 
 	match turn_player:
 		GameStateManager.players.PLAYER:
 			action_button.text = "Encerrar Turno"
+			action_button.disabled = false
 		GameStateManager.players.OPPONENT:
 			action_button.text = "Turno do Oponente"
+			action_button.disabled = true
 
 func _on_game_state_manager_round_changed(number: int) -> void:
 	round_number.text = str("Round: ", number)
 
 
 func _on_game_state_manager_attack_token_changed(attack_token_player: GameStateManager.players) -> void:
-	attack_token.text = str("Attack Token:", (
+	attack_token.text = str("Token de Ataque:", (
 		"Player"
 		if attack_token_player == GameStateManager.players.PLAYER
 		else "Opponent"

@@ -1,6 +1,7 @@
-[gd_scene load_steps=37 format=4 uid="uid://bu14yy0jt0jpw"]
+[gd_scene load_steps=63 format=4 uid="uid://bu14yy0jt0jpw"]
 
 [ext_resource type="Script" uid="uid://cujbdg01s7lcu" path="res://scenes/encounter/encounter_scene.gd" id="1_5eihc"]
+[ext_resource type="Script" uid="uid://bqhx7u4ewoa04" path="res://scenes/encounter/tutorial_manager.gd" id="2_1maby"]
 [ext_resource type="Texture2D" uid="uid://dttdoxrc247vp" path="res://assets/encounter/board3.png" id="2_pe3it"]
 [ext_resource type="Script" uid="uid://c7hsrp7eysvj7" path="res://scenes/encounter/game_state_manager.gd" id="2_sc6ix"]
 [ext_resource type="Script" uid="uid://kmnfpgd716d2" path="res://scenes/encounter/player_field.gd" id="3_5eihc"]
@@ -21,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://cgeg6m4tgcxye" path="res://assets/DECKS/PUREZA/lírio-do-vale.png" id="15_jcv0n"]
 [ext_resource type="Script" uid="uid://3hs238egyhgu" path="res://scenes/encounter/ui.gd" id="15_vy5yj"]
 [ext_resource type="Theme" uid="uid://bia38n0xiq6e1" path="res://themes/card_title_theme.tres" id="17_rk4nq"]
+[ext_resource type="Texture2D" uid="uid://ddlqe2qnyt73t" path="res://assets/encounter/circlemask.png" id="19_bbktn"]
 [ext_resource type="Shader" uid="uid://co4ujqiw8fck7" path="res://shaders/dissintegrate.gdshader" id="23_ifurs"]
 [ext_resource type="PackedScene" uid="uid://da46hernlgs6p" path="res://scenes/encounter/endgame_dialog.tscn" id="23_yh8c4"]
 [ext_resource type="Texture2D" uid="uid://nlwkbd00wjss" path="res://assets/card/FRAME.png" id="24_j7pev"]
@@ -36,8 +38,80 @@
 shader = ExtResource("6_vy5yj")
 shader_parameter/radius = 0.0
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1maby"]
+resource_local_to_scene = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bbktn"]
+resource_local_to_scene = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7coiu"]
+resource_local_to_scene = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_cv58s"]
+resource_local_to_scene = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tss2c"]
+resource_local_to_scene = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vyd1b"]
+resource_local_to_scene = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1h05j"]
+resource_local_to_scene = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3krih"]
+resource_local_to_scene = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_imuuj"]
+resource_local_to_scene = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yjoy8"]
+resource_local_to_scene = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ufjpa"]
+resource_local_to_scene = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_om6bo"]
+resource_local_to_scene = true
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fm2uc"]
 size = Vector2(1312, 289)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6u6i8"]
+resource_local_to_scene = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bjsnf"]
+resource_local_to_scene = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1t42e"]
+resource_local_to_scene = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8adh7"]
+resource_local_to_scene = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ifk5k"]
+resource_local_to_scene = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_02vdk"]
+resource_local_to_scene = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kluwd"]
+resource_local_to_scene = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qio7v"]
+resource_local_to_scene = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jmyci"]
+resource_local_to_scene = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0kqud"]
+resource_local_to_scene = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1kewn"]
+resource_local_to_scene = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_u6g5v"]
+resource_local_to_scene = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vyd1b"]
 
@@ -52,6 +126,9 @@ loop = true
 
 [node name="EncounterScene" type="Node2D"]
 script = ExtResource("1_5eihc")
+
+[node name="TutorialManager" type="Node2D" parent="."]
+script = ExtResource("2_1maby")
 
 [node name="GameStateManager" type="Node2D" parent="."]
 script = ExtResource("2_sc6ix")
@@ -89,21 +166,27 @@ script = ExtResource("3_5eihc")
 position = Vector2(8, 0)
 
 [node name="CardSlot" parent="Players/Player/PlayerField/CardSlots" instance=ExtResource("8_l13s2")]
+material = SubResource("CanvasItemMaterial_1maby")
 position = Vector2(456, 824)
 
 [node name="CardSlot2" parent="Players/Player/PlayerField/CardSlots" instance=ExtResource("8_l13s2")]
+material = SubResource("CanvasItemMaterial_bbktn")
 position = Vector2(624, 824)
 
 [node name="CardSlot3" parent="Players/Player/PlayerField/CardSlots" instance=ExtResource("8_l13s2")]
+material = SubResource("CanvasItemMaterial_7coiu")
 position = Vector2(800, 824)
 
 [node name="CardSlot4" parent="Players/Player/PlayerField/CardSlots" instance=ExtResource("8_l13s2")]
+material = SubResource("CanvasItemMaterial_cv58s")
 position = Vector2(960, 824)
 
 [node name="CardSlot5" parent="Players/Player/PlayerField/CardSlots" instance=ExtResource("8_l13s2")]
+material = SubResource("CanvasItemMaterial_tss2c")
 position = Vector2(1128, 824)
 
 [node name="CardSlot6" parent="Players/Player/PlayerField/CardSlots" instance=ExtResource("8_l13s2")]
+material = SubResource("CanvasItemMaterial_vyd1b")
 position = Vector2(1296, 824)
 
 [node name="PlayerBench" type="Node2D" parent="Players/Player"]
@@ -113,21 +196,27 @@ script = ExtResource("8_e52p7")
 [node name="CardSlots" type="Node2D" parent="Players/Player/PlayerBench"]
 
 [node name="CardSlot" parent="Players/Player/PlayerBench/CardSlots" instance=ExtResource("8_l13s2")]
+material = SubResource("CanvasItemMaterial_1h05j")
 position = Vector2(456, 624)
 
 [node name="CardSlot2" parent="Players/Player/PlayerBench/CardSlots" instance=ExtResource("8_l13s2")]
+material = SubResource("CanvasItemMaterial_3krih")
 position = Vector2(624, 624)
 
 [node name="CardSlot3" parent="Players/Player/PlayerBench/CardSlots" instance=ExtResource("8_l13s2")]
+material = SubResource("CanvasItemMaterial_imuuj")
 position = Vector2(800, 624)
 
 [node name="CardSlot4" parent="Players/Player/PlayerBench/CardSlots" instance=ExtResource("8_l13s2")]
+material = SubResource("CanvasItemMaterial_yjoy8")
 position = Vector2(960, 624)
 
 [node name="CardSlot5" parent="Players/Player/PlayerBench/CardSlots" instance=ExtResource("8_l13s2")]
+material = SubResource("CanvasItemMaterial_ufjpa")
 position = Vector2(1128, 624)
 
 [node name="CardSlot6" parent="Players/Player/PlayerBench/CardSlots" instance=ExtResource("8_l13s2")]
+material = SubResource("CanvasItemMaterial_om6bo")
 position = Vector2(1296, 624)
 
 [node name="BenchDropDetector" type="Area2D" parent="Players/Player"]
@@ -149,21 +238,27 @@ script = ExtResource("11_lpcqs")
 [node name="CardSlots" type="Node2D" parent="Players/Opponent/OpponentField"]
 
 [node name="CardSlot" parent="Players/Opponent/OpponentField/CardSlots" instance=ExtResource("8_l13s2")]
+material = SubResource("CanvasItemMaterial_6u6i8")
 position = Vector2(456, 504)
 
 [node name="CardSlot2" parent="Players/Opponent/OpponentField/CardSlots" instance=ExtResource("8_l13s2")]
+material = SubResource("CanvasItemMaterial_bjsnf")
 position = Vector2(624, 504)
 
 [node name="CardSlot3" parent="Players/Opponent/OpponentField/CardSlots" instance=ExtResource("8_l13s2")]
+material = SubResource("CanvasItemMaterial_1t42e")
 position = Vector2(800, 504)
 
 [node name="CardSlot4" parent="Players/Opponent/OpponentField/CardSlots" instance=ExtResource("8_l13s2")]
+material = SubResource("CanvasItemMaterial_8adh7")
 position = Vector2(960, 504)
 
 [node name="CardSlot5" parent="Players/Opponent/OpponentField/CardSlots" instance=ExtResource("8_l13s2")]
+material = SubResource("CanvasItemMaterial_ifk5k")
 position = Vector2(1128, 504)
 
 [node name="CardSlot6" parent="Players/Opponent/OpponentField/CardSlots" instance=ExtResource("8_l13s2")]
+material = SubResource("CanvasItemMaterial_02vdk")
 position = Vector2(1296, 504)
 
 [node name="OpponentBench" type="Node2D" parent="Players/Opponent"]
@@ -172,35 +267,51 @@ script = ExtResource("12_rk4nq")
 [node name="CardSlots" type="Node2D" parent="Players/Opponent/OpponentBench"]
 
 [node name="CardSlot" parent="Players/Opponent/OpponentBench/CardSlots" instance=ExtResource("8_l13s2")]
+material = SubResource("CanvasItemMaterial_kluwd")
 position = Vector2(456, 240)
 
 [node name="CardSlot2" parent="Players/Opponent/OpponentBench/CardSlots" instance=ExtResource("8_l13s2")]
+material = SubResource("CanvasItemMaterial_qio7v")
 position = Vector2(624, 240)
 
 [node name="CardSlot3" parent="Players/Opponent/OpponentBench/CardSlots" instance=ExtResource("8_l13s2")]
+material = SubResource("CanvasItemMaterial_jmyci")
 position = Vector2(800, 240)
 
 [node name="CardSlot4" parent="Players/Opponent/OpponentBench/CardSlots" instance=ExtResource("8_l13s2")]
+material = SubResource("CanvasItemMaterial_0kqud")
 position = Vector2(960, 240)
 
 [node name="CardSlot5" parent="Players/Opponent/OpponentBench/CardSlots" instance=ExtResource("8_l13s2")]
+material = SubResource("CanvasItemMaterial_1kewn")
 position = Vector2(1128, 240)
 
 [node name="CardSlot6" parent="Players/Opponent/OpponentBench/CardSlots" instance=ExtResource("8_l13s2")]
+material = SubResource("CanvasItemMaterial_u6g5v")
 position = Vector2(1296, 240)
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("15_vy5yj")
 
-[node name="ActionButton" type="Button" parent="UI"]
-offset_left = 1520.0
-offset_top = 424.0
-offset_right = 1832.0
-offset_bottom = 504.0
-theme_override_font_sizes/font_size = 35
+[node name="ActionButtonMask" type="Sprite2D" parent="UI"]
+clip_children = 1
+position = Vector2(1671, 466.5)
+scale = Vector2(0.234375, 0.262695)
+texture = ExtResource("19_bbktn")
+
+[node name="ActionButton" type="Button" parent="UI/ActionButtonMask"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1028.0
+offset_top = -1024.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 160
 text = "Encerrar Turno"
-flat = true
-autowrap_mode = 3
+autowrap_mode = 2
 
 [node name="Quit" type="Button" parent="UI"]
 offset_left = 64.0
@@ -408,7 +519,7 @@ offset_top = 120.0
 offset_right = 285.0
 offset_bottom = 172.0
 theme_override_font_sizes/font_size = 26
-text = "Attack Token: Player"
+text = "Token de Ataque: Player"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -430,5 +541,5 @@ visible = false
 [connection signal="turn_changed" from="GameStateManager" to="UI" method="_on_game_state_manager_turn_changed"]
 [connection signal="focus_hand" from="CardManager" to="Players/Player/PlayerHand" method="_on_card_manager_focus_hand"]
 [connection signal="view_card" from="CardManager" to="UI/CardView" method="_on_card_manager_view_card"]
-[connection signal="pressed" from="UI/ActionButton" to="GameStateManager" method="_on_action_button_pressed"]
+[connection signal="pressed" from="UI/ActionButtonMask/ActionButton" to="GameStateManager" method="_on_action_button_pressed"]
 [connection signal="pressed" from="UI/Quit" to="." method="_on_quit_pressed"]

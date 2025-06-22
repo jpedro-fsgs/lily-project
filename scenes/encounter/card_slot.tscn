@@ -1,20 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://byx08v0k1vcqy"]
+[gd_scene load_steps=5 format=3 uid="uid://byx08v0k1vcqy"]
 
 [ext_resource type="Script" uid="uid://b3idsscv5y25l" path="res://scenes/encounter/card_slot.gd" id="1_hrxt0"]
 [ext_resource type="Texture2D" uid="uid://nlwkbd00wjss" path="res://assets/card/FRAME.png" id="2_ht0v3"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ht0v3"]
+resource_local_to_scene = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3r7o"]
 size = Vector2(138, 183)
 
 [node name="CardSlot" type="Node2D"]
+material = SubResource("CanvasItemMaterial_ht0v3")
 script = ExtResource("1_hrxt0")
 
 [node name="Borda" type="Sprite2D" parent="."]
-position = Vector2(1.3113e-06, -9.5)
+position = Vector2(0, -8.5)
 scale = Vector2(0.0777778, 0.0778292)
 texture = ExtResource("2_ht0v3")
 
 [node name="CardSlotDetector" type="Area2D" parent="."]
+position = Vector2(0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CardSlotDetector"]
 position = Vector2(0, -9.5)
