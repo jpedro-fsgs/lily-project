@@ -240,6 +240,8 @@ func opponent_buy_card(card: Card, check: bool=false):
 		return true
 		
 	set_opponent_mana(opponent_mana - card._cost)
+	ui.opponent_spend_mana_effect()
+	
 	opponent.remove_card_from_hand(card)
 	opponent.add_card_to_bench(card)
 	card.change_state(Card.states.InBench)
@@ -255,12 +257,17 @@ func player_buy_card(card: Card, check: bool=false):
 		return
 	# Tutorial 2
 	tutorial_manager.next_dialog(2)
-	if not is_player_turn() or player_mana < card._cost:
+	if not is_player_turn():
 		return false
+	if player_mana < card._cost:
+		if not check:
+			ui.player_no_mana_effect()
+		return false
+		
 	if check:
 		return true
 	set_player_mana(player_mana - card._cost)
-	
+	ui.player_spend_mana_effect()
 
 	player.remove_card_from_hand(card)
 	player.add_card_to_bench(card)
@@ -310,6 +317,8 @@ func player_play_card(card: Card, check: bool=false, card_slot: CardSlot=null):
 			)
 		)
 	if not can_play:
+		if has_attack_token == players.OPPONENT and not check:
+			ui.player_no_attack_token_effect()
 		return false
 	if check:
 		return true

@@ -83,13 +83,13 @@ func resolve_combat():
 	for f in field:
 		var player_card = f["player_side"].card
 		var opponent_card = f["opponent_side"].card
-		await get_tree().create_timer(0.5).timeout
+		#await get_tree().create_timer(0.5).timeout
 		if player_card and opponent_card:
 			await opponent_card.attack_animation()
 			player_card.receive_damage(opponent_card._attack)
 			if opponent_card._attack > 0:
 				await player_card.damage_animation()
-			await get_tree().create_timer(0.25).timeout
+			#await get_tree().create_timer(0.25).timeout
 			await player_card.attack_animation()
 			opponent_card.receive_damage(player_card._attack)
 			if player_card._attack > 0:
@@ -108,4 +108,3 @@ func resolve_combat():
 			await opponent_card.check_health()
 				
 	game_state_manager.cards_back_on_bench()
-				

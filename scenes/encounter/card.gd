@@ -174,12 +174,12 @@ func change_state(new_state: states):
 			)
 			await current_tween.finished
 		states.Damage:
-			current_tween.tween_property(self, "modulate", Color.RED, 0.5)
-			current_tween.chain().tween_property(self, "modulate", Color.WHITE, 0.5)
+			current_tween.tween_property(self, "modulate", Color.RED, 0.25)
+			current_tween.chain().tween_property(self, "modulate", Color.WHITE, 0.25)
 			await current_tween.finished
 		states.Attack:
-			current_tween.tween_property(self, "modulate", Color.BLUE, 0.5)
-			current_tween.chain().tween_property(self, "modulate", Color.WHITE, 0.5)
+			current_tween.tween_property(self, "modulate", Color.BLUE, 0.25)
+			current_tween.chain().tween_property(self, "modulate", Color.WHITE, 0.25)
 			await current_tween.finished
 
 		
@@ -207,10 +207,10 @@ func receive_damage(dmg: int):
 	defense_label.text = str(int(_defense))
 	
 func damage_animation():
-	change_state(states.Damage)
+	await change_state(states.Damage)
 	
 func attack_animation():
-	change_state(states.Attack)
+	await change_state(states.Attack)
 	
 func add_attack(add: int):
 	_attack += add

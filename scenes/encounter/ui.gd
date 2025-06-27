@@ -39,13 +39,42 @@ func opponent_damage():
 	current_tween.tween_property(opponent_hp, "modulate", Color.RED, 0.5)
 	current_tween.chain().tween_property(opponent_hp, "modulate", Color.WHITE, 0.5)
 	await current_tween.finished
+	
+func player_no_mana_effect():
+	var current_tween = create_tween()
+	current_tween.tween_property(player_mana, "modulate", Color.RED, 0.2)
+	current_tween.chain().tween_property(player_mana, "modulate", Color.WHITE, 0.2)
+	await current_tween.finished
+	
+func player_no_attack_token_effect():
+	var current_tween = create_tween()
+	current_tween.tween_property(attack_token, "modulate", Color.RED, 0.2)
+	current_tween.chain().tween_property(attack_token, "modulate", Color.WHITE, 0.2)
+	await current_tween.finished
+	
+func player_spend_mana_effect():
+	var current_tween = create_tween()
+	current_tween.tween_property(player_mana, "modulate", Color.BLUE, 0.2)
+	current_tween.chain().tween_property(player_mana, "modulate", Color.WHITE, 0.2)
+	await current_tween.finished
+	
+func opponent_spend_mana_effect():
+	var current_tween = create_tween()
+	current_tween.tween_property(opponent_mana, "modulate", Color.BLUE, 0.2)
+	current_tween.chain().tween_property(opponent_mana, "modulate", Color.WHITE, 0.2)
+	await current_tween.finished
 
+func highligh_action_button():
+	var current_tween = create_tween()
+	current_tween.tween_property(action_button, "modulate", Color.DARK_GOLDENROD, 0.5)
+	current_tween.chain().tween_property(action_button, "modulate", Color.WHITE, 0.5)
 
 func _on_game_state_manager_turn_changed(turn_player: GameStateManager.players) -> void:
 	match turn_player:
 		GameStateManager.players.PLAYER:
 			action_button.text = "Encerrar Turno"
 			action_button.disabled = false
+			highligh_action_button()
 		GameStateManager.players.OPPONENT:
 			action_button.text = "Turno do Oponente"
 			action_button.disabled = true
