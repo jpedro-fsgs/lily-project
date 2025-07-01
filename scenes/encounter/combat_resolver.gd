@@ -81,6 +81,8 @@ func player_has_card_on_field():
 
 func resolve_combat():
 	for f in field:
+		if not game_state_manager.live_game:
+			return
 		var player_card = f["player_side"].card
 		var opponent_card = f["opponent_side"].card
 		#await get_tree().create_timer(0.5).timeout

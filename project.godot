@@ -33,7 +33,8 @@ directories/dch_directory={
 "LirioTigre": "res://characters/LirioTigre.dch",
 "Narrador": "res://characters/Narrador.dch",
 "RosaVermelha": "res://characters/RosaVermelha.dch",
-"VozFeminina": "res://characters/VozFeminina.dch"
+"VozFeminina": "res://characters/VozFeminina.dch",
+"card": "res://characters/tutorial/card.dch"
 }
 directories/dtl_directory={
 "Act0": "res://timeline/Act0.dtl",

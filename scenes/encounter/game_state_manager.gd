@@ -21,9 +21,6 @@ class_name GameStateManager
 @onready var background: Sprite2D = $"../Background"
 @onready var ui: CanvasLayer = $"../UI"
 
-const ENDGAME_DIALOG: PackedScene = preload("res://scenes/encounter/endgame_dialog.tscn")
-
-
 
 enum players {
 	PLAYER,

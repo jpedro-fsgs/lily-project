@@ -7,6 +7,7 @@ class_name OpponentBench
 func _ready() -> void:
 	for card_slot: CardSlot in card_slots.get_children():
 		card_slot.set_bench_slot()
+		card_slot.set_opponent_slot()
 
 func add_card(card: Card):
 	for card_slot: CardSlot in card_slots.get_children():

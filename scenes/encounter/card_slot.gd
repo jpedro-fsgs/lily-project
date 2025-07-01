@@ -10,12 +10,16 @@ var card: Card = null
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
+func set_opponent_slot():
+	borda.modulate.a = 0.5 
 
 func set_field_slot():
 	borda.modulate = Color.RED
+	borda.modulate.a = 0.9
 	
 func set_bench_slot():
 	borda.modulate = Color.BLUE
+	borda.modulate.a = 0.9
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

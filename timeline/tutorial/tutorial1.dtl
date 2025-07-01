@@ -1,5 +1,11 @@
 Narrador: Deseja ver o tutorial?
 - Sim
+	join card center
+	As cartas possuem atributos de custo de mana, ataque e defesa.
+	O ataque causa dano à defesa das cartas inimigas e ao HP do oponente.
+	Uma carta permanece ativa enquanto sua defesa for maior que 0.
+	Para jogar uma carta, é necessário gastar a quantidade de mana indicada no seu custo.
+	leave card
 	Narrador: Arraste uma carta até o seu campo para comprá-la usando sua Mana.
 - Não
 	set {enable_tutorial} = false

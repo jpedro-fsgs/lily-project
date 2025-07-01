@@ -22,6 +22,7 @@ texture = ExtResource("2_ht0v3")
 position = Vector2(0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CardSlotDetector"]
+visible = false
 position = Vector2(0, -9.5)
 shape = SubResource("RectangleShape2D_c3r7o")
 
