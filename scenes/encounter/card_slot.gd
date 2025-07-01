@@ -18,8 +18,7 @@ func set_field_slot():
 	borda.modulate.a = 0.9
 	
 func set_bench_slot():
-	borda.modulate = Color.BLUE
-	borda.modulate.a = 0.9
+	borda.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -41,4 +40,6 @@ func add_card(new_card: Card):
 func remove_card(new_card: Card):
 	new_card.card_slot = null
 	card = null
+	var card_global_pos = new_card.global_position
 	card_in_slot.remove_child(new_card)
+	new_card.global_position = card_global_pos

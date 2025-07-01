@@ -33,6 +33,7 @@ var effects = {
 	"Chave de Prata": Callable(self, "_effect_chave_de_prata"),
 	"Lírio do Vale": Callable(self, "_effect_lirio_do_vale"),
 	"Cogumelo Luminoso": Callable(self, "_effect_cogumelo_luminoso"),
+	"Orvalho Matinal": Callable(self, "_effect_orvalho_matinal"),
 }
 
 func _effect_eco_da_colina(
@@ -82,3 +83,13 @@ func _effect_cogumelo_luminoso(
 	if _card.field == Card.fields.Combat:
 		_card._effect_applied = true
 		_game_state_manager.player_field_cards_increase_attributes(2, 2)
+		
+func _effect_orvalho_matinal(
+		_card: Card,
+		_game_state_manager: GameStateManager,
+		_card_manager: CardManager
+	) -> void:
+	# Ao entrar em combate, todas as cartas aliadas ganham 2|2
+	if _card.field == Card.fields.Combat:
+		_card._effect_applied = true
+		_game_state_manager.player_field_cards_increase_attributes(1, 1)

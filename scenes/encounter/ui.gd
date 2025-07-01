@@ -17,16 +17,16 @@ extends CanvasLayer
 
 
 func _on_game_state_manager_opponent_hp_changed(new_hp: int) -> void:
-	opponent_hp.text = str("HP: ", new_hp)
+	opponent_hp.text = str(new_hp)
 
 func _on_game_state_manager_opponent_mana_changed(new_mana: int) -> void:
-	opponent_mana.text = str("Mana: ", new_mana)
+	opponent_mana.text = str(new_mana)
 
 func _on_game_state_manager_player_hp_changed(new_hp: int) -> void:
-	player_hp.text = str("HP: ", new_hp)
+	player_hp.text = str(new_hp)
 	
 func _on_game_state_manager_player_mana_changed(new_mana: int) -> void:
-	player_mana.text = str("Mana: ", new_mana)
+	player_mana.text = str(new_mana)
 
 func player_damage():
 	var current_tween = create_tween()
@@ -68,6 +68,13 @@ func highligh_action_button():
 	var current_tween = create_tween()
 	current_tween.tween_property(action_button, "modulate", Color.DARK_GOLDENROD, 0.5)
 	current_tween.chain().tween_property(action_button, "modulate", Color.WHITE, 0.5)
+	await current_tween.finished
+	
+func highlight_end_turn_effect():
+	var current_tween = create_tween()
+	current_tween.tween_property(action_button, "modulate", Color.RED, 0.5)
+	current_tween.chain().tween_property(action_button, "modulate", Color.WHITE, 0.5)
+	await current_tween.finished
 
 func _on_game_state_manager_turn_changed(turn_player: GameStateManager.players) -> void:
 	match turn_player:

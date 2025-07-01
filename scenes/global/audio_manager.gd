@@ -2,9 +2,9 @@ extends Node
 # Autoload como "AudioManager"
 
 var music_library = [
-	preload("res://assets/audio/Lily.wav"),                       # Menu
-	preload("res://assets/audio/Eu sonhei com este Jardim.wav"),  # Gameplay 1
-	preload("res://assets/audio/Retorno à Felicidade.wav"),       # Gameplay 2
+	preload("res://assets/audio/Lily.mp3"),                       # Menu
+	preload("res://assets/audio/Eu sonhei com este Jardim.mp3"),  # Gameplay 1
+	preload("res://assets/audio/Retorno à Felicidade.mp3"),       # Gameplay 2
 ]
 
 var _music_player: AudioStreamPlayer

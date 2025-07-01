@@ -9,8 +9,8 @@ const PATH = "res://assets/"
 @onready var attack_label: Label = $CardBody/AttackLabel
 @onready var defense_label: Label = $CardBody/DefenseLabel
 
-const player_pos = Vector2(753.0, 144.0)
-const opponent_pos = Vector2(753.0, 532.0)
+const player_pos = Vector2(845.0, 138.0)
+const opponent_pos = Vector2(845.0, 560.0)
 
 
 func _ready():

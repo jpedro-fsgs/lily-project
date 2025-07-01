@@ -1,5 +1,16 @@
 Narrador: Deseja ver o tutorial?
 - Sim
+	join hp center
+	Este é o indicador de HP.
+	Ele representa a sua vida no jogo.
+	Se seu HP chegar a 0, você perde a partida.
+	Proteja-o impedindo que cartas inimigas ataquem diretamente.
+	leave hp
+	join mana center
+	Este é o indicador de Mana.
+	A Mana é usada para jogar cartas no campo.
+	Ela se regenera a cada turno, então planeje bem como gastá-la.
+	leave mana
 	join card center
 	As cartas possuem atributos de custo de mana, ataque e defesa.
 	O ataque causa dano à defesa das cartas inimigas e ao HP do oponente.

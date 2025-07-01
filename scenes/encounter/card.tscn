@@ -6,13 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://bwpgpq0s6h3lp" path="res://assets/encounter/CardMask.png" id="3_do18g"]
 [ext_resource type="Texture2D" uid="uid://cgeg6m4tgcxye" path="res://assets/DECKS/PUREZA/lírio-do-vale.png" id="3_hyinx"]
 [ext_resource type="Theme" uid="uid://bia38n0xiq6e1" path="res://themes/card_title_theme.tres" id="5_lv7ue"]
-[ext_resource type="Texture2D" uid="uid://3h6rk61w8klq" path="res://assets/encounter/Cardback1.png" id="5_sy11y"]
 [ext_resource type="Texture2D" uid="uid://nlwkbd00wjss" path="res://assets/card/FRAME.png" id="6_5ohrp"]
 [ext_resource type="Texture2D" uid="uid://dynwv54ylx3lr" path="res://assets/card/FRAME_GRADIENTE.png" id="6_awafc"]
 [ext_resource type="Texture2D" uid="uid://ctyfh8cxen8ln" path="res://assets/card/FRAME_ENERGIA.png" id="7_i6m6p"]
 [ext_resource type="Texture2D" uid="uid://bowrrai3ilqdg" path="res://assets/card/FRAME_DEFESA.png" id="8_7mr8i"]
 [ext_resource type="Texture2D" uid="uid://txxiuiktrbed" path="res://assets/card/FRAME_ATAQUE.png" id="9_a4cdn"]
 [ext_resource type="Theme" uid="uid://dcnapnrmt5as4" path="res://themes/card_attributes_theme.tres" id="12_5ohrp"]
+[ext_resource type="Texture2D" uid="uid://cifguqpuo5las" path="res://assets/card/VERSO.png" id="13_5ohrp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lv7ue"]
 resource_local_to_scene = true
@@ -143,9 +143,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Cardback" type="Sprite2D" parent="CardBody"]
 visible = false
-position = Vector2(273, 375)
-scale = Vector2(0.548828, 0.490885)
-texture = ExtResource("5_sy11y")
+position = Vector2(273, 374)
+scale = Vector2(0.681641, 0.580729)
+texture = ExtResource("13_5ohrp")
 
 [node name="DropPointDetector" type="Area2D" parent="."]
 visible = false

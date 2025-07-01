@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dkn2khf8mv0gv"
+path="res://.godot/imported/Eu sonhei com este Jardim.mp3-e63a7bc95136b7f10f9f632cb2d74587.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Eu sonhei com este Jardim.mp3"
+dest_files=["res://.godot/imported/Eu sonhei com este Jardim.mp3-e63a7bc95136b7f10f9f632cb2d74587.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
