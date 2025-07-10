@@ -222,6 +222,7 @@ func add_defense(add: int):
 	
 func check_health():
 	if _defense <= 0:
+		AudioManager.play_card_death()
 		await change_state(states.Dead)
 		emit_signal("dead_card", self)
 

@@ -259,6 +259,7 @@ func player_buy_card(card: Card, check: bool=false):
 	if player_mana < card._cost:
 		if not check:
 			ui.player_no_mana_effect()
+			AudioManager.play_block_sound()
 		return false
 		
 	if check:
@@ -316,8 +317,10 @@ func player_play_card(card: Card, check: bool=false, card_slot: CardSlot=null):
 	if not can_play:
 		if has_attack_token == players.OPPONENT and not check:
 			ui.player_no_attack_token_effect()
+			AudioManager.play_block_sound()
 		if attack_done:
 			ui.highlight_end_turn_effect()
+			AudioManager.play_block_sound()
 		return false
 	if check:
 		return true

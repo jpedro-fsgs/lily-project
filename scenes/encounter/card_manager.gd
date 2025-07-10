@@ -73,19 +73,24 @@ func draw_card_opponent():
 	
 # Called when a card is clicked or selected.
 func _on_card_selected(card: Card, mouse_position_on_card: Vector2) -> void:
-	match card.field:
-		Card.fields.Hand:
-			selected_card = card
-			mouse_position_on_selected_card = mouse_position_on_card
-			card.change_state(Card.states.InMouse)
-		Card.fields.Bench:
-			selected_card = card
-			mouse_position_on_selected_card = mouse_position_on_card
-			card.change_state(Card.states.InMouse)
-		Card.fields.Combat:
-			selected_card = card
-			mouse_position_on_selected_card = mouse_position_on_card
-			card.change_state(Card.states.InMouse)
+	selected_card = card
+	mouse_position_on_selected_card = mouse_position_on_card
+	card.change_state(Card.states.InMouse)
+	AudioManager.play_select_card()
+	
+	#match card.field:
+		#Card.fields.Hand:
+			#selected_card = card
+			#mouse_position_on_selected_card = mouse_position_on_card
+			#card.change_state(Card.states.InMouse)
+		#Card.fields.Bench:
+			#selected_card = card
+			#mouse_position_on_selected_card = mouse_position_on_card
+			#card.change_state(Card.states.InMouse)
+		#Card.fields.Combat:
+			#selected_card = card
+			#mouse_position_on_selected_card = mouse_position_on_card
+			#card.change_state(Card.states.InMouse)
 
 func _on_card_released(card: Card) -> void:
 	match card.field:
@@ -114,7 +119,8 @@ func _on_card_released(card: Card) -> void:
 							return
 						
 			card.change_state(Card.states.InField)
-# Called when the mouse cursor enters the card's area.
+	
+	AudioManager.play_release_card()
 func _on_card_hovered(card) -> void:
 	if selected_card:
 		return
@@ -126,11 +132,11 @@ func _on_card_hovered(card) -> void:
 			card.change_state(Card.states.FocusInHand)
 			emit_signal("view_card", card)
 			emit_signal("focus_hand", true)
+			AudioManager.play_hover_in_hand()
 		Card.fields.Bench:
 			emit_signal("view_card", card)
 		Card.fields.Combat:
 			emit_signal("view_card", card)
-	
 func _on_card_unhovered(card: Card) -> void:
 	if selected_card:
 		return
