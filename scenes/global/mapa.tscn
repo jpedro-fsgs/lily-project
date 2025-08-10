@@ -1,79 +1,138 @@
-[gd_scene load_steps=4 format=3 uid="uid://b28nefqetg1rh"]
+[gd_scene load_steps=9 format=3 uid="uid://b28nefqetg1rh"]
 
 [ext_resource type="Script" uid="uid://3k0sycnrkbs0" path="res://scenes/global/mapa.gd" id="1_k7lwh"]
-[ext_resource type="Texture2D" uid="uid://c5shgjh2oag1t" path="res://assets/mapa_jardim.png" id="2_u1vf7"]
-[ext_resource type="Texture2D" uid="uid://ddlqe2qnyt73t" path="res://assets/encounter/circlemask.png" id="3_21uv3"]
+[ext_resource type="Texture2D" uid="uid://bu273bp7jqddr" path="res://assets/map/mapa_jardim.png" id="2_27c6k"]
+[ext_resource type="Theme" uid="uid://c2y1bjpfsvyvl" path="res://themes/mapa_button.tres" id="3_cyyrs"]
+[ext_resource type="Texture2D" uid="uid://cp7uksfxdnqfd" path="res://assets/map/amor_button.png" id="4_djvvr"]
+[ext_resource type="Texture2D" uid="uid://dmom6vmojs7hb" path="res://assets/map/esperança_button.png" id="4_yivr5"]
+[ext_resource type="Texture2D" uid="uid://d3w3a64h0qu30" path="res://assets/map/ganância_button.png" id="5_v66t8"]
+[ext_resource type="Texture2D" uid="uid://cefp3o1k3tf4t" path="res://assets/map/tristeza_button.png" id="5_y7588"]
+[ext_resource type="Texture2D" uid="uid://bmsohbkr3nr5j" path="res://assets/map/raiva_button.png" id="6_cyyrs"]
 
 [node name="Mapa" type="Node2D"]
 script = ExtResource("1_k7lwh")
 
 [node name="MapaJardim2" type="Sprite2D" parent="."]
-position = Vector2(960, 449)
+position = Vector2(960, 640)
 scale = Vector2(1.25, 1.25)
-texture = ExtResource("2_u1vf7")
+texture = ExtResource("2_27c6k")
 
-[node name="AmorButtonMask" type="Sprite2D" parent="MapaJardim2"]
-clip_children = 1
-position = Vector2(11.2, 371.6)
-scale = Vector2(0.142187, 0.142969)
-texture = ExtResource("3_21uv3")
+[node name="AmorButton" type="Button" parent="MapaJardim2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1286.4
+offset_top = -454.4
+offset_right = -1132.4
+offset_bottom = -304.4
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_cyyrs")
+text = "Jardim do Amor"
+icon = ExtResource("4_djvvr")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
 
-[node name="AmorButton" type="Button" parent="MapaJardim2/AmorButtonMask"]
-offset_left = -512.0
-offset_top = -512.0
-offset_right = 512.0
-offset_bottom = 512.0
-metadata/_edit_use_anchors_ = true
+[node name="TristezaButton" type="Button" parent="MapaJardim2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -812.8
+offset_top = -473.6
+offset_right = -633.8
+offset_bottom = -323.6
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_cyyrs")
+text = "Jardim da Tristeza"
+icon = ExtResource("5_y7588")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
 
-[node name="RaivaButtonMask" type="Sprite2D" parent="MapaJardim2"]
-clip_children = 1
-position = Vector2(-410.8, -130.8)
-scale = Vector2(0.136719, 0.136719)
-texture = ExtResource("3_21uv3")
+[node name="EsperancaButton" type="Button" parent="MapaJardim2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -448.0
+offset_top = -774.4
+offset_right = -247.0
+offset_bottom = -624.4
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_cyyrs")
+text = "Jardim da Esperança"
+icon = ExtResource("4_yivr5")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
 
-[node name="RaivaButton" type="Button" parent="MapaJardim2/RaivaButtonMask"]
-offset_left = -512.0
-offset_top = -512.0
-offset_right = 512.0
-offset_bottom = 512.0
-metadata/_edit_use_anchors_ = true
+[node name="GananciaButton" type="Button" parent="MapaJardim2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1158.4
+offset_top = -896.0
+offset_right = -967.4
+offset_bottom = -746.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_cyyrs")
+text = "Jardim da Ganância"
+icon = ExtResource("5_v66t8")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
 
-[node name="TristezaButtonMask" type="Sprite2D" parent="MapaJardim2"]
-clip_children = 1
-position = Vector2(410, 78.4)
-scale = Vector2(0.142969, 0.14375)
-texture = ExtResource("3_21uv3")
-
-[node name="TristezaButton" type="Button" parent="MapaJardim2/TristezaButtonMask"]
-offset_left = -512.0
-offset_top = -512.0
-offset_right = 512.0
-offset_bottom = 512.0
-metadata/_edit_use_anchors_ = true
-
-[node name="GananciaButtonMask" type="Sprite2D" parent="MapaJardim2"]
-clip_children = 1
-position = Vector2(628.8, 370.2)
-scale = Vector2(0.14375, 0.144141)
-texture = ExtResource("3_21uv3")
-
-[node name="GananciaButton" type="Button" parent="MapaJardim2/GananciaButtonMask"]
-offset_left = -512.0
-offset_top = -512.0
-offset_right = 512.0
-offset_bottom = 512.0
-metadata/_edit_use_anchors_ = true
+[node name="RaivaButton" type="Button" parent="MapaJardim2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -736.0
+offset_top = -947.2
+offset_right = -579.0
+offset_bottom = -797.2
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_cyyrs")
+text = "Jardim da Raiva"
+icon = ExtResource("6_cyyrs")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
 
 [node name="Quit" type="Button" parent="MapaJardim2"]
-offset_left = -710.0
-offset_top = 396.0
-offset_right = -435.0
-offset_bottom = 466.0
+offset_left = 409.6
+offset_top = 230.4
+offset_right = 684.6
+offset_bottom = 300.4
 theme_override_font_sizes/font_size = 32
 text = "Menu Principal"
 
-[connection signal="pressed" from="MapaJardim2/AmorButtonMask/AmorButton" to="." method="_on_amor_button_pressed"]
-[connection signal="pressed" from="MapaJardim2/RaivaButtonMask/RaivaButton" to="." method="_on_raiva_button_pressed"]
-[connection signal="pressed" from="MapaJardim2/TristezaButtonMask/TristezaButton" to="." method="_on_tristeza_button_pressed"]
-[connection signal="pressed" from="MapaJardim2/GananciaButtonMask/GananciaButton" to="." method="_on_ganancia_button_pressed"]
+[connection signal="pressed" from="MapaJardim2/AmorButton" to="." method="_on_amor_button_pressed"]
+[connection signal="pressed" from="MapaJardim2/TristezaButton" to="." method="_on_tristeza_button_pressed"]
+[connection signal="pressed" from="MapaJardim2/EsperancaButton" to="." method="_on_esperanca_button_pressed"]
+[connection signal="pressed" from="MapaJardim2/GananciaButton" to="." method="_on_ganancia_button_pressed"]
+[connection signal="pressed" from="MapaJardim2/RaivaButton" to="." method="_on_raiva_button_pressed"]
 [connection signal="pressed" from="MapaJardim2/Quit" to="." method="_on_quit_pressed"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5shgjh2oag1t"
-path="res://.godot/imported/mapa_jardim.png-86cd75b02a5cf0069c29603709fbd442.ctex"
+uid="uid://cp7uksfxdnqfd"
+path="res://.godot/imported/amor_button.png-5e61ee10a13f0343d71836941edede2b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/mapa_jardim.png"
-dest_files=["res://.godot/imported/mapa_jardim.png-86cd75b02a5cf0069c29603709fbd442.ctex"]
+source_file="res://assets/map/amor_button.png"
+dest_files=["res://.godot/imported/amor_button.png-5e61ee10a13f0343d71836941edede2b.ctex"]
 
 [params]
 

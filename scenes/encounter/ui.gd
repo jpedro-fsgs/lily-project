@@ -13,8 +13,10 @@ extends CanvasLayer
 
 @onready var round_number: Label = $RoundUI/RoundNumber
 @onready var attack_token: Label = $RoundUI/AttackToken
+@onready var jardim_name: Label = $RoundUI/JardimName
 	
-
+func _ready() -> void:
+	jardim_name.text = EncounterSetup.current_jardim
 
 func _on_game_state_manager_opponent_hp_changed(new_hp: int) -> void:
 	opponent_hp.text = str(new_hp)

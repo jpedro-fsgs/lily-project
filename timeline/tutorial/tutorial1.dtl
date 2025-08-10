@@ -9,7 +9,7 @@ Narrador: Deseja ver o tutorial?
 	join mana center
 	Este é o indicador de Mana.
 	A Mana é usada para jogar cartas no campo.
-	Ela se regenera a cada turno, então planeje bem como gastá-la.
+	Ela se regenera a cada round, então planeje bem como gastá-la.
 	leave mana
 	join card center
 	As cartas possuem atributos de custo de mana, ataque e defesa.

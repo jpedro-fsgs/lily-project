@@ -545,6 +545,18 @@ text = "Token de Ataque: Player"
 horizontal_alignment = 2
 vertical_alignment = 1
 
+[node name="JardimName" type="Label" parent="UI/RoundUI"]
+layout_mode = 0
+offset_left = -232.0
+offset_top = 1003.0
+offset_right = 256.0
+offset_bottom = 1055.0
+theme = ExtResource("20_7coiu")
+theme_override_font_sizes/font_size = 45
+text = "Jardim do Amor"
+horizontal_alignment = 2
+vertical_alignment = 1
+
 [node name="Audio" type="Node2D" parent="."]
 
 [node name="TemaDoJardim" type="AudioStreamPlayer" parent="Audio"]

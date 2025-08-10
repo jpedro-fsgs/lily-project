@@ -163,6 +163,7 @@ func check_win():
 		
 	elif opponent_hp <= 0:
 		endgame_dialog.set_winner("VITÓRIA")
+		EncounterSetup.next_level()
 	
 	endgame_dialog.visible = true
 	blur_background()

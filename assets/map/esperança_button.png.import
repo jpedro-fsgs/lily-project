@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnpus4vrl0h8c"
-path="res://.godot/imported/JARDIM.png-5645eed0c4d2f0a3a5f7e4190d875240.ctex"
+uid="uid://dmom6vmojs7hb"
+path="res://.godot/imported/esperança_button.png-a3aa19757f848d6ac7271061056dcad6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/map/JARDIM.png"
-dest_files=["res://.godot/imported/JARDIM.png-5645eed0c4d2f0a3a5f7e4190d875240.ctex"]
+source_file="res://assets/map/esperança_button.png"
+dest_files=["res://.godot/imported/esperança_button.png-a3aa19757f848d6ac7271061056dcad6.ctex"]
 
 [params]
 
