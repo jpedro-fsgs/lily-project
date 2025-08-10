@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjmi2cuif6f5m"]
+
+[ext_resource type="Script" uid="uid://vtqvfwahgxo1" path="res://scenes/global/endgame.gd" id="1_i2l6h"]
+[ext_resource type="Texture2D" uid="uid://b64u48diihwvm" path="res://assets/bg.png" id="1_lywxm"]
+[ext_resource type="Texture2D" uid="uid://biwb44be1yoj5" path="res://assets/characters/LILY/lily_final.png" id="2_i2l6h"]
+[ext_resource type="FontFile" uid="uid://6pctfi4lxcnw" path="res://assets/fonts/CDType - Voga Medium.otf" id="3_vxbyv"]
+
+[node name="Endgame" type="Node2D"]
+script = ExtResource("1_i2l6h")
+
+[node name="Bg" type="Sprite2D" parent="."]
+position = Vector2(960, 120)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_lywxm")
+
+[node name="LilyFinal" type="Sprite2D" parent="."]
+position = Vector2(632, 488)
+texture = ExtResource("2_i2l6h")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 864.0
+offset_top = 136.0
+offset_right = 1731.0
+offset_bottom = 393.0
+theme_override_colors/font_color = Color(0.00784314, 0.113725, 0.113725, 1)
+theme_override_fonts/font = ExtResource("3_vxbyv")
+theme_override_font_sizes/font_size = 256
+text = "Fim de Jogo"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1080.0
+offset_top = 672.0
+offset_right = 1488.0
+offset_bottom = 779.0
+theme_override_font_sizes/font_size = 72
+text = "Continuar"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -10,10 +10,11 @@ func _ready() -> void:
 	update_buttons()
 
 func update_buttons():
-	tristeza_button.disabled = EncounterSetup.level_index < 1
-	esperanca_button.disabled = EncounterSetup.level_index < 2
-	ganancia_button.disabled = EncounterSetup.level_index < 3
-	raiva_button.disabled = EncounterSetup.level_index < 4
+	amor_button.disabled = not EncounterSetup.levels[CardDatabase.DeckType.AMOR]
+	tristeza_button.disabled = not EncounterSetup.levels[CardDatabase.DeckType.TRISTEZA]
+	esperanca_button.disabled = not EncounterSetup.levels[CardDatabase.DeckType.ESPERANCA]
+	ganancia_button.disabled = not EncounterSetup.levels[CardDatabase.DeckType.GANANCIA]
+	raiva_button.disabled = not EncounterSetup.levels[CardDatabase.DeckType.RAIVA]
 
 func _on_quit_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/global/main.tscn")
