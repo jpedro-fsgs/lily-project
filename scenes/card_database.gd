@@ -21,7 +21,7 @@ func get_deck(deck_type: DeckType):
 	for card in DATA[DeckType.keys()[deck_type]]:
 		for i in range(card["copias_permitidas"]):
 			cards.append(card.duplicate())
-		
+	
 	cards.shuffle()
 	return cards.slice(0, 30)
 	

@@ -10,16 +10,17 @@ var levels = {
 }
 
 var current_jardim = "Jardim do Amor"
-var current_decktype: CardDatabase.DeckType
+var current_player_decktype: CardDatabase.DeckType = CardDatabase.DeckType.PUREZA
+var current_opponent_decktype: CardDatabase.DeckType
 
-@onready var current_player_deck = CardDatabase.get_deck(CardDatabase.DeckType.PUREZA)
-@onready var current_opponent_deck = CardDatabase.get_deck(CardDatabase.DeckType.AMOR)
+#@onready var current_player_deck = CardDatabase.get_deck(CardDatabase.DeckType.PUREZA)
+#@onready var current_opponent_deck = CardDatabase.get_deck(CardDatabase.DeckType.AMOR)
 
 func is_endgame():
-	return current_decktype == CardDatabase.DeckType.RAIVA and levels["endgame"]
+	return current_opponent_decktype == CardDatabase.DeckType.RAIVA and levels["endgame"]
 
 func next_level():
-	match current_decktype:
+	match current_opponent_decktype:
 		CardDatabase.DeckType.AMOR:
 			levels[CardDatabase.DeckType.TRISTEZA] = true
 		CardDatabase.DeckType.TRISTEZA:
@@ -45,15 +46,14 @@ func update_jardim(opponent_deck: CardDatabase.DeckType):
 			current_jardim = "Jardim da Raiva"
 
 func set_player_deck(deck_type: CardDatabase.DeckType):
-	current_player_deck = CardDatabase.get_deck(deck_type)
+	current_player_decktype = deck_type
 
 func set_opponent_deck(deck_type: CardDatabase.DeckType):
-	current_opponent_deck = CardDatabase.get_deck(deck_type)
-	current_decktype = deck_type
+	current_opponent_decktype = deck_type
 	update_jardim(deck_type)
 	
 func get_player_deck():
-	return current_player_deck.duplicate()
+	return CardDatabase.get_deck(current_player_decktype)
 	
 func get_opponent_deck():
-	return current_opponent_deck.duplicate()
+	return CardDatabase.get_deck(current_opponent_decktype)
